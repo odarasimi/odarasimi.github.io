@@ -23,7 +23,7 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  github-pages:
+  build:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4.1.4
@@ -71,7 +71,7 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v4
 
-        
+
       # - name: Commit and push changes to main
       #   working-directory: build
       #   run: |
