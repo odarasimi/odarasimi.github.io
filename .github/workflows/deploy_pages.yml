@@ -35,6 +35,9 @@ jobs:
           ref: main
           path: build
 
+      - name: Setup Pages
+          uses: actions/configure-pages@v5
+
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.1'
@@ -55,12 +58,10 @@ jobs:
 
       - name: Jekyll Build
         working-directory: source
-        run: JEKYLL_ENV=production bundle exec jekyll build -d ../build
+        run: JEKYLL_ENV=production bundle exec jekyll build -d ../_site
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
-        with: 
-          source: ../build
 
   deploy:
     environment:
