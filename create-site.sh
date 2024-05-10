@@ -7,6 +7,11 @@
 # " 1. Open a terminal window and cd into your repo"
 # " 3. Run the script, like this:
 # "      sh script-name.sh"
+# Modifications made
+#   - Modified description
+#   - Removed unnecessary informative text for next steps
+#   - Removed commands to initialize git and add a commit message
+#   - Updated Github pages version to 231
 # "#################################################"
 
 # Display current Ruby version

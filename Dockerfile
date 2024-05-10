@@ -3,12 +3,16 @@
 #   - Ubuntu 22.04
 #   - Ruby 3.1.2
 #   - Jekyll 3.9.5
-#   - GitHub Pages 288
+#   - GitHub Pages 231
 #
 #   This code is modified from the following Gist:
 #   https://gist.github.com/BillRaymond/db761d6b53dc4a237b095819d33c7332#file-post-run-txt
-
+# Modifications made
+#   - Modified description
+#   - Set default locale for the environment
+#   - Updated Jekyll version to 3.9.5
 # "#################################################"
+
 FROM ubuntu:22.04
 
 # "#################################################"
