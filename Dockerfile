@@ -43,8 +43,7 @@ ENV RBENV_ROOT /usr/local/src/rbenv
 ENV RUBY_VERSION 3.1.2
 ENV PATH ${RBENV_ROOT}/bin:${RBENV_ROOT}/shims:$PATH
 
-# to resolve Conversion error: Jekyll::Converters::Scss encountered an error while converting 'assets/css/main.scss':
-#! 3 lines below resolves error: Invalid US-ASCII character 
+# Add 3 lines below to set the default locale for the environment
 ENV LC_ALL C.UTF-8
 ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US.UTF-8
