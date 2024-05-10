@@ -24,10 +24,11 @@ url: "https://odarasimi.github.io"
 
 # Build settings
 markdown: kramdown
-remote_theme: "mmistakes/minimal-mistakes@4.26.0"
+# remote_theme: "mmistakes/minimal-mistakes@4.26.0"
+theme: minimal-mistakes-jekyll
 plugins:
   - jekyll-feed
-  - jekyll-include-cache
+  # - jekyll-include-cache
 
 locale: "en-US"
 repository: "odarasimi/odarasimi.github.io"

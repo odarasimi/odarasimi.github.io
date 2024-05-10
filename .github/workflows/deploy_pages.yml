@@ -35,9 +35,6 @@ jobs:
           ref: main
           path: build
 
-      # - name: Setup Pages
-      #   uses: actions/configure-pages@v5
-
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.1'
@@ -72,16 +69,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
-
-
-      # - name: Commit and push changes to main
-      #   working-directory: build
-      #   run: |
-      #     git config user.name "${GITHUB_ACTOR}"
-      #     git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
-      #     git add .
-      #     git commit -m "Update GitHub pages from Jekyll build for commit ${GITHUB_SHA}"
-      #     git push origin main
-
-      
+        uses: actions/deploy-pages@v4    
