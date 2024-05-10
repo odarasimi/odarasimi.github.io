@@ -2,7 +2,8 @@
 
 [![LICENSE](https://img.shields.io/badge/license-MIT-orange.svg)](https://raw.githubusercontent.com/mmistakes/minimal-mistakes/master/LICENSE)
 ![LICENSE](https://img.shields.io/badge/Site-loading-blue)
-Documenting thoughts and ideas relating but not limited to Computer vision, Mathematics and Geometry processing:smile:. `In progress`
+
+Documenting thoughts and ideas relating but not limited to Computer vision, Mathematics and Geometry processing:smile:. 
 
 ## Some Interesting topics
 
