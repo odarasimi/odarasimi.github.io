@@ -77,11 +77,11 @@ breadcrumbs: true  # disabled by default
 # This image can be overridden at anytime by applying the below 2 lines to a document’s YAML Front Matter.
 #   header:
 #     teaser: /assets/images/my-awesome-post-teaser.jpg
-teaser: /assets/images/500x300.png
+# -----> teaser: /assets/images/500x300.png
 
 # by default the site title is on the masthead anyway.
-# masthead_title: "Donuts, Simplices, and Quadrics"
-logo: "/assets/images/88x88.png"
+# -----> masthead_title: "Donuts, Simplices, and Quadrics"
+# -----> logo: "/assets/images/88x88.png"
 
 
 
@@ -95,7 +95,7 @@ logo: "/assets/images/88x88.png"
 # something else that is meaningful. Just make sure it is placed in the /assets/images/ folder, 
 # has a minimum size of 120px by 120px, and is less than 1MB in file size.
 
-# og_image: /assets/images/site-logo.png
+# -----> og_image: /assets/images/site-logo.png
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
