@@ -55,7 +55,7 @@ jobs:
 
       - name: Jekyll Build
         working-directory: source
-        run: JEKYLL_ENV=production bundle exec jekyll build -d ./site
+        run: JEKYLL_ENV=production bundle exec jekyll build -d ../build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
