@@ -51,7 +51,7 @@ comments:
 
 author:
   name: "Anuoluwapo Adisa"
-  avatar: "/assets/images/bio-photo.jpg"
+  #avatar: "/assets/images/bio-photo.jpg"
   bio: "Loves banana cake" # Note: Markdown is allowed
   location: "Lagos, NG"
   links:
