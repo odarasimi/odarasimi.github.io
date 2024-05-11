@@ -10,7 +10,6 @@ source "https://rubygems.org"
 # Happy Jekylling!
 gem "jekyll", "~> 3.9.5"
 
-#! add clarification notes?
 # You may change the default theme for the Jekyll site to anything you like with gem "insert_theme"
 # This is install the minimal mistakes theme as a remote theme:
 gem "jekyll-include-cache", group: :jekyll_plugins
@@ -46,3 +45,5 @@ gem "webrick", "~> 1.8"
 
 # Comment out the line below if you do not want the minimal mistakes theme
 gem "minimal-mistakes-jekyll"
+
+gem "jekyll-remote-theme"

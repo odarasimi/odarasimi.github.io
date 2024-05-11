@@ -13,7 +13,7 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: Donuts, Simplices, and Quadrics Test
+title: Donuts, Simplices, and Quadrics 
 subtitle: Anuoluwapo Adisa
 name: Anuoluwapo Adisa
 email: adisaanuoluwapo9@gmail.com
@@ -21,16 +21,15 @@ description: >- # this means to ignore newlines until "baseurl:"
   Let's talk about Geometry, Cameras. Conics, Manifolds
 baseurl: "/odarasimi.github.io"
 url: "https://odarasimi.github.io" 
+locale: "en-US"
+repository: "odarasimi/odarasimi.github.io"
 
 # Build settings
 markdown: kramdown
-remote_theme: "mmistakes/minimal-mistakes@4.26.0"
+remote_theme: "mmistakes/minimal-mistakes"
 plugins:
   - jekyll-feed
   - jekyll-include-cache
-
-locale: "en-US"
-repository: "odarasimi/odarasimi.github.io"
 
 comments:
   provider: "giscus"
@@ -51,7 +50,7 @@ comments:
 
 author:
   name: "Anuoluwapo Adisa"
-  avatar: "/assets/images/bio-photo.jpg"
+  #avatar: "/assets/images/bio-photo.jpg"
   bio: "Loves banana cake" # Note: Markdown is allowed
   location: "Lagos, NG"
   links:
@@ -71,7 +70,9 @@ footer:
       icon: "fab fa-fw fa-github"
       url: "https://github.com/odarasimi"
 
-breadcrumbs: true  # disabled by default
+breadcrumbs: false  # disabled by default
+
+minimal_mistakes_skin: "dark"
 
 # To assign a fallback teaser image used in the “Related Posts” module
 # This image can be overridden at anytime by applying the below 2 lines to a document’s YAML Front Matter.

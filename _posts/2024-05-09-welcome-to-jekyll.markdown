@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: single
 title:  "Random"
 date:   2024-05-09 15:04:53 +0000
 categories: jekyll update

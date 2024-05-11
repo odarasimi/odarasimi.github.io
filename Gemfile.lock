@@ -218,7 +218,7 @@ GEM
       jekyll (>= 3.5, < 5.0)
       jekyll-feed (~> 0.9)
       jekyll-seo-tag (~> 2.1)
-    minimal-mistakes-jekyll (4.26.0)
+    minimal-mistakes-jekyll (4.26.1)
       jekyll (>= 3.7, < 5.0)
       jekyll-feed (~> 0.1)
       jekyll-gist (~> 1.5)
@@ -278,6 +278,7 @@ DEPENDENCIES
   jekyll (~> 3.9.5)
   jekyll-feed (~> 0.6)
   jekyll-include-cache
+  jekyll-remote-theme
   kramdown-parser-gfm
   minimal-mistakes-jekyll
   tzinfo (>= 1, < 3)
