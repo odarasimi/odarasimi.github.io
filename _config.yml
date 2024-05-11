@@ -109,10 +109,9 @@ exclude:
   - vendor/cache/
   - vendor/gems/
   - vendor/ruby/
-  - LICENSE
-  - README.md
   - Dockerfile
-  - create-site.sh
+  - README.md
+  - LICENSE
 
 # Perhaps add social to google knowledge panel
 # social:
