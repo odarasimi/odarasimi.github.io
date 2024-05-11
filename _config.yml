@@ -75,6 +75,8 @@ breadcrumbs: true  # disabled by default
 
 minimal_mistakes_skin: "dark"
 
+url: "https://mmistakes.github.io"
+baseurl: "/minimal-mistakes"
 # To assign a fallback teaser image used in the “Related Posts” module
 # This image can be overridden at anytime by applying the below 2 lines to a document’s YAML Front Matter.
 #   header:
