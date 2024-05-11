@@ -20,7 +20,7 @@ email: adisaanuoluwapo9@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   Let's talk about Geometry, Cameras. Conics, Manifolds
 # baseurl: "/odarasimi.github.io"
-# url: "https://odarasimi.github.io" 
+url: "https://odarasimi.github.io" 
 
 # Build settings
 markdown: kramdown
@@ -75,7 +75,6 @@ breadcrumbs: true  # disabled by default
 
 minimal_mistakes_skin: "dark"
 
-url: "https://mmistakes.github.io"
 # To assign a fallback teaser image used in the “Related Posts” module
 # This image can be overridden at anytime by applying the below 2 lines to a document’s YAML Front Matter.
 #   header:
