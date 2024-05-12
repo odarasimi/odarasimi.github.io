@@ -19,8 +19,8 @@ name: Anuoluwapo Adisa
 email: adisaanuoluwapo9@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   Let's talk about Geometry, Cameras. Conics, Manifolds
-baseurl: ""
-# url: "https://odarasimi.github.io" 
+baseurl: "/_site"
+url: "https://odarasimi.github.io" 
 
 locale: "en-US"
 repository: "odarasimi/odarasimi.github.io"
