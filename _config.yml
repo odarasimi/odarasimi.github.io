@@ -82,7 +82,7 @@ defaults:
       path: ""
       type: "assets"
     value:
-      permalink: /:title/
+      permalink: /:path/
 # To assign a fallback teaser image used in the “Related Posts” module
 # This image can be overridden at anytime by applying the below 2 lines to a document’s YAML Front Matter.
 #   header:
