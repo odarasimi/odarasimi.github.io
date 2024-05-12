@@ -4,7 +4,7 @@ on:
 # Runs on pushes targeting the main branch
   push:
     branches:
-      - main
+      - gh_pages
 # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
@@ -31,7 +31,7 @@ jobs:
 
       - uses: actions/checkout@v4.1.4
         with:
-          ref: website
+          ref: main
           path: build
 
       - uses: ruby/setup-ruby@v1
@@ -56,25 +56,25 @@ jobs:
         working-directory: source
         run: JEKYLL_ENV=production bundle exec jekyll build -d ../build
 
-      - name: Commit and push changes to website branch
+      - name: Commit and push changes to main branch
         working-directory: build
         run: |
           git config user.name "${GITHUB_ACTOR}"
           git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
           git add .
           git commit -m "Update GitHub pages from Jekyll build for commit ${GITHUB_SHA}"
-          git push origin website   
+          git push origin main   
 
   #     - name: Upload artifact
   #       uses: actions/upload-pages-artifact@v3
 
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-22.04
-    needs: build
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4    
+  # deploy:
+  #   environment:
+  #     name: github-pages
+  #     url: ${{ steps.deployment.outputs.page_url }}
+  #   runs-on: ubuntu-22.04
+  #   needs: build
+  #   steps:
+  #     - name: Deploy to GitHub Pages
+  #       id: deployment
+  #       uses: actions/deploy-pages@v4    
