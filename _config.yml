@@ -80,7 +80,7 @@ defaults:
   # _posts
   - scope:
       path: ""
-      type: pages
+      type: "assets"
     value:
       permalink: /:title/
 # To assign a fallback teaser image used in the “Related Posts” module
