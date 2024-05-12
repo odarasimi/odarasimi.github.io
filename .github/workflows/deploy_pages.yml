@@ -29,6 +29,11 @@ jobs:
         with:
           path: source
 
+      - uses: actions/checkout@v4.1.4
+        with:
+          ref: website
+          path: build
+
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.1'
