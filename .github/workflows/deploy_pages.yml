@@ -74,7 +74,7 @@ jobs:
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.PAT_TOKEN }}
-          branch: "main"
+          branch: ${{ github.base_ref }}
 
   # trigger-deployment:
   #   needs: build
