@@ -74,6 +74,6 @@ jobs:
           git commit -m "Update GitHub pages from Jekyll build for commit ${GITHUB_SHA}"
           git push origin main     
 
-    # The workflow in the main branch is set to automatically trigger on successfull run of this workflow.
+    # The workflow in the main branch is set to get automatically triggered on successfull run of this workflow.
 
     # Code modified from https://davidstosik.me/2020/05/31/static-blog-jekyll-410-github-pages-actions
