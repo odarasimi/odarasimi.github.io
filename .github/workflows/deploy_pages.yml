@@ -34,7 +34,8 @@ jobs:
         with:
           ref: main
           path: build
-
+          token: ${{ secrets.PAT_TOKEN }}
+          # persist-credentials: false
 
       - uses: ruby/setup-ruby@v1
         with:
