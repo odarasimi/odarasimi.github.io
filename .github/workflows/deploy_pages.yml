@@ -1,10 +1,11 @@
 name: Build and deploy Jekyll to GitHub Pages
 
 on:
-# Runs on pushes targeting the main branch
+# Runs on pushes targeting the gh_pages branch
   push:
     branches:
       - gh_pages
+
 # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
@@ -63,18 +64,4 @@ jobs:
           git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
           git add .
           git commit -m "Update GitHub pages from Jekyll build for commit ${GITHUB_SHA}"
-          git push origin main   
-
-  #     - name: Upload artifact
-  #       uses: actions/upload-pages-artifact@v3
-
-  # deploy:
-  #   environment:
-  #     name: github-pages
-  #     url: ${{ steps.deployment.outputs.page_url }}
-  #   runs-on: ubuntu-22.04
-  #   needs: build
-  #   steps:
-  #     - name: Deploy to GitHub Pages
-  #       id: deployment
-  #       uses: actions/deploy-pages@v4    
+          git push origin main     
