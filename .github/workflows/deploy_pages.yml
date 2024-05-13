@@ -58,8 +58,8 @@ jobs:
 
       - name: Commit and push changes to main branch
         working-directory: build
-        env:
-          token: ${{ secrets.PAT_TOKEN }}
+        with:
+          github_token: ${{ secrets.PAT_TOKEN }}
         run: |
           git config user.name "${GITHUB_ACTOR}"
           git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
