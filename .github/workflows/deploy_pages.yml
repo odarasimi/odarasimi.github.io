@@ -70,12 +70,12 @@ jobs:
           git commit -m "Update GitHub pages from Jekyll build for commit ${GITHUB_SHA}"
           
 
-    - name: Push changes
-      uses: ad-m/github-push-action@master
-      with:
-        persist-credentials: false
-        token: ${{ secrets.PAT_TOKEN }}
-        branch: main
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          persist-credentials: false
+          token: ${{ secrets.PAT_TOKEN }}
+          branch: main
 
   # trigger-deployment:
   #   needs: build
