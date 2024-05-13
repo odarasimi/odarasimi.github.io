@@ -26,26 +26,32 @@ jobs:
   build:
     runs-on: ubuntu-22.04
     steps:
+
+    # Checkout the gh branch and store configuration files in env directory called source.
       - uses: actions/checkout@v4.1.4
         with:
           path: source
 
+    # Checkout the main branch and store static files in env directory called build.
       - uses: actions/checkout@v4.1.4
         with:
           ref: main
           path: build
 
+    # Install ruby interpreter needed to execute jekyll.
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.1'
 
-      # - uses: actions/cache@v4.0.2
-      #   with:
-      #     path: source/vendor/bundle
-      #     key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
-      #     restore-keys: |
-      #       ${{ runner.os }}-gems-
-
+    # Cache bundler gem, the action creates a key and only restores the cache if the key is the same.
+      - uses: actions/cache@v4.0.2
+        with:
+          path: source/vendor/bundle
+          key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-gems-
+    
+    # Install bundler needed to install gems listed in Gemfile, then install the gems and plugins.
       - name: Bundle install
         working-directory: source
         run: |
@@ -53,10 +59,12 @@ jobs:
           bundle config path vendor/bundle
           bundle install --jobs 4 --retry 3
 
+    # Build
       - name: Jekyll Build
         working-directory: source
         run: JEKYLL_ENV=production bundle exec jekyll build -d ../build
 
+    # Commit and push changes
       - name: Commit and push changes to main branch
         working-directory: build
         run: |
@@ -65,3 +73,7 @@ jobs:
           git add .
           git commit -m "Update GitHub pages from Jekyll build for commit ${GITHUB_SHA}"
           git push origin main     
+
+    # The workflow in the main branch is set to automatically trigger on successfull run of this workflow.
+
+    # Code modified from https://davidstosik.me/2020/05/31/static-blog-jekyll-410-github-pages-actions
