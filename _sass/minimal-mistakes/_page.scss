@@ -113,7 +113,10 @@ body {
   p,
   li,
   dl {
-    font-size: 1em;
+    font-size: 0.8em;
+    line-height: 1.5; 
+    font-weight: 400; 
+    color: #242424
   }
 
   /* paragraph indents */
