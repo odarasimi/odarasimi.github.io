@@ -73,8 +73,13 @@ body {
   line-height: 1;
 
   a {
-    color: $text-color;
+    // color: $text-color;
     text-decoration: none;
+    font-size: $type-size-3;
+    line-height: 0.9; 
+    font-weight: 100; 
+    color: #242424;
+    text-rendering: optimizeLegibility;
   }
 
   & + .page__meta {
@@ -113,15 +118,16 @@ body {
   p,
   li,
   dl {
-    font-size: 0.8em;
-    line-height: 1.5; 
+    font-size: $type-size-6;
+    line-height: 1.6em; 
     font-weight: 400; 
-    color: #242424
+    color: #242424;
+    text-rendering: optimizeLegibility;
   }
 
   /* paragraph indents */
   p {
-    margin: 0 0 $indent-var;
+    margin: 0 0 $type-size-8;
 
     /* sibling indentation*/
     @if $paragraph-indent == true {
@@ -227,7 +233,7 @@ body {
     }
 
     .page__title {
-      font-size: $type-size-2;
+      // font-size: $type-size-2;
 
       @include breakpoint($small) {
         font-size: $type-size-1;
