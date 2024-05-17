@@ -73,7 +73,7 @@ footer:
 
 breadcrumbs: false  # disabled by default
 
-minimal_mistakes_skin: "dark"
+# minimal_mistakes_skin: "dark"
 
 head_scripts:
   - /assets/css/main.css
