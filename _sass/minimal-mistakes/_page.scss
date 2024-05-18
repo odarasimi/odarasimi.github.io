@@ -5,7 +5,7 @@
 #main {
   @include clearfix;
   margin-left: auto;
-  margin-right: auto;
+  margin-right: 0%;
   padding-left: 1em;
   padding-right: 1em;
   -webkit-animation: $intro-transition;
@@ -13,6 +13,7 @@
   max-width: 100%;
   -webkit-animation-delay: 0.15s;
   animation-delay: 0.15s;
+  box-sizing: unset;
 
   @include breakpoint($x-large) {
     max-width: $max-width;
@@ -30,7 +31,38 @@ body {
           flex-direction: column;
 }
 
-.initial-content,
+.nav-bar {
+  flex: 1 1 auto;
+  background-color: #FFFFFF;
+  width: 15%;
+  padding: 0em 0.5em;
+  border-left: 1px solid #CCCCCC;
+  margin-left: 2em;
+  margin-top: 1em;
+  margin-bottom: 3em;
+  height: fit-content;
+}
+
+.main-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex: 1 0 auto;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  overflow: hidden;
+  height: 100vh;
+}
+
+.initial-content {
+  flex: 1 1 auto;
+  box-sizing: unset;
+  padding-left: $type-size-5;
+  width: 85%;
+  overflow-y: auto;
+}
 .search-content {
   flex: 1 0 auto;
 }
@@ -41,6 +73,8 @@ body {
     width: calc(100% - #{$right-sidebar-width-narrow});
     padding-right: $right-sidebar-width-narrow;
   }
+
+  box-sizing: unset;
 
   @include breakpoint($x-large) {
     width: calc(100% - #{$right-sidebar-width});
