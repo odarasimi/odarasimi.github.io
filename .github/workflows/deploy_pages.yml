@@ -44,12 +44,12 @@ jobs:
           ruby-version: '3.1'
 
     # Cache bundler gem, the action creates a key and only restores the cache if the key is the same.
-      - uses: actions/cache@v4.0.2
-        with:
-          path: source/vendor/bundle
-          key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-gems-
+      # - uses: actions/cache@v4.0.2
+      #   with:
+      #     path: source/vendor/bundle
+      #     key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+      #     restore-keys: |
+      #       ${{ runner.os }}-gems-
     
     # Install bundler needed to install gems listed in Gemfile, then install the gems and plugins.
       - name: Bundle install
