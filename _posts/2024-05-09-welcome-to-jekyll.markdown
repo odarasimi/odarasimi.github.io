@@ -1,8 +1,10 @@
 ---
 layout: single
 title:  "Compilers being Compiled"
-date:   2024-05-09 15:04:53 +0000
+date:   2024-05-20 11:15:53 +0000
 categories: jekyll update
+sidebar:
+  nav: "links"
 ---
 x-86 :)
 

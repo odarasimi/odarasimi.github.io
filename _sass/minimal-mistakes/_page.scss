@@ -33,10 +33,10 @@ body {
 
 .nav-bar {
   flex: 1 1 auto;
-  background-color: #FFFFFF;
+  background-color: #F1F1F1;
   width: 15%;
   padding: 0em 0.5em;
-  border-left: 1px solid #CCCCCC;
+  // border-left: 1px solid #CCCCCC;
   margin-left: 2em;
   margin-top: 1em;
   margin-bottom: 3em;
@@ -54,6 +54,8 @@ body {
   flex-direction: row;
   overflow: hidden;
   height: 100vh;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .initial-content {
@@ -86,7 +88,7 @@ body {
     margin-top: 1em;
     margin-left: 0;
     margin-right: 0;
-    width: 100%;
+    width: 112%;
     clear: both;
 
     .page__content,
@@ -109,7 +111,7 @@ body {
   a {
     // color: $text-color;
     text-decoration: none;
-    font-size: $type-size-3;
+    font-size: $type-size-4;
     line-height: 0.9; 
     font-weight: 100; 
     color: #242424;
@@ -186,7 +188,7 @@ body {
     padding-top: 0.1rem;
     padding-bottom: 0.1rem;
     font-size: 0.8em;
-    background: $code-background-color;
+    // background: $code-background-color;
     border-radius: $border-radius;
 
     &::before,

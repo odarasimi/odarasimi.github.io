@@ -1,12 +1,41 @@
 # main links
 main:
-  - title: "Quick-Start Guide"
+  - title: "Home"
     url: https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/
-  # - title: "About"
-  #   url: https://mmistakes.github.io/minimal-mistakes/about/
-  # - title: "Sample Posts"
-  #   url: /year-archive/
+  - title: "About"
+    url: https://mmistakes.github.io/minimal-mistakes/about/
+  - title: "Blog Posts"
+    url: https://mmistakes.github.io/minimal-mistakes/about/
+  - title: "CV"
+    url: https://mmistakes.github.io/minimal-mistakes/about/
   # - title: "Sample Collections"
   #   url: /collection-archive/
   # - title: "Sitemap"
   #   url: /sitemap/
+
+links:
+- title: POSTS
+  children:
+    - title: "Compilers"
+      url: /docs/quick-start-guide/
+    - title: "Meshes"
+      url: /docs/structure/
+    - title: "Limits and Infinity"
+      url: /docs/installation/
+    - title: "Multiple View Geometry"
+      url: /docs/upgrading/
+    - title: "Fourier series and Image Processing"
+      url: /docs/upgrading/
+
+# - title: Customization
+#   children:
+#     - title: "Configuration"
+#       url: /docs/configuration/
+#     - title: "Navigation"
+#       url: /docs/navigation/
+#     - title: "UI Text"
+#       url: /docs/ui-text/
+#     - title: "Authors"
+#       url: /docs/authors/
+#     - title: "Layouts"
+#       url: /docs/layouts/
