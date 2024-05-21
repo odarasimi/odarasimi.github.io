@@ -1,0 +1,72 @@
+/* Container holding the rows */
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 150vh; /* Full viewport height for demonstration */
+    background-color: #f1f1f1;
+}
+  
+/* Style for each row */
+.row {
+display: flex;
+width: 100%;
+}
+
+/* First row occupies the remaining height */
+.row1 {
+flex: 1;
+display: flex;
+justify-content: center; /* Center content horizontally */
+align-items: center; /* Center content vertically */
+}
+
+.center-content {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+  
+.center-content .text {
+margin-bottom: 7%; /* Space between text and "Social" */
+font-size: 26px;
+}
+  
+.center-content .social {
+margin-bottom: 10%; /* Space between "Social" and icons */
+width: 50%
+}
+
+.center-content .icons {
+    padding-right: 2%; /* Space between "Social" and icons */
+}
+
+.homelink{
+    text-decoration: none;
+    padding: 0px;
+    margin: 0px;
+
+}
+
+/* Second row with 3 equal columns */
+.row2 {
+flex: 1; /* Adjust this value as needed for different heights */
+display: flex;
+}
+  
+.column {
+    flex: 1; /* Equally sized columns */
+    font-style: oblique;
+    border: 0px solid #f1f1f1; /* Border around each column */
+    background-color: lightblue; /* Just for visual distinction */
+    text-align: center;
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
+    box-shadow: 11px 9px 13px 0px rgba(0, 0, 0, 0.1); /* Slight shadow for the raised effect */
+    transition: box-shadow 0.3s ease-in-out;
+    color: lightslategray;
+    margin-inline: 0.5em;
+}
+  
+.column:hover {
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.2); /* Slightly deeper shadow on hover */
+}

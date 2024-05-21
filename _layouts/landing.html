@@ -1,0 +1,66 @@
+---
+
+---
+
+<!doctype html>
+{% include copyright.html %}
+<html lang="{{ site.locale | slice: 0,2 | default: "en" }}" class="no-js">
+  <head>
+    {% include head.html %}
+    {% include head/custom.html %}
+  </head>
+
+  <body class="layout--{{ page.layout | default: layout.layout }}{% if page.classes or layout.classes %}{{ page.classes | default: layout.classes | join: ' ' | prepend: ' ' }}{% endif %}">
+    {% include_cached skip-links.html %}
+    {% include_cached masthead.html %}
+
+    <div class="container-content">
+
+      <div class="container">
+
+        <div class="row row1">
+          <div class="center-content">
+            <span class="text">Anuoluwapo Adisa</span>
+            <span class="social">We try to talk through topics in Differential Geometry, Multiple View Geometry, 
+              Image Processing in plain a language as much as possible...We try to talk through topics in Differential Geometry, 
+              Multiple View Geometry, Image Processing in plain a language as much as possible...</span>
+            <span class="icons">
+              <!-- Add your social media icons here -->
+              <a class= "homelink" href="https://github.com/odarasimi" rel="nofollow noopener noreferrer">
+                <i class="fab fa-github" style="color:gray;"></i>
+              </a>
+              <a class="homelink" href="https://www.linkedin.com/in/anuoluwapo-adisa-290354123/" rel="nofollow noopener noreferrer">
+                <i class="fab fa-linkedin-in" style="padding-left:0.8em; padding-right:0.8em; color:gray;"></i>
+              </a>
+              <a class="homelink" href="mailto:adisaanuoluwapo9@gmail.com" rel="nofollow noopener noreferrer">
+                <i class="fab fa-envelope fa-rotate-90" style="color:gray;"></i>
+              </a>
+            </span>
+          </div>
+        </div>
+
+        <div class="row row2">
+          <div class="column col1">Column 1</div>
+          <div class="column col2">Column 2</div>
+          <div class="column col3">Column 3</div>
+        </div>
+      </div>
+
+      {% if site.search == true %}
+        <div class="search-content">
+          {% include_cached search/search_form.html %}
+        </div>
+      {% endif %}
+
+    </div>
+
+    <div id="footer" class="page__footer">
+      <footer>
+        {% include footer/custom.html %}
+        {% include_cached footer.html %}
+      </footer>
+    </div>
+
+    {% include scripts.html %}
+  </body>
+</html>
