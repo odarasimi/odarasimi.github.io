@@ -49,6 +49,8 @@
   line-height: initial;
   overflow: hidden;
   text-overflow: ellipsis;
+  margin-top: 0px;
+  font-size: 1em;
 
   a[rel="permalink"]::before {
     content: '';

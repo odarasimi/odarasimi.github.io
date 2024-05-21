@@ -3,7 +3,7 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 150vh; /* Full viewport height for demonstration */
+    height: 165vh; /* Full viewport height for demonstration */
     background-color: #f1f1f1;
 }
   
@@ -33,8 +33,9 @@ font-size: 26px;
 }
   
 .center-content .social {
-margin-bottom: 10%; /* Space between "Social" and icons */
-width: 50%
+margin-bottom: 11%; /* Space between "Social" and icons */
+width: 50%;
+font-size: 0.8em;
 }
 
 .center-content .icons {
