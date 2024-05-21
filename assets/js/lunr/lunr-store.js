@@ -4,4 +4,10 @@ var store = [{
         "tags": [],
         "url": "/pages/odarasimi/jekyll/update/2024/05/20/welcome-to-jekyll.html",
         "teaser": null
+      },{
+        "title": "Test post",
+        "excerpt":" ","categories": [],
+        "tags": [],
+        "url": "/pages/odarasimi/2024/05/21/test-post.html",
+        "teaser": null
       }]
