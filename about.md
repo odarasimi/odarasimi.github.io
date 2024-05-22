@@ -3,7 +3,7 @@ layout: single
 title: About
 ---
 
-![My picture](me.jpeg)
+![My picture](/me.jpeg){: width="100" height="50"}
 
 "Hello! I'm fascinated by concepts in Computer Vision, 3D Machine Learning, and Geometric Deep Learning, particularly in the context of shape processing for Machine Learning applications. 
 
