@@ -71,8 +71,46 @@ max-height: 75vh;
     transition: box-shadow 0.3s ease-in-out;
     color: lightslategray;
     margin-inline: 0.5em;
+
+    display: flex;
+    flex-direction: column;
 }
   
 .column:hover {
     box-shadow: 0 16px 32px rgba(0, 0, 0, 0.2); /* Slightly deeper shadow on hover */
+}
+
+.column-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+  
+.image-container-one {
+    flex: 0 0 80%; /* 80% of the column height */
+    background-image: url('/curved_graph.png'); /* Replace with your image URL */
+    background-size: contain;
+    background-position: center;
+}
+
+.image-container-two {
+    flex: 0 0 80%; /* 80% of the column height */
+    background-image: url('/wedge_product.png'); /* Replace with your image URL */
+    background-size: contain;
+    background-position: center;
+}
+  
+.image-container-three {
+    flex: 0 0 80%; /* 80% of the column height */
+    background-image: url('/iterated_functions.png'); /* Replace with your image URL */
+    background-size: contain;
+    background-position: center;
+}
+   
+.text-container {
+    flex: 0 0 20%; /* 20% of the column height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background for text */
 }
