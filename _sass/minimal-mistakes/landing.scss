@@ -250,7 +250,7 @@ img.blip {
     
     .row2 {
         flex-direction: column; /* Stack columns on smaller screens */
-        max-height: none; /* Remove max height restriction */
+        max-height: 20em; /* Remove max height restriction */
     }
     
     .column {
