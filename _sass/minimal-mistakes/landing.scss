@@ -1,149 +1,26 @@
-// /* Container holding the rows */
-// .container {
-//     display: flex;
-//     flex-direction: column;
-//     width: 100%;
-//     height: 1500px; /* Full viewport height for demonstration */
-//     background-color: #f1f1f1;
-// }
-  
-// /* Style for each row */
-// .row {
-// display: flex;
-// width: 100%;
-// }
-
-// /* First row occupies the remaining height */
-// .row1 {
-// flex: 1;
-// display: flex;
-// justify-content: center; /* Center content horizontally */
-// align-items: center; /* Center content vertically */
-// max-height: 45em;
-// margin-bottom: 15%;
-// }
-
-// .center-content {
-//     display: flex;
-//     align-items: center;
-//     flex-direction: column;
-//     margin-top: 10%;
-// }
-  
-// .center-content .text {
-// margin-bottom: 10%; /* Space between text and "Social" */
-// font-size: 26px;
-// }
-  
-// .center-content .social {
-// margin-bottom: 5%; /* Space between "Social" and icons */
-// width: 50%;
-// font-size: 0.8em;
-// text-align: center;
-// }
-
-// .center-content .icons {
-//     padding-right: 2%; /* Space between "Social" and icons */
-// }
-
-// .homelink{
-//     text-decoration: none;
-//     padding: 0px;
-//     margin: 0px;
-
-// }
-
-// /* Second row with 3 equal columns */
-// .row2 {
-// flex: 1; /* Adjust this value as needed for different heights */
-// display: flex;
-// max-height: 800px;
-// }
-  
-// .column {
-//     flex: 1; /* Equally sized columns */
-//     font-style: oblique;
-//     border: 0px solid #f1f1f1; /* Border around each column */
-//     background-color: lightblue; /* Just for visual distinction */
-//     text-align: center;
-//     box-sizing: border-box; /* Include padding and border in element's total width and height */
-//     box-shadow: 11px 9px 13px 0px rgba(0, 0, 0, 0.1); /* Slight shadow for the raised effect */
-//     transition: box-shadow 0.3s ease-in-out;
-//     color: lightslategray;
-//     margin-inline: 0.5em;
-
-//     display: flex;
-//     flex-direction: column;
-// }
-  
-// .column:hover {
-//     box-shadow: 0 16px 32px rgba(0, 0, 0, 0.2); /* Slightly deeper shadow on hover */
-// }
-
-// .column-content {
-//     display: flex;
-//     flex-direction: column;
-//     height: 100%;
-// }
-  
-// .image-container-one {
-//     flex: 0 0 80%; /* 80% of the column height */
-//     background-image: url('/hmpg4.png'); /* Replace with your image URL */
-//     background-size: contain;
-//     background-position: center;
-// }
-
-// .image-container-two {
-//     flex: 0 0 80%; /* 80% of the column height */
-//     background-image: url('/wedge_product.png'); /* Replace with your image URL */
-//     background-size: contain;
-//     background-position: center;
-// }
-  
-// .image-container-three {
-//     flex: 0 0 80%; /* 80% of the column height */
-//     background-image: url('/iterated_functions.png'); /* Replace with your image URL */
-//     background-size: contain;
-//     background-position: center;
-// }
-   
-// .text-container {
-//     flex: 0 0 20%; /* 20% of the column height */
-//     display: flex;
-//     align-items: center;
-//     justify-content: center;
-//     background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background for text */
-// }
-
-// img.blip {
-//     padding-top: 5em;
-//     padding-right: 3em;
-// }
-
 /* Container holding the rows */
 .container {
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: auto; /* Use auto height for better responsiveness */
+    height: 1500px; /* Full viewport height for demonstration */
     background-color: #f1f1f1;
 }
   
 /* Style for each row */
 .row {
-    display: flex;
-    width: 100%;
-    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+display: flex;
+width: 100%;
 }
 
 /* First row occupies the remaining height */
 .row1 {
-    flex: 1;
-    display: flex;
-    justify-content: center; /* Center content horizontally */
-    align-items: center; /* Center content vertically */
-    max-height: 45em;
-    margin-bottom: 15%;
+flex: 1;
+display: flex;
+justify-content: center; /* Center content horizontally */
+align-items: center; /* Center content vertically */
+max-height: 45em;
+margin-bottom: 15%;
 }
 
 .center-content {
@@ -154,53 +31,53 @@
 }
   
 .center-content .text {
-    margin-bottom: 10%; /* Space between text and "Social" */
-    font-size: 26px;
+margin-bottom: 10%; /* Space between text and "Social" */
+font-size: 26px;
 }
   
 .center-content .social {
-    margin-bottom: 5%; /* Space between "Social" and icons */
-    width: 50%;
-    font-size: 0.8em;
-    text-align: center;
+margin-bottom: 5%; /* Space between "Social" and icons */
+width: 50%;
+font-size: 0.8em;
+text-align: center;
 }
 
 .center-content .icons {
     padding-right: 2%; /* Space between "Social" and icons */
 }
 
-.homelink {
+.homelink{
     text-decoration: none;
-    padding: 0;
-    margin: 0;
+    padding: 0px;
+    margin: 0px;
+
 }
 
 /* Second row with 3 equal columns */
 .row2 {
-    flex: 1;
-    display: flex;
-    flex-wrap: wrap; /* Allow wrapping on smaller screens */
-    max-height: 800px;
+flex: 1; /* Adjust this value as needed for different heights */
+display: flex;
+max-height: 800px;
 }
   
 .column {
-    flex: 1;
+    flex: 1; /* Equally sized columns */
     font-style: oblique;
-    border: 0;
-    background-color: lightblue;
+    border: 0px solid #f1f1f1; /* Border around each column */
+    background-color: lightblue; /* Just for visual distinction */
     text-align: center;
-    box-sizing: border-box;
-    box-shadow: 11px 9px 13px 0px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
+    box-shadow: 11px 9px 13px 0px rgba(0, 0, 0, 0.1); /* Slight shadow for the raised effect */
     transition: box-shadow 0.3s ease-in-out;
     color: lightslategray;
     margin-inline: 0.5em;
+
     display: flex;
     flex-direction: column;
-    min-width: 280px; /* Ensure columns don't get too narrow */
 }
   
 .column:hover {
-    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.2); /* Slightly deeper shadow on hover */
 }
 
 .column-content {
@@ -209,38 +86,41 @@
     height: 100%;
 }
   
-.image-container-one,
-.image-container-two,
-.image-container-three {
-    flex: 0 0 80%;
+.image-container-one {
+    flex: 0 0 80%; /* 80% of the column height */
+    background-image: url('/hmpg4.png'); /* Replace with your image URL */
+    background-size: contain;
+    background-position: center;
+}
+
+.image-container-two {
+    flex: 0 0 80%; /* 80% of the column height */
+    background-image: url('/wedge_product.png'); /* Replace with your image URL */
     background-size: contain;
     background-position: center;
 }
   
-.image-container-one {
-    background-image: url('/hmpg4.png');
-}
-
-.image-container-two {
-    background-image: url('/wedge_product.png');
-}
-  
 .image-container-three {
-    background-image: url('/iterated_functions.png');
+    flex: 0 0 80%; /* 80% of the column height */
+    background-image: url('/iterated_functions.png'); /* Replace with your image URL */
+    background-size: contain;
+    background-position: center;
 }
    
 .text-container {
-    flex: 0 0 20%;
+    flex: 0 0 20%; /* 20% of the column height */
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background for text */
 }
 
 img.blip {
     padding-top: 5em;
     padding-right: 3em;
 }
+
+// mobile responsiveness
 
 /* Media Queries for responsiveness */
 @media (max-width: 768px) {
