@@ -1,13 +1,13 @@
 var store = [{
-        "title": "Compilers being Compiled",
-        "excerpt":"x-86 :) To add new posts, simply add a file in the _posts directory that follows the convention YYYY-MM-DD-name-of-post.ext and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works. You’ll find this post in your _posts directory....","categories": ["jekyll","update"],
+        "title": "In Progress: Limits",
+        "excerpt":"WIP   Are limits an approximation or an ideal…  ","categories": ["Calculus"],
         "tags": [],
-        "url": "/pages/odarasimi/jekyll/update/2024/05/20/welcome-to-jekyll.html",
+        "url": "/pages/odarasimi/calculus/2024/05/21/Limits.html",
         "teaser": null
       },{
-        "title": "Compilers not being Compiled",
-        "excerpt":"RISC-V :)   To add new posts, simply add a file in the _posts directory that follows the convention YYYY-MM-DD-name-of-post.ext and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.  ","categories": ["jekyll","update"],
+        "title": "Introductory thoughts on Projective Geometry",
+        "excerpt":"… “No man ever steps in the same river twice, for it’s not the same river and he’s not the same man.” - Heraclitus When an object is transformed in some way, we observe a change in the object…but does the object really change, or does our perception of the...","categories": ["geometry"],
         "tags": [],
-        "url": "/pages/odarasimi/jekyll/update/2024/05/21/test-post.html",
+        "url": "/pages/odarasimi/geometry/2024/05/30/Introductory-thoughts-on-projective-geometry.html",
         "teaser": null
       }]

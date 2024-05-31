@@ -1,0 +1,370 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.26.0 by Michael Rose
+  Copyright 2013-2024 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Introductory thoughts on Projective Geometry - Donuts, Simplices, and Conics</title>
+<meta name="description" content="…">
+
+
+  <meta name="author" content="Anuoluwapo Adisa">
+  
+  <meta property="article:author" content="Anuoluwapo Adisa">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Donuts, Simplices, and Conics">
+<meta property="og:title" content="Introductory thoughts on Projective Geometry">
+<meta property="og:url" content="https://odarasimi.github.io/pages/odarasimi/geometry/2024/05/30/Introductory-thoughts-on-projective-geometry.html">
+
+
+  <meta property="og:description" content="…">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2024-05-30T11:10:53+00:00">
+
+
+
+
+
+
+<link rel="canonical" href="https://odarasimi.github.io/pages/odarasimi/geometry/2024/05/30/Introductory-thoughts-on-projective-geometry.html">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Donuts, Simplices, and Conics Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script type="text/javascript">
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+  
+    <script src="/assets/css/main.css"></script>
+  
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16x16.png">
+<link rel="manifest" href="/assets/images/site.webmanifest">
+<link rel="mask-icon" href="/assets/images/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="/favicon.ico">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="msapplication-config" content="/assets/images/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Donuts, Simplices, and Conics
+          <span class="site-subtitle">Anuoluwapo Adisa</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/index.html"
+                
+                
+              >Home</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/about.html"
+                
+                
+              >About</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/blog.html"
+                
+                
+              >Blog Posts</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/about.html"
+                
+                
+              >Pending</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="main-content">
+
+      <div class="nav-bar">
+        
+  <div class="sidebar sticky">
+  
+    
+      
+      
+      
+      
+    
+    
+      <nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle menu</label>
+  <ul class="nav__items">
+    
+      
+      
+        <li>
+          
+            <span class="nav__sub-title">POSTS</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/geometry/2024/05/30/Introductory-thoughts-on-projective-geometry.html" class="active">Introductory thoughts on Projective Geometry</a></li>
+            
+              <li><a href="/calculus/2024/05/21/Limits.html">Limits</a></li>
+            
+          </ul>
+          
+        </li>
+      
+    
+  </ul>
+</nav>
+
+    
+  
+  </div>
+
+
+
+      </div>
+
+      <div class="initial-content">
+        
+
+
+
+
+
+<div id="main" role="main">
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Introductory thoughts on Projective Geometry">
+    <meta itemprop="description" content="…">
+    <meta itemprop="datePublished" content="2024-05-30T11:10:53+00:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">
+            <a href="/geometry/2024/05/30/Introductory-thoughts-on-projective-geometry.html" itemprop="url">Introductory thoughts on Projective Geometry
+</a>
+          </h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <p>…</p>
+
+<p><em>“No man ever steps in the same river twice, for it’s not the same river and he’s not the same man.”</em> - Heraclitus</p>
+
+<p><img src="/title_proj_geo.png" alt="projective geometry" width="600" height="400" /></p>
+
+<p>When an object is transformed in some way, we observe a change in the object…but does the object really change, or does our perception of the object change…not to get into philosophical rambling, but I believe the question of perception and change lends key insight into the nature of projective geometry.</p>
+
+<p>I have always had a view of projective geometry, which then extended to two, basically I see projective geometry as:</p>
+
+<ul>
+  <li>The study of properties that are invariant under projective transformation.</li>
+  <li>The study of lower-dimensional objects through a higher-dimensional lens.</li>
+</ul>
+
+<h5 id="the-study-of-invariant-properties-under-projective-transformation">The Study of Invariant Properties under Projective Transformation</h5>
+
+<p>We can accurately capture the essence of abstraction in mathematics, illustrating how specific operations and entities in arithmetic and geometry are generalized into the broader frameworks of algebra and geometry. This abstraction allows mathematicians to study more complex and general properties beyond specific instances. In this context, you have a group of things that follow a specific rule, and you define an operation on the members of that group based on the premise that the members obey the laws that define the structure of the group.</p>
+
+<p><img src="/abstract.png" alt="abstract" width="450" height="250" /></p>
+
+<p>Taking a cue from Kneebone’s ‘Algebraic Projective Geometry’, we see that if numbers and polynomials both satisfy the laws of algebra, then they share a common structure, and we may study a system based on that structure without going into the specifics of the nature of the objects involved other than the fact that they all possess the structure in question.
+<em>Aside: This is similar to the ideas in Linear Algebra, where vectors can be of different forms, or live in different spaces. Polynomials, real numbers, and geometric objects are different objects, but they share the fundamental structure that defines linear algebra. Even though we can intuit one from the other (looking at you - dot products), we do not need to project the properties of one onto the other. Thus, when we talk about the “length of a polynomial” via inner products, we are taking a liberty from geometric vector spaces.</em></p>
+
+<p>Now, in Euclidean geometry, rotations and scalings, for example, have a common spatial structure - they both preserve shape. Generally speaking, displacements possess a common spatial structure. A translated, rotated square is considered to be the same square, i.e., the shape is invariant. Euclidean geometry is thus the invariant theory of the group of displacements, and based on these invariants, we define a metric—a way to measure distances, angles, and other structural aspects of the geometry. In a way, these operations define a space, as the Euclidean transformations limit you to the Euclidean space. The same analogy can be carried over to projective geometry, which we define as the invariant theory of the group of projections. That is, under projective transformations, find out which properties of the object remain invariant, and then we define a metric based on those properties.</p>
+
+<h5 id="the-study-of-lower-dimensional-objects-through-a-higher-dimensional-lens">The Study of Lower-Dimensional Objects through a Higher-Dimensional Lens</h5>
+
+<p><img src="/parallel.png" alt="parralel" width="650" height="250" /></p>
+
+<p>On first contact, the statement: “Parallel lines meet at a point in infinity” seems rather absurd, but observing the image above, we see 2 lines (which we should treat as lines with no limitations on length), and we notice that with the rotation of the red line about the point “x”, the point of intersection of the two lines “p”, moves further and further along the blue line, and as the red line gets closer to being parallel with the blue line, it appears to be that the point “p” approaches an “infinite” point along that blue line. Thinking about the oft-used “railway tracks” example, we need to consider the fact that those lines live on a plane, and we live in 3D space. This means that we have the liberty and freedom of an extra dimension. This extra dimension offers us insight through a different view of the same object. The parallelism of the two lines says nothing about the 3D space in which they live, but the 3D space is in no way compelled to say nothing about the 2D objects in its purview.
+I plan to discuss more on this and the concept of projective equivalence in a follow-up post.</p>
+
+<p><img src="/projtwod.png" alt="projtwod" width="450" height="250" /></p>
+
+<h6 id="references">References</h6>
+<ul>
+  <li>
+    <p>Kneebone, G. T. (1960). Algebraic Projective Geometry. Oxford: Clarendon Press.</p>
+  </li>
+  <li>
+    <p>Hartley, R., &amp; Zisserman, A. (2004). Multiple View Geometry in Computer Vision (2nd ed.). Cambridge: Cambridge University Press.</p>
+  </li>
+</ul>
+
+        
+      </section>
+
+      <footer class="page__meta"><hr/>
+        
+        
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-05-30T11:10:53+00:00">May 30, 2024</time></p>
+
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/pages/odarasimi/calculus/2024/05/21/Limits.html" class="pagination--pager" title="In Progress: Limits
+">Previous</a>
+    
+    
+      <a href="#" class="pagination--pager disabled">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+        
+      </div>
+
+      
+
+    </div>
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li>Follow:</li>
+    
+
+    
+      
+        
+          <li><a href="https://www.linkedin.com/in/anuoluwapo-adisa-290354123/" rel="nofollow noopener noreferrer"><i class="fab fa-linkedin-in" aria-hidden="true"></i> LinkedIn</a></li>
+        
+      
+        
+          <li><a href="https://github.com/odarasimi" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+    
+
+    
+      <li><a href="/pages/odarasimi/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2024 <a href="https://odarasimi.github.io">Donuts, Simplices, and Conics.</a> Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes.</a></div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+  </body>
+</html>
