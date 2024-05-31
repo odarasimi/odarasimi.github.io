@@ -62,7 +62,7 @@ body {
 .initial-content {
   flex: 1 1 auto;
   box-sizing: unset;
-  padding-left: $type-size-5;
+  padding-left: 2em;
   width: 85%;
   overflow-y: auto;
 }
@@ -158,7 +158,7 @@ body {
     font-size: $type-size-6;
     line-height: 1.6em; 
     font-weight: 400; 
-    color: #242424;
+    color: #222832;
     text-rendering: optimizeLegibility;
   }
 

@@ -6,7 +6,7 @@ main:
     url: /about.html
   - title: "Blog Posts"
     url: /blog.html
-  - title: "CV"
+  - title: "Pending"
     url: /about.html
   # - title: "Sample Collections"
   #   url: /collection-archive/
@@ -16,16 +16,10 @@ main:
 links:
 - title: POSTS
   children:
-    - title: "Compilers"
-      url: /docs/quick-start-guide/
-    - title: "Meshes"
-      url: /docs/structure/
-    - title: "Limits and Infinity"
-      url: /docs/installation/
-    - title: "Multiple View Geometry"
-      url: /docs/upgrading/
-    - title: "Fourier series and Image Processing"
-      url: /docs/upgrading/
+    - title: "Introductory thoughts on Projective Geometry"
+      url: /geometry/2024/05/30/Introductory-thoughts-on-projective-geometry.html
+    - title: "Limits"
+      url: /calculus/2024/05/21/Limits.html
 
 # - title: Customization
 #   children:
