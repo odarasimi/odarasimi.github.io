@@ -1,0 +1,395 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.26.0 by Michael Rose
+  Copyright 2013-2024 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>PyTorch is Ten out of ATen - Donuts, Simplices, and Conics</title>
+<meta name="description" content="“I have made this letter longer than usual, only because I have not had the time to make it shorter.” - Blaise Pascal">
+
+
+  <meta name="author" content="Anuoluwapo Adisa">
+  
+  <meta property="article:author" content="Anuoluwapo Adisa">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Donuts, Simplices, and Conics">
+<meta property="og:title" content="PyTorch is Ten out of ATen">
+<meta property="og:url" content="https://odarasimi.github.io/pages/odarasimi/programming/2024/06/01/PyTorch-is-Ten-out-of-ATen.html">
+
+
+  <meta property="og:description" content="“I have made this letter longer than usual, only because I have not had the time to make it shorter.” - Blaise Pascal">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2024-06-01T16:05:53+00:00">
+
+
+
+
+
+
+<link rel="canonical" href="https://odarasimi.github.io/pages/odarasimi/programming/2024/06/01/PyTorch-is-Ten-out-of-ATen.html">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Donuts, Simplices, and Conics Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script type="text/javascript">
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+  
+    <script src="/assets/css/main.css"></script>
+  
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16x16.png">
+<link rel="manifest" href="/assets/images/site.webmanifest">
+<link rel="mask-icon" href="/assets/images/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="/favicon.ico">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="msapplication-config" content="/assets/images/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Donuts, Simplices, and Conics
+          <span class="site-subtitle">Anuoluwapo Adisa</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/index.html"
+                
+                
+              >Home</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/about.html"
+                
+                
+              >About</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/blog.html"
+                
+                
+              >Blog Posts</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/about.html"
+                
+                
+              >Pending</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="main-content">
+
+      <div class="nav-bar">
+        
+  <div class="sidebar sticky">
+  
+    
+      
+      
+      
+      
+    
+    
+      <nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle menu</label>
+  <ul class="nav__items">
+    
+      
+      
+        <li>
+          
+            <span class="nav__sub-title">POSTS</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/geometry/2024/05/30/Introductory-thoughts-on-projective-geometry.html">Introductory thoughts on Projective Geometry</a></li>
+            
+              <li><a href="/programming/2024/06/01/PyTorch-is-Ten-out-of-ATen.html" class="active">PyTorch is Ten out of Aten</a></li>
+            
+          </ul>
+          
+        </li>
+      
+    
+  </ul>
+</nav>
+
+    
+  
+  </div>
+
+
+
+      </div>
+
+      <div class="initial-content">
+        
+
+
+
+
+
+<div id="main" role="main">
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="PyTorch is Ten out of ATen">
+    <meta itemprop="description" content="“I have made this letter longer than usual, only because I have not had the time to make it shorter.” - Blaise Pascal">
+    <meta itemprop="datePublished" content="2024-06-01T16:05:53+00:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">
+            <a href="/programming/2024/06/01/PyTorch-is-Ten-out-of-ATen.html" itemprop="url">PyTorch is Ten out of ATen
+</a>
+          </h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <p><em>“I have made this letter longer than usual, only because I have not had the time to make it shorter.” - Blaise Pascal</em></p>
+
+<p>For anyone with passing familiarity with deep learning workloads and the challenge of scaling, it is generally no surprise to see AI companies gathered at the cathedral of accelerated GPU hardware. Personally, I think domain-centric hardware could be the future, or perhaps compilers that support various backends, like XLA <a href="https://openxla.org/xla">https://openxla.org/xla</a>. 
+Nevertheless, hand-woven optimization remains integral (no pun intended) in areas like geometry processing and deep learning.
+These are some notes I took in an attempt to figure out C++ (and consequently CUDA) for PyTorch. They could perhaps be more concise, but brevity was sacrificed on the altar of clarity, and I hope they serve to aid understanding.</p>
+
+<h6 id="motivation-and-obligatory-praise-aten">Motivation and obligatory praise: ATen</h6>
+<p>ATen is a foundational library in the PyTorch ecosystem that provides the fundamental building blocks for tensor operations, memory management, and data types. Simply put - it powers crucial Pytorch operations. ATen is implemented in C++ and forms the <strong>backend</strong> for many PyTorch operations.</p>
+
+<p>ATen also provides a set of optimized tensor operations that are written in C++, and these include element-wise arithmetic, matrix operations, reductions, etc. These low-level operations are used to build higher-level functions in PyTorch, meaning that many of the higher-level functions we use in PyTorch are powered by ATen. ATen also provides an abstraction layer for datatypes and hides the underlying details of the hardware (CPU, GPU, etc.) from higher-level PyTorch code. This allows PyTorch to run seamlessly on different hardware without extensive changes to the higher-level code.
+ATen allows you to define custom C++ tensor operations that can be used within PyTorch, and thus tensor operations are highly optimized and designed for performance. 
+This efficiency helps speed up deep learning computations, and this is what we will focus on.</p>
+
+<h6 id="pytorch-and-aten">PyTorch and ATen</h6>
+<p>PyTorch uses C++ extensively in its backend, and when one thinks of the relationship between PyTorch and ATen, there are 2 salient points to keep in mind</p>
+
+<ul>
+  <li>When you perform tensor operations in PyTorch, the higher-level Python code often triggers ATen’s C++ functions behind the scenes.</li>
+  <li>These C++ functions are implemented to perform the actual mathematical computations, memory allocation, and other low-level tasks required for tensor operations.</li>
+</ul>
+
+<p>PyTorch’s backend, including ATen, leverages C++ to provide efficient tensor operations, memory management, and hardware abstraction. When you execute PyTorch code involving tensor operations, the relevant C++ functions from ATen are used directly, without some separate compilation step to “ATen code.” This is an orchestra of Python’s high-level expressiveness and C++’s performance optimization.
+So whenever we want to optimize our code with GPUs, we provide custom C++ code that we choose to call <em>C++ extensions</em> (using the ATen library directly for tensor computations), and we connect our familiar PyTorch frontend (Python) to our custom C++ code with python bindings (we have to connect the frontend to the backend ourselves, because they are custom)…as a consequence we skip the overhead of the python interpreter.</p>
+
+<p><strong>How do we do all this?</strong></p>
+<h6 id="to-integrate-c-with-pytorch">To Integrate C++ with PyTorch</h6>
+<ul>
+  <li>Write C++ Code: You write C++ code that contains the functionality you need.</li>
+  <li>Compile C++ Code: The C++ code is compiled using a C++ compiler, which generates compiled machine code that can be executed by the CPU.</li>
+  <li>Python Wrapper: You create a Python wrapper using tools like pybind11. This wrapper defines Python functions that map to the compiled C++ functions.</li>
+  <li>Compile Wrapper: The Python wrapper code is compiled into a Python extension module.</li>
+  <li>Python Interaction: When you call a Python function from the extension module, the Python interpreter uses the wrapper to call the corresponding compiled C++ function directly. This means that the compiled machine code of the C++ function is executed.</li>
+  <li>C++ Execution: The compiled C++ code executes, performing the desired operations.
+Return to Python: Control returns to the Python interpreter after the C++ function completes, and any results or return values from the C++ function are returned to Python.</li>
+</ul>
+
+<h6 id="c-and-pytorch">C++ and PyTorch</h6>
+<p><strong>Ahead of Time with setuptools:</strong></p>
+<ul>
+  <li>C++ Extensions: C++ extensions are modules that contain C++ code linked with Python, allowing you to use compiled C++ functionality within Python.</li>
+  <li>setuptools: setuptools is a package used to build and distribute Python packages. It includes tools for compiling and installing Python extensions.</li>
+  <li>Building Ahead of Time: Building “ahead of time” means that you pre-compile your C++ code into a shared library (like a .so file) before running your Python program.</li>
+  <li>Process:
+    <ul>
+      <li>You write your C++ code and create a Python wrapper using tools like pybind11 or Cython.</li>
+      <li>You use setuptools to build the C++ extension into a shared library.
+This compiled extension module can then be imported and used in your Python code like any other Python module.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong>Just in Time with torch.utils.cpp_extension.load():</strong></p>
+<ul>
+  <li>C++ Extensions: Same as above, C++ extensions are modules containing compiled C++ functionality.
+torch.utils.cpp_extension.load(): This is a PyTorch utility function that allows you to compile and load C++ extensions dynamically at runtime, rather than pre-compiling them before running your Python program.</li>
+  <li>Building Just in Time: With this approach, you don’t pre-compile the C++ extension ahead of time. Instead, you use torch.utils.cpp_extension.load() to compile and load the extension when needed.</li>
+  <li>Process:
+    <ul>
+      <li>You write your C++ code and create a Python wrapper.</li>
+      <li>You use torch.utils.cpp_extension.load() to compile the C++ code and load the extension module dynamically into your Python program at runtime.
+This extension module is then available for use in your Python code.</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Ultimately, we can then mix C++ with CUDA kernels (which run on the GPU). The compilers for both C++ AND CUDA each handle their respective pieces of code…and as usual each function is accessible from the Pytorch python frontend.</p>
+
+<p><em>References</em>
+<a href="https://pytorch.org/tutorials/advanced/cpp_extension.html">https://pytorch.org/tutorials/advanced/cpp_extension.html</a></p>
+
+        
+      </section>
+
+      <footer class="page__meta"><hr/>
+        
+        
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-06-01T16:05:53+00:00">June 1, 2024</time></p>
+
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/pages/odarasimi/geometry/2024/05/30/Introductory-thoughts-on-projective-geometry.html" class="pagination--pager" title="Introductory thoughts on Projective Geometry
+">Previous</a>
+    
+    
+      <a href="#" class="pagination--pager disabled">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+        
+      </div>
+
+      
+
+    </div>
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li>Follow:</li>
+    
+
+    
+      
+        
+          <li><a href="https://www.linkedin.com/in/anuoluwapo-adisa-290354123/" rel="nofollow noopener noreferrer"><i class="fab fa-linkedin-in" aria-hidden="true"></i> LinkedIn</a></li>
+        
+      
+        
+          <li><a href="https://github.com/odarasimi" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+    
+
+    
+      <li><a href="/pages/odarasimi/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2024 <a href="https://odarasimi.github.io">Donuts, Simplices, and Conics.</a> Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes.</a></div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+  </body>
+</html>
