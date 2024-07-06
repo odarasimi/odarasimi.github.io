@@ -16,8 +16,8 @@ main:
 links:
 - title: POSTS
   children:
-    - title: "Introductory thoughts on Projective Geometry"
-      url: /geometry/2024/05/30/Introductory-thoughts-on-projective-geometry.html
+    - title: "Mild thoughts on Projective Geometry"
+      url: /geometry/2024/05/30/Mild-thoughts-on-projective-geometry.html
     - title: "PyTorch is Ten out of Aten"
       url: /programming/2024/06/01/PyTorch-is-Ten-out-of-ATen.html
 

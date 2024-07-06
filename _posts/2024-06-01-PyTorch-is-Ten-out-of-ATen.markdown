@@ -7,13 +7,13 @@ sidebar:
   nav: "links"
 ---
 
-*"I have made this letter longer than usual, only because I have not had the time to make it shorter." - Blaise Pascal*
+*"I have made this letter **longer** than usual, only because I have not had the time to **make it shorter**." - Blaise Pascal*
 
 For anyone with passing familiarity with deep learning workloads and the challenge of scaling, it is generally no surprise to see AI companies gathered at the cathedral of accelerated GPU hardware. Personally, I think domain-centric hardware could be the future, or perhaps compilers that support various backends, like XLA <https://openxla.org/xla>. 
 Nevertheless, hand-woven optimization remains integral (no pun intended) in areas like geometry processing and deep learning.
 These are some notes I took in an attempt to figure out C++ (and consequently CUDA) for PyTorch. They could perhaps be more concise, but brevity was sacrificed on the altar of clarity, and I hope they serve to aid understanding.
 
-###### Motivation and obligatory praise: ATen
+###### Motivation: ATen
 ATen is a foundational library in the PyTorch ecosystem that provides the fundamental building blocks for tensor operations, memory management, and data types. Simply put - it powers crucial Pytorch operations. ATen is implemented in C++ and forms the **backend** for many PyTorch operations.
 
 ATen also provides a set of optimized tensor operations that are written in C++, and these include element-wise arithmetic, matrix operations, reductions, etc. These low-level operations are used to build higher-level functions in PyTorch, meaning that many of the higher-level functions we use in PyTorch are powered by ATen. ATen also provides an abstraction layer for datatypes and hides the underlying details of the hardware (CPU, GPU, etc.) from higher-level PyTorch code. This allows PyTorch to run seamlessly on different hardware without extensive changes to the higher-level code.
@@ -27,9 +27,9 @@ PyTorch uses C++ extensively in its backend, and when one thinks of the relation
 - These C++ functions are implemented to perform the actual mathematical computations, memory allocation, and other low-level tasks required for tensor operations.
 
 PyTorch's backend, including ATen, leverages C++ to provide efficient tensor operations, memory management, and hardware abstraction. When you execute PyTorch code involving tensor operations, the relevant C++ functions from ATen are used directly, without some separate compilation step to "ATen code." This is an orchestra of Python's high-level expressiveness and C++'s performance optimization.
-So whenever we want to optimize our code with GPUs, we provide custom C++ code that we choose to call *C++ extensions* (using the ATen library directly for tensor computations), and we connect our familiar PyTorch frontend (Python) to our custom C++ code with python bindings (we have to connect the frontend to the backend ourselves, because they are custom)...as a consequence we skip the overhead of the python interpreter.
+So whenever we want to optimize our code with GPUs, we provide custom C++ code that we choose to call *C++ extensions* (using the ATen library directly for tensor computations), and we connect our familiar PyTorch frontend (Python) to our custom C++ code with python bindings (we have to connect the frontend to the backend ourselves, because they are custom)...as a consequence we reduce the overhead of the python interpreter.
 
-**How do we do all this?**
+**How do we do this?**
 ###### To Integrate C++ with PyTorch
 - Write C++ Code: You write C++ code that contains the functionality you need.
 - Compile C++ Code: The C++ code is compiled using a C++ compiler, which generates compiled machine code that can be executed by the CPU.
