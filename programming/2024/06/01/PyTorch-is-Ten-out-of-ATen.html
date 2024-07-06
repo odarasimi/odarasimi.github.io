@@ -183,7 +183,7 @@
           
           <ul>
             
-              <li><a href="/geometry/2024/05/30/Introductory-thoughts-on-projective-geometry.html">Introductory thoughts on Projective Geometry</a></li>
+              <li><a href="/geometry/2024/05/30/Mild-thoughts-on-projective-geometry.html">Mild thoughts on Projective Geometry</a></li>
             
               <li><a href="/programming/2024/06/01/PyTorch-is-Ten-out-of-ATen.html" class="active">PyTorch is Ten out of Aten</a></li>
             
@@ -233,13 +233,13 @@
 
       <section class="page__content" itemprop="text">
         
-        <p><em>“I have made this letter longer than usual, only because I have not had the time to make it shorter.” - Blaise Pascal</em></p>
+        <p><em>“I have made this letter <strong>longer</strong> than usual, only because I have not had the time to <strong>make it shorter</strong>.” - Blaise Pascal</em></p>
 
 <p>For anyone with passing familiarity with deep learning workloads and the challenge of scaling, it is generally no surprise to see AI companies gathered at the cathedral of accelerated GPU hardware. Personally, I think domain-centric hardware could be the future, or perhaps compilers that support various backends, like XLA <a href="https://openxla.org/xla">https://openxla.org/xla</a>. 
 Nevertheless, hand-woven optimization remains integral (no pun intended) in areas like geometry processing and deep learning.
 These are some notes I took in an attempt to figure out C++ (and consequently CUDA) for PyTorch. They could perhaps be more concise, but brevity was sacrificed on the altar of clarity, and I hope they serve to aid understanding.</p>
 
-<h6 id="motivation-and-obligatory-praise-aten">Motivation and obligatory praise: ATen</h6>
+<h6 id="motivation-aten">Motivation: ATen</h6>
 <p>ATen is a foundational library in the PyTorch ecosystem that provides the fundamental building blocks for tensor operations, memory management, and data types. Simply put - it powers crucial Pytorch operations. ATen is implemented in C++ and forms the <strong>backend</strong> for many PyTorch operations.</p>
 
 <p>ATen also provides a set of optimized tensor operations that are written in C++, and these include element-wise arithmetic, matrix operations, reductions, etc. These low-level operations are used to build higher-level functions in PyTorch, meaning that many of the higher-level functions we use in PyTorch are powered by ATen. ATen also provides an abstraction layer for datatypes and hides the underlying details of the hardware (CPU, GPU, etc.) from higher-level PyTorch code. This allows PyTorch to run seamlessly on different hardware without extensive changes to the higher-level code.
@@ -255,9 +255,9 @@ This efficiency helps speed up deep learning computations, and this is what we w
 </ul>
 
 <p>PyTorch’s backend, including ATen, leverages C++ to provide efficient tensor operations, memory management, and hardware abstraction. When you execute PyTorch code involving tensor operations, the relevant C++ functions from ATen are used directly, without some separate compilation step to “ATen code.” This is an orchestra of Python’s high-level expressiveness and C++’s performance optimization.
-So whenever we want to optimize our code with GPUs, we provide custom C++ code that we choose to call <em>C++ extensions</em> (using the ATen library directly for tensor computations), and we connect our familiar PyTorch frontend (Python) to our custom C++ code with python bindings (we have to connect the frontend to the backend ourselves, because they are custom)…as a consequence we skip the overhead of the python interpreter.</p>
+So whenever we want to optimize our code with GPUs, we provide custom C++ code that we choose to call <em>C++ extensions</em> (using the ATen library directly for tensor computations), and we connect our familiar PyTorch frontend (Python) to our custom C++ code with python bindings (we have to connect the frontend to the backend ourselves, because they are custom)…as a consequence we reduce the overhead of the python interpreter.</p>
 
-<p><strong>How do we do all this?</strong></p>
+<p><strong>How do we do this?</strong></p>
 <h6 id="to-integrate-c-with-pytorch">To Integrate C++ with PyTorch</h6>
 <ul>
   <li>Write C++ Code: You write C++ code that contains the functionality you need.</li>
@@ -322,7 +322,7 @@ This extension module is then available for use in your Python code.</li>
       
   <nav class="pagination">
     
-      <a href="/pages/odarasimi/geometry/2024/05/30/Introductory-thoughts-on-projective-geometry.html" class="pagination--pager" title="Introductory thoughts on Projective Geometry
+      <a href="/pages/odarasimi/geometry/2024/05/30/Mild-thoughts-on-projective-geometry.html" class="pagination--pager" title="Mild thoughts on Projective Geometry
 ">Previous</a>
     
     

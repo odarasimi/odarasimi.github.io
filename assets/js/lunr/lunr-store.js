@@ -1,8 +1,8 @@
 var store = [{
-        "title": "Introductory thoughts on Projective Geometry",
-        "excerpt":"… “No man ever steps in the same river twice, for it’s not the same river and he’s not the same man.” - Heraclitus When an object is transformed in some way, we observe a change in the object…but does the object really change, or does our perception of the...","categories": ["geometry"],
+        "title": "Mild thoughts on Projective Geometry",
+        "excerpt":"… “No man ever steps in the same river twice, for it’s not the same river and he’s not the same man.” - Heraclitus “When an object is transformed, we observe a change in it. However, does any property of the object truly change, or is it our perception of...","categories": ["geometry"],
         "tags": [],
-        "url": "/pages/odarasimi/geometry/2024/05/30/Introductory-thoughts-on-projective-geometry.html",
+        "url": "/pages/odarasimi/geometry/2024/05/30/Mild-thoughts-on-projective-geometry.html",
         "teaser": null
       },{
         "title": "PyTorch is Ten out of ATen",
