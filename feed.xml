@@ -1,4 +1,193 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.5">Jekyll</generator><link href="https://odarasimi.github.io/pages/odarasimi/feed.xml" rel="self" type="application/atom+xml" /><link href="https://odarasimi.github.io/pages/odarasimi/" rel="alternate" type="text/html" /><updated>2024-07-06T04:24:38+00:00</updated><id>https://odarasimi.github.io/pages/odarasimi/feed.xml</id><title type="html">Donuts, Simplices, and Conics</title><subtitle>Let&apos;s talk about Geometry, Cameras. Conics, Manifolds</subtitle><author><name>Anuoluwapo Adisa</name></author><entry><title type="html">PyTorch is Ten out of ATen</title><link href="https://odarasimi.github.io/pages/odarasimi/programming/2024/06/01/PyTorch-is-Ten-out-of-ATen.html" rel="alternate" type="text/html" title="PyTorch is Ten out of ATen" /><published>2024-06-01T16:05:53+00:00</published><updated>2024-06-01T16:05:53+00:00</updated><id>https://odarasimi.github.io/pages/odarasimi/programming/2024/06/01/PyTorch-is-Ten-out-of-ATen</id><content type="html" xml:base="https://odarasimi.github.io/pages/odarasimi/programming/2024/06/01/PyTorch-is-Ten-out-of-ATen.html"><![CDATA[<p><em>“I have made this letter <strong>longer</strong> than usual, only because I have not had the time to <strong>make it shorter</strong>.” - Blaise Pascal</em></p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.5">Jekyll</generator><link href="https://odarasimi.github.io/pages/odarasimi/feed.xml" rel="self" type="application/atom+xml" /><link href="https://odarasimi.github.io/pages/odarasimi/" rel="alternate" type="text/html" /><updated>2024-07-17T16:46:28+00:00</updated><id>https://odarasimi.github.io/pages/odarasimi/feed.xml</id><title type="html">Donuts, Simplices, and Conics</title><subtitle>Let&apos;s talk about Geometry, Cameras. Conics, Manifolds</subtitle><author><name>Anuoluwapo Adisa</name></author><entry><title type="html">Linear Least Squares</title><link href="https://odarasimi.github.io/pages/odarasimi/math/2024/07/17/linear-least-squares.html" rel="alternate" type="text/html" title="Linear Least Squares" /><published>2024-07-17T07:00:53+00:00</published><updated>2024-07-17T07:00:53+00:00</updated><id>https://odarasimi.github.io/pages/odarasimi/math/2024/07/17/linear-least-squares</id><content type="html" xml:base="https://odarasimi.github.io/pages/odarasimi/math/2024/07/17/linear-least-squares.html"><![CDATA[<p><em>“An approximate answer to the right problem is worth a good deal more than an exact answer to an approximate problem.” - John Tukey</em></p>
+
+<h6 id="preamble">Preamble</h6>
+
+<p>Lagrange multipliers <br />
+We have a function $a$ -&gt; $f(x,y)$ and an equation $b$ -&gt; $x^2 + y^2 = 1$. We want values of $x$ and $y$ that satisfies both, and that results in a subset of the $x,y$ plane that satisfies the equation. With our example, that would mean that the only $x,y$ values we want are the ones that satisfy the equation: $x^2 + y^2 = 1$.
+Not only do we want to find a, we may want to find a subset that optimises the value of $a$. We may want to find the minima of $a$, or the maxima.
+Now note that the contour lines indicates the boundaries of different values for $f(x,y)$ and $b(x,y)$, and if you wanted to change values the fastest,a straight perpendicular line between the curves does the job (obviously, since it’s the gradient). Hence the gradients of $a$ and $b$ will be perpendicular at the point indicated.</p>
+
+<p><img src="/assets/images/contour.png" alt="contour lines" width="500" height="400" /></p>
+
+<p>The gradient of $b$ will point in the direction as the gradient of $f$, and they will not necessarily be equal but proportional to each other: 
+\(\partial _{x,y} a = \lambda \partial _{x,y} b\)</p>
+
+<p>So we have 2 equations, and we add a third equation which is the constraint itself: 
+Then we solve the system of equations with the lagrangian: $L(x, y, \lambda) = f(x,y) - \lambda(b(x,y) - const)$ <br />
+When we take the gradient of that lagrangian function above and set it to 0 as in: $\partial _{x,y, \lambda}L$, we have the 3 equations packed together.</p>
+
+<p>Problem: $Ax = b$ <br />
+$Ax$ is a linear combination of the vectors in $x$ that results is a vector $b$, we have the matrix, we have $b$ and we want to find $x$, but sometimes we can’t get the exact solution, so we want to get very close to the correct answer i.e the most correct $x$ that $A$ transforms to $b$, but in what instances can’t we get the exact solution? We cannot get the exact solution when the matrix is a subspace of the space $b$ lives in, thus the rank of $A$ is not maximal.
+Assuming $A$ is a $n \times p$ matrix, when $n &lt; p$,then there are multiple solutions.</p>
+
+<p>We can rewrite the above problem as: $Ax-b = 0$ <br />
+So $Ax-b$ is a vector, and we want to minmise it’s length, how do we deal with vector lengths? Ans = dot/inner products.<br />
+If $b = 0$, then $Ax = 0$ and a solution is $x = 0$, but we do not want that trivial solution, so we need to place a constraint on our equation.<br />
+Hence we want to minimise $\lVert Ax \rVert$ if $b = 0$ and $\lVert Ax-b \rVert$ if $b != 0$ <br /></p>
+
+<p>Let’s tackle the case where $b = 0$ and we want to minimise $\lVert Ax \rVert$ s.t a constraint on $x$.
+We have to make a minor modification though, because we calculate norms with dot products $\lVert Ax \rVert$ = $\sqrt{(Ax \cdot Ax)} = \sqrt{(A{x}^TAx)}$, but this function is undefined at $x = 0$ and thus not differentiable at that point, and we know that for minimization purposes we need it to be differentiable everywhere…so instead we minimise ${\lVert Ax \rVert}^2 = A{x}^TAx$, which is a smooth function and gives us the same results (gives us the same results because it is a monotonic order preserving transformation i.e if $x&gt;y$ then $f(x) &gt; f(y)$.</p>
+
+<p>Now we simplify ${Ax}^TAx$, and obtain ${x}^T{A}^TAx$. <br />
+Looks like we have gotten an optimisation problem where we have to minimise a quadratic form subject to a constraint.<br />
+-&gt; minimize ${x}^T{A}^TAx$ st the condition that $\lVert x \rVert = 1$ <br />
+-&gt; minimize ${x}^T{A}^TAx$ st the condition that ${x}^Tx = 1$ <br />
+This constrained optimization problem can be solved with Lagrange multipliers. As explained above we end up having to minimize: ${x}^T{A}^TAx + \lambda({x}Tx-1)$ <br />
+Take derivatives of the lagrangian with respect to $x$ and we get: <br />
+${A}^TAx + \lambda x = 0$. <br />
+The equation derived from the $x$ partial derivative: ${A}^TAx + \lambda x = 0$ indicates that $x$ is an eigenvector of ${A}^TA$ with eigenvalue $-\lambda$.</p>
+
+<p>By setting the derivative with respect to $\lambda$ to zero, we enforce the constraint on the solution, ensuring that minimization is performed within the feasible set defined by the constraint ∥𝑥∥=1 <br />
+Our goal was to minimize ${x}^T{A}^TAx$, so we need the eigenvector $x$ with the smallest eigenvalue. The matrix ${A}^TA$ was thus decomposed into eigenvalues and eigenvectors.<br /></p>
+
+<p>Now let’s move on to the case where we want to minimise $\lVert Ax - b \rVert$ for a nonzero $b$. Like above we would minimise $ {\lVert Ax - b \rVert} ^2$, but we do not need a constraint as we can’t get a trivial solution of $0$…and we also do not need lagrange multipliers since we are not optimising with respect to a constraint.</p>
+
+<p>${\lVert Ax - b \rVert}^2 $ =  ${(Ax−b)}^TAx−b = {x}^T{A}^TAx−2{b}^TAx+{b}^Tb$. <br />
+Take partial derivatives of the function and set them to $0$ (to find the minimum), then we get <br />
+=&gt; $2{A}^TAx−2{A}^Tb=0$. <br />
+=&gt; ${A}^TAx - {A}^Tb = 0$. <br />
+Hence ${A}^T (Ax - b) = 0$ =&gt; $A \cdot (Ax-b)$ = 0 <br />
+Thus $A$ is orthogonal to $Ax - b$</p>
+
+<p><img src="/assets/images/least_sq.png" alt="least squares" width="500" height="400" /></p>
+
+<p>If the span of A defines a plane, then it means that Ax - b is orthogonal to the plane. <br />
+$x = {({A}^TA)}^{−1}A^Tb$. (Note that $A$ has to be invertible)</p>
+
+<h6 id="references">References</h6>
+<ul>
+  <li>https://www.cim.mcgill.ca/~langer/558/2009/lecture13.pdf</li>
+</ul>]]></content><author><name>Anuoluwapo Adisa</name></author><category term="math" /><summary type="html"><![CDATA[“An approximate answer to the right problem is worth a good deal more than an exact answer to an approximate problem.” - John Tukey]]></summary></entry><entry><title type="html">Projective Geometry and Transformations of 2D</title><link href="https://odarasimi.github.io/pages/odarasimi/geometry/2024/07/17/projective-geometry-and-transformations-of-2D.html" rel="alternate" type="text/html" title="Projective Geometry and Transformations of 2D" /><published>2024-07-17T07:00:00+00:00</published><updated>2024-07-17T07:00:00+00:00</updated><id>https://odarasimi.github.io/pages/odarasimi/geometry/2024/07/17/projective-geometry-and-transformations-of-2D</id><content type="html" xml:base="https://odarasimi.github.io/pages/odarasimi/geometry/2024/07/17/projective-geometry-and-transformations-of-2D.html"><![CDATA[<p><em>“Algebra is the offer made by the devil to the mathematician. The devil says: “I will give you this powerful machine, and it will answer any question you like. All you need to do is give me your soul: give up geometry and you will have this marvellous machine.” . . . the danger to our soul is there, because when you pass over into algebraic calculation, essentially you stop thinking: you stop thinking geometrically, you stop thinking about the meaning.” - Sir Michael Atiyah</em></p>
+
+<p><br /></p>
+
+<p><img src="/assets/images/mvg_one_header.png" alt="header" width="600" height="400" /></p>
+
+<p>This is first in a series meant to go through some of the chapters in Hartley and Zisserman’s book titled <em>Multiple View Geometry in Computer Vision</em>. A cursory preview can be found in this earlier <a href="https://odarasimi.github.io/geometry/2024/05/30/Mild-thoughts-on-projective-geometry.html">post</a>. This post covers the first part of Chapter 2 in the aforementioned book.</p>
+
+<h6 id="preamble">Preamble</h6>
+
+<p>In this series, we will be looking at the geometric and algebraic principles used to analyze and understand spatial relationships between objects in space.
+I believe it’s always helpful to remember that this journey takes us through a very illuminating map of spatial objects and elements. However, it’s important to note that the map is not the territory, and a description of a square is not the square itself, but rather a rich view that encodes the characteristics of that square. For example, a plane is represented mathematically by its normal vector, this method references the fact that we can represent a set by an element that is not contained within it. As an example of this, let’s consider that you have 5 out of the only 6 cars that exist in the world, you can represent your cars by listing all the cars that you have, but if you want to conserve time and space, you can as well represent your cars by listing the only car that you do not have, thus, the exception determines the rule.</p>
+
+<p><img src="/assets/images/normal_vector.png" alt="header" width="600" height="400" /></p>
+
+<p>First, let’s get through some basic ideas.</p>
+<ul>
+  <li>
+    <p><span style="font-size:medium;">A model is a description or characterisation of an element, and that description serves as a window through which we may view a particular set of features possessed by the element under consideration, we know that no model is absolute, so a combination or fusion of models supplies a richer view of the peculiarities and particulars of that element.</span></p>
+  </li>
+  <li>
+    <p><span style="font-size:medium;">Equality between entities/objects mainly specifies and refers to those components that are identical, which may only be part of an entity but determine the whole, and specify its intrinsic meaning, as determined by the intentions used to characterise the entity. When we say that entities are identical to each other, they may not be the same, but they share the same properties with respect to all the operations we expect to perform on it. For example, am I the same as the person I was yesterday? perhaps not, but am I equal to that person for all legal intent and purposes? yes I am…within the space of physiological/philosophical operations, I may not be equal to who I was yesterday, but within the space of legal operations, I am ‘legally equal’ to that person as a legal entity.</span>
+<img src="/assets/images/equal_shapes.png" alt="header" width="600" height="400" /></p>
+  </li>
+  <li>
+    <p><span style="font-size:medium;">Euclidean Geometry was seen as the only geometry to exist, as it described the space we live in to great exactness. Then it was thought that surely the parallel postulate was such a necessary property of straight lines that it would follow from the previou postulate, however this was found to be an erroneous assumption, the parallel postulate does not arise from the first 4 and is not superfluous, this means that if we take the first 4 to be true, it does not necessarily mean that the 5th is false or true. And since we cannot travel to infinity to verify the case ourselves, the consequence is that we can assume the parallel postulate to be true or false, and based on the varying interpretations, we get different types of geometry (different descriptions of space), this means there can be more than one logically possible geometry.</span></p>
+  </li>
+</ul>
+
+<p>Our focus is primarily on projective geometry, but to gain a good foothold, we need to set our feet on more solid ground, and sweep through the basic ideas.</p>
+
+<h6 id="the-2d-projective-plane">The 2D Projective Plane</h6>
+
+<p>When I use the word geometry, these are the terms that go through my mind, each progressively expanding on the previous.</p>
+<ul>
+  <li>Geometry is the study of shapes and their properties</li>
+  <li>Geometry is the study of figures on a surface and their properties</li>
+  <li>Geometry is the study of figures on a surface and the spatial qualities that distinguishes it from other figures.</li>
+</ul>
+
+<p>We can determine the spatial qualities that make a shape distinguished, by identifying those properties that make it equal to another instance of the same shape. Hence if two squares are equal, then they share the same properties…likewise, if they share the same properties, then they are equal.
+What makes a square equal to another square? We can say two squares are equal if placing one atop the other creates an identical match in <em>shape and size</em>…the notion that we need to place one shape atop the other informs us that there is some kind of motion taking place. Hence, two shapes are equal if there exists a motion that superimposes the first object on the second so that they match each other exactly in shape and size.  Now if the objects are the same, before and after such a transformation, identical properties must remain the same, so we can say that any spatial property that is preserved when you subject that object to a transformation from itself to an identical object of same shape and size but different location is a geometric property of the object. (i.e I remain the same person to who I was before I walked across a room).</p>
+
+<p>Since, we can specify, describe and observe objects through their properties, geometry can be succintly described as the study of invariants (set of geometric properties that do not change) under a set of transformations (a group of select motions).
+This idea of relating properties of figures to the associated geometry was introduced by Felix Klein <em>(1849-1925)</em>.</p>
+
+<p>Here we distinguish between two kinds of transformations - rigid motion and projection</p>
+
+<p><strong>Metric</strong>: A rigid motion effects a change in the position of an object in space through rotation and translation. A geometric property which is preserved by all rigid motions is a metric property (distance, angle, area etc), a theorem that deals with metric properties is a metric theorem, and Euclidean geometry is the geometry of metric properties inclusive of the metric theorems. <br />
+<strong>Projections</strong>: A property that is preserved by all projections is called a projective property (that a curve be a straight line, that a curve be a conic etc), and the associated geometry deals merely with projective properties (invariants with respect to projection).</p>
+
+<p>In summary, if 2 objects are the same, then they share the same geometric properties, that means translation from the first to the second object’s position must mean that the geometric property remains the same before translation..it must be invariant, because if the two bodies are the same, and the property changes after the relocation of one to the other body’s location, it means that the propery is not shared by both bodies in resting state (that’s why it had to change)…and it means that the property does not capture “equality” (since we originally said both bodies are equal to each other).</p>
+
+<p>Projective Equivalence: Pursuing the above ideas further, if there exists a group of transformations that can projectively map/transform an object (points, lines etc) to take the shape and size of the other object we see both objects as projectively equivalent and we represent them (algebraically) with homogeneous coordinates (more on this later).</p>
+
+<p>Time to dive into the major points of the book! - Multiple View Geometry</p>
+
+<h6 id="planar-geometry">Planar Geometry</h6>
+<p>The book takes an hybrid approach - the algebraic and the geometric, where points and lines are described as vectors, and this leads to ease in computation.</p>
+
+<p>Let’s take a look at an example</p>
+
+<p>Imagine we had vectors living on a line (born in 1D space); we focus particularly on 2 vectors - on the 1-D plane shown below…and we can translate both points to any other point on the 1D number line.? The line may be oriented in various ways, but it still refers to the same 1D space. The 2 vectors only understand and live in the 1D space, you can move the 1D space around, and spin it about, put it in a box, or take it to the moon, the vectors <em>inside</em> that 1D space only know about the internal properties of the space they live on, all they know is that they live on a 1D conveyor belt and that conveyor belt moves them from one point to the other. They live inside a house and understand the interior alone, and do not know if the house itself has been moved or relocated to some other spot.
+<img src="/assets/images/a_and_b.png" alt="header" width="600" height="400" /></p>
+
+<p>Now when both vectors are transformed, they both intend to maintain a distance between each other, let’s say the intend to maintain their current separation of 3 and we want to transform the red vector to -7, we cannot simply add -3 to the vectors because -3 is a scalar and you do not add scalars to vectors (remember that a scalar has no sense of direction and our 1D vector is oriented in a very particular way), so we need to stretch/scale the specific vector (Red) to another point on the same line, recall that we can scale or stretch via multiplication.</p>
+
+<p>We can scale Red by a scaling factor, then scale blue with another scaling factor so they maintain that separation distance but how can we do this at once without having 2 different scaling factors?  Well, we can use our powers of 2D and draft in a second basis vector. The factors and vectors involved in the scaling becomes 2D. We simply manipulate the vectors through 2D, and a single scaling factor. We move these vectors  in 2D with a single transformation of the two basis vectors, they only see what happens in 1D, they are scaled accordingly, and are happy. So what happened? Both vectors still live in (and only have knowledge of) 1D space, so they do not know that their world has been rocked and a second dimension has been added via another basis vector…but it doesn’t matter, they do not need to know as their lives do not change (from their view). To maintain the illusion, we move them up the second basis vector by 1, so their new coordinates (in our view) become 2D, but they co-exist just the same way they did in 1D. 
+<em>Imagine you had a plate of food on a table, and your only reference point is that table, now someone comes in and moves the table to the other room without touching the food…nothing has changed with respect to the plate of food and that reference point - the table.</em></p>
+
+<p>If you were to move the location of the 1D line up in the second dimension, you get the same 1D separation between the vectors, nothing between them has changed, but now you have extra levers to pull because you have an extra basis vector, the 1D space sits on the basis vectors, and if you change the x coordinate of the second basis vector, you can shift the whole space all at once, because you are basically shifting the vectors that rely on that vector as their basis. This gives us a way to reliably translate the whole 1D space, by simply shifting the basis on which the space sits on.
+Recall again that for all intents and purposes, the fact that red and blue are now represented as 2d vectors changes nothing about the relationship between them, in relation to each other they remain 1D vectors on that space, and you can discard the last coordinate without any adverse effects. This introduces the concept of homogeneous coordinates, where an extra dimension is brought in to give us an added lever of manipulation. We have our 1D vectors but we manipulate them in 2D, and the same goes for 2D to 3D, they live in 2D, but are manipulated in 3D…and so on it goes.</p>
+
+<hr />
+
+<p>Now that we’ve seen that we can represent points as vectors, we recognise the fact that we can likewise represent lines as vectors.
+To draw a line in the plane, we generally use the equation of a line: $ax + by + c = 0$, with $x,y$ as points over the plane, $a,b,c$ determines a unique line. 
+Points: We can represent the points as vectors in the plane $(x,y)$…hence in homogeneous coordinates, this will be $(x,y,1)$, or more generally $k(x,y,1)$ -&gt; $(kx, ky, k)$. With  $(kx, ky, k)$, if we want the exact points we started out with in Euclidean space (because Euclidean space selects a particular plane out of all equivalent planes), we divide by k so that the last coordinate value equals 1 (recall what we said in the preamble about projective equivalence and note that these points $(x,y,1), (kx, ky, k)$ are projectively equivalent). 
+<img src="/assets/images/proj_equi.png" alt="projective equivalence" width="600" height="400" /></p>
+
+<p>Lines: Let’s take a look at how homgeneous lines will look like, we observe that the whole pattern forms a plane, this means we can represent our 2D lines homogeneously with a 3 vector which is normal to that plane, and this naturally turns out to be our vector $a,b,c$ from $ax + by + c = 0$. 
+The general form of a plane : $Ax + By + Cz = D$, <em>where $z = 0$, $Ax + By + D = 0$, (D can be any number, negative or positive).</em></p>
+
+<p>Here comes something lovely, if $(a,b,c)$ and $(x,y,1)$ are vectors ,we can insert them into the line equation to see the constraint that the dot product of the 2 vectors must be equal to 0,  $(a, b, c) \cdot (x, y, 1) = 0$. This means that both vectors are orthogonal to each other with an angle of 90 degrees. We represent this relationship succintly with $l \cdot x = 0$ or $x \times l^T = 0$ or $l \times x = 0$</p>
+
+<p>Intersection of lines: We know from common experience that 2 lines intersect at a point (even parallel lines, which we will see later on). Let’s check. Given two lines with a common intersection, we know that any point that lies on a line needs to satisfy $x \cdot l = 0$, so if we have two lines $l$ and $l’$, and a point lies on both lines,the vectors that represent the objects to satisfy the equations $x \cdot l = x \cdot l’ = 0$, this means that it is orthogonal to both lines…and this means we have to find the cross product $l \times l’$; thus the intersection of two lines $l$ and $l’$ is the point $x = l \times l’$
+<img src="/assets/images/line_normals.png" alt="line normal" width="600" height="400" /></p>
+
+<p>Lines joining points: Following a similar argument for the intersection of lines above, a line $l$ that joins two points has to satisfy $l \cdot x = l \cdot x’ = 0$, hence the vector representing $l$ has to be orthogonal to the vectors representing the points. Thus $l = x \times x’$
+Degrees of freedom (dof): A point can be represented in the plane with the 2 coordinates $x$ and $y$…and hence has 2 dof , a line also has 2 d.o.f if you consider the point slope form of a line $y = -a/bx - c = mx + c$ …where the 2 parameters needed = $m$ and $c$, alternatively the two independent ratios ${a : b : c} =&gt; $a/b$; $b/c$.</p>
+
+<p>N.B Don’t forget that these lines and points are represented in equations as vectors, hence whenever $l$ or $x$ is referred to in  the context of an equation, think about the vectors representing them.</p>
+
+<h6 id="ideal-points-and-the-line-at-infinity">Ideal points and the line at infinity</h6>
+<p>Now we arrive at an interesting point - infinity. First we need to consider the notion that  the 2D space we are looking at is a projection of the real world, hence the 2D plane is a projected reality.
+Now in this 2D Euclidean plane, parallel lines do not meet, but by now, we know that Euclidean geometry is not the only geometry that exists..perhaps what we do not see in the current 2D form exists in some other projected form? The following is an attempt to tackle the intuition behind these ideas. 
+Imagine two intersecting lines and take note of both ends of both lines &amp; the intersection point, now rotate one of those lines and watch the intersection point extend further out through your mind’s eye…at a certain point that intersection point gets farther and farther till infinity, then the line becomes parallel right? And just when you rotate past the point where it’s parallel, the intersection point immediatel snaps back to reappear at the other end of the line. At the point where the lines are parallel to each other, we may say the line intersects at infinity, since we observe that the further and further and further and further the intersection point goes, the ‘more parallel’ it becomes,we deduce therefore that the lines become parallel at the limit of intersection.
+<img src="/assets/images/parallel_projection.png" alt="parallel projection" width="600" height="400" />
+We know that we cannot play fast and loose when dealing with infinity, so we are aware of the fact that we have a point at infinity that we cannot observe, but how do we represent that  point? We use vectors as usual, vectors represent direction, so even if we cannot get to that point, we can point to the ‘limiting’ direction.</p>
+
+<p>Now let’s align our intuition with equations. We  consider 2 parallel lines and compute their intersection points, we find that the 3rd coordinate is 0, and the inhomogeneous representation of this point (b/0,-a/0) results in a division by 0 which points to an infinitely large number $(\infty,\infty)$ and agrees with our intuition. Thus points at infinity have 0 as the z coordinate, and thus all ideal points may be represented as  $(x,y,0)$.
+These points lie on a line (the line at infinity), and the line is represented as usual by the plane normal vector $(0, 0, 1)$</p>
+
+<p>A general line $(a,b,c)^T$ intersects $l$* at the ideal point $(b, -a, 0)$ (recall how to find the point of intersection via cross product and verify with the dot product of the point and the line).
+The first two coordinates of this point at infinity lie on the $z = 0$ coordinate and can be as a vector that represents direction. we also notice that in inhomogeneous coordinates $(b,-a)$ is also a vector tangent to the parallel lines and orthogonal to the line normal, so we can say it represents the line’s direction.</p>
+
+<p>Duality: If you can get a figure from points, and you replace each points with its dual line and you combine those points with a dual operation…the resulting figure is the dual to the initial figure.</p>
+
+<p>The role of points and lines may be interchanged in these ways:
+-&gt; $l^Tx = 0$ and $x^Tl = 0$
+-&gt; $x = l \times l’$  and $l = x \times x’$
+What do you get when you interchange the roles of points and lines in the original theorem? What you get is the dual</p>
+
+<p>For the next section we will begin with conics and dual conics</p>
+
+<h6 id="references">References</h6>
+
+<ul>
+  <li>
+    <p>Gielis, Johan &amp; Tavkhelidze, Ilia. (2020). <em>The general case of cutting of Generalized Möbius-Listing surfaces and bodies</em>. 3. 7. 10.1051/fopen/2020007.</p>
+  </li>
+  <li>
+    <p>Graustein, W. C. (1930). <em>Introduction to higher geometry</em>. New York, NY: The Macmillan Company.</p>
+  </li>
+  <li>
+    <p>Hartley, R., &amp; Zisserman, A. (2004). <em>Multiple View Geometry in Computer Vision (2nd ed.)</em>. Cambridge: Cambridge University Press.</p>
+  </li>
+  <li>
+    <p>Kneebone, G. T. (1960). <em>Algebraic Projective Geometry</em>. Oxford: Clarendon Press.</p>
+  </li>
+</ul>]]></content><author><name>Anuoluwapo Adisa</name></author><category term="geometry" /><summary type="html"><![CDATA[“Algebra is the offer made by the devil to the mathematician. The devil says: “I will give you this powerful machine, and it will answer any question you like. All you need to do is give me your soul: give up geometry and you will have this marvellous machine.” . . . the danger to our soul is there, because when you pass over into algebraic calculation, essentially you stop thinking: you stop thinking geometrically, you stop thinking about the meaning.” - Sir Michael Atiyah]]></summary></entry><entry><title type="html">PyTorch is Ten out of ATen</title><link href="https://odarasimi.github.io/pages/odarasimi/programming/2024/06/01/PyTorch-is-Ten-out-of-ATen.html" rel="alternate" type="text/html" title="PyTorch is Ten out of ATen" /><published>2024-06-01T16:05:53+00:00</published><updated>2024-06-01T16:05:53+00:00</updated><id>https://odarasimi.github.io/pages/odarasimi/programming/2024/06/01/PyTorch-is-Ten-out-of-ATen</id><content type="html" xml:base="https://odarasimi.github.io/pages/odarasimi/programming/2024/06/01/PyTorch-is-Ten-out-of-ATen.html"><![CDATA[<p><em>“I have made this letter <strong>longer</strong> than usual, only because I have not had the time to <strong>make it shorter</strong>.” - Blaise Pascal</em></p>
 
 <p>For anyone with passing familiarity with deep learning workloads and the challenge of scaling, it is generally no surprise to see AI companies gathered at the cathedral of accelerated GPU hardware. Personally, I think domain-centric hardware could be the future, or perhaps compilers that support various backends, like XLA <a href="https://openxla.org/xla">https://openxla.org/xla</a>. 
 Nevertheless, hand-woven optimization remains integral (no pun intended) in areas like geometry processing and deep learning.
@@ -15,21 +204,21 @@ This efficiency helps speed up deep learning computations, and this is what we w
 <p>PyTorch uses C++ extensively in its backend, and when one thinks of the relationship between PyTorch and ATen, there are 2 salient points to keep in mind</p>
 
 <ul>
-  <li>When you perform tensor operations in PyTorch, the higher-level Python code often triggers ATen’s C++ functions behind the scenes.</li>
-  <li>These C++ functions are implemented to perform the actual mathematical computations, memory allocation, and other low-level tasks required for tensor operations.</li>
+  <li>When one performs tensor operations in PyTorch, the higher-level Python code often triggers ATen’s C++ functions behind the scenes.</li>
+  <li>These C++ functions are implemented to perform the actual mathematical computations, memory allocation, and some other low-level tasks required for tensor operations.</li>
 </ul>
 
 <p>PyTorch’s backend, including ATen, leverages C++ to provide efficient tensor operations, memory management, and hardware abstraction. When you execute PyTorch code involving tensor operations, the relevant C++ functions from ATen are used directly, without some separate compilation step to “ATen code.” This is an orchestra of Python’s high-level expressiveness and C++’s performance optimization.
-So whenever we want to optimize our code with GPUs, we provide custom C++ code that we choose to call <em>C++ extensions</em> (using the ATen library directly for tensor computations), and we connect our familiar PyTorch frontend (Python) to our custom C++ code with python bindings (we have to connect the frontend to the backend ourselves, because they are custom)…as a consequence we reduce the overhead of the python interpreter.</p>
+So whenever we want to optimize our code with GPUs, we provide custom C++ code that we choose to call <em>C++ extensions</em> (using the ATen library directly for tensor computations), and we connect our familiar PyTorch frontend (Python) to our custom C++ code with python bindings (we have to connect the frontend to the backend ourselves, because they are custom)…as a consequence we have the option to reduce the overhead of the python interpreter (e.g fused operations).</p>
 
 <p><strong>How do we do this?</strong></p>
 <h6 id="to-integrate-c-with-pytorch">To Integrate C++ with PyTorch</h6>
 <ul>
-  <li>Write C++ Code: You write C++ code that contains the functionality you need.</li>
-  <li>Compile C++ Code: The C++ code is compiled using a C++ compiler, which generates compiled machine code that can be executed by the CPU.</li>
-  <li>Python Wrapper: You create a Python wrapper using tools like pybind11. This wrapper defines Python functions that map to the compiled C++ functions.</li>
-  <li>Compile Wrapper: The Python wrapper code is compiled into a Python extension module.</li>
-  <li>Python Interaction: When you call a Python function from the extension module, the Python interpreter uses the wrapper to call the corresponding compiled C++ function directly. This means that the compiled machine code of the C++ function is executed.</li>
+  <li>Write C++ Code: Write C++ code that contains the functionality needed.</li>
+  <li>Compile C++ Code: The C++ code is compiled using a C++ compiler, the compiler generates machine code that can be executed by the CPU.</li>
+  <li>Python Wrapper: Create a Python wrapper using tools like pybind11. This wrapper defines Python functions that map to the compiled C++ functions.</li>
+  <li>Compile Wrapper: Now the Python wrapper code is compiled into a Python extension module.</li>
+  <li>Python Interaction: When a Python function is called from the extension module, the Python interpreter uses the wrapper to call the corresponding compiled C++ function directly. This means that the compiled machine code of the C++ function is executed.</li>
   <li>C++ Execution: The compiled C++ code executes, performing the desired operations.
 Return to Python: Control returns to the Python interpreter after the C++ function completes, and any results or return values from the C++ function are returned to Python.</li>
 </ul>
@@ -37,14 +226,13 @@ Return to Python: Control returns to the Python interpreter after the C++ functi
 <h6 id="c-and-pytorch">C++ and PyTorch</h6>
 <p><strong>Ahead of Time with setuptools:</strong></p>
 <ul>
-  <li>C++ Extensions: C++ extensions are modules that contain C++ code linked with Python, allowing you to use compiled C++ functionality within Python.</li>
+  <li>C++ Extensions: C++ extensions are modules that contain C++ code linked with Python, and allows use of compiled C++ functionality within Python.</li>
   <li>setuptools: setuptools is a package used to build and distribute Python packages. It includes tools for compiling and installing Python extensions.</li>
-  <li>Building Ahead of Time: Building “ahead of time” means that you pre-compile your C++ code into a shared library (like a .so file) before running your Python program.</li>
+  <li>Building Ahead of Time: Building “ahead of time” means that we pre-compile C++ code into a shared library (like a .so file) before running the Python program.</li>
   <li>Process:
     <ul>
-      <li>You write your C++ code and create a Python wrapper using tools like pybind11 or Cython.</li>
-      <li>You use setuptools to build the C++ extension into a shared library.
-This compiled extension module can then be imported and used in your Python code like any other Python module.</li>
+      <li><span style="font-size:medium;">Write the C++ code and create a Python wrapper using tools like pybind11 or Cython.</span></li>
+      <li><span style="font-size:medium;">Use setuptools to build the C++ extension into a shared library. This compiled extension module can then be imported and used in the Python code like any other Python module.</span></li>
     </ul>
   </li>
 </ul>
@@ -52,23 +240,22 @@ This compiled extension module can then be imported and used in your Python code
 <p><strong>Just in Time with torch.utils.cpp_extension.load():</strong></p>
 <ul>
   <li>C++ Extensions: Same as above, C++ extensions are modules containing compiled C++ functionality.
-torch.utils.cpp_extension.load(): This is a PyTorch utility function that allows you to compile and load C++ extensions dynamically at runtime, rather than pre-compiling them before running your Python program.</li>
-  <li>Building Just in Time: With this approach, you don’t pre-compile the C++ extension ahead of time. Instead, you use torch.utils.cpp_extension.load() to compile and load the extension when needed.</li>
+torch.utils.cpp_extension.load(): This is a PyTorch utility function that allows one to compile and load C++ extensions dynamically at runtime, rather than pre-compiling them before running the Python program.</li>
+  <li>Building Just in Time: With this approach, we don’t pre-compile the C++ extension ahead of time. Instead, we use torch.utils.cpp_extension.load() to compile and load the extension when needed.</li>
   <li>Process:
     <ul>
-      <li>You write your C++ code and create a Python wrapper.</li>
-      <li>You use torch.utils.cpp_extension.load() to compile the C++ code and load the extension module dynamically into your Python program at runtime.
-This extension module is then available for use in your Python code.</li>
+      <li><span style="font-size:medium;">Write the C++ code and create a Python wrapper.</span></li>
+      <li><span style="font-size:medium;">Use torch.utils.cpp_extension.load() to compile the C++ code and load the extension module dynamically into the Python program at runtime. This extension module is then available for use in the Python code.</span></li>
     </ul>
   </li>
 </ul>
 
 <p>Ultimately, we can then mix C++ with CUDA kernels (which run on the GPU). The compilers for both C++ AND CUDA each handle their respective pieces of code…and as usual each function is accessible from the Pytorch python frontend.</p>
 
-<p><em>References</em>
-<a href="https://pytorch.org/tutorials/advanced/cpp_extension.html">https://pytorch.org/tutorials/advanced/cpp_extension.html</a></p>]]></content><author><name>Anuoluwapo Adisa</name></author><category term="Programming" /><summary type="html"><![CDATA[“I have made this letter longer than usual, only because I have not had the time to make it shorter.” - Blaise Pascal]]></summary></entry><entry><title type="html">Mild thoughts on Projective Geometry</title><link href="https://odarasimi.github.io/pages/odarasimi/geometry/2024/05/30/Mild-thoughts-on-projective-geometry.html" rel="alternate" type="text/html" title="Mild thoughts on Projective Geometry" /><published>2024-05-30T11:10:53+00:00</published><updated>2024-05-30T11:10:53+00:00</updated><id>https://odarasimi.github.io/pages/odarasimi/geometry/2024/05/30/Mild-thoughts-on-projective-geometry</id><content type="html" xml:base="https://odarasimi.github.io/pages/odarasimi/geometry/2024/05/30/Mild-thoughts-on-projective-geometry.html"><![CDATA[<p>…</p>
-
-<p><em>“No man ever steps in the same river twice, for it’s not the same river and he’s not the same man.” - Heraclitus</em></p>
+<h6 id="references">References</h6>
+<ul>
+  <li><a href="https://pytorch.org/tutorials/advanced/cpp_extension.html">https://pytorch.org/tutorials/advanced/cpp_extension.html</a></li>
+</ul>]]></content><author><name>Anuoluwapo Adisa</name></author><category term="Programming" /><summary type="html"><![CDATA[“I have made this letter longer than usual, only because I have not had the time to make it shorter.” - Blaise Pascal]]></summary></entry><entry><title type="html">Mild thoughts on Projective Geometry</title><link href="https://odarasimi.github.io/pages/odarasimi/geometry/2024/05/30/Mild-thoughts-on-projective-geometry.html" rel="alternate" type="text/html" title="Mild thoughts on Projective Geometry" /><published>2024-05-30T11:10:53+00:00</published><updated>2024-05-30T11:10:53+00:00</updated><id>https://odarasimi.github.io/pages/odarasimi/geometry/2024/05/30/Mild-thoughts-on-projective-geometry</id><content type="html" xml:base="https://odarasimi.github.io/pages/odarasimi/geometry/2024/05/30/Mild-thoughts-on-projective-geometry.html"><![CDATA[<p><em>“No man ever steps in the same river twice, for it’s not the same river and he’s not the same man.” - Heraclitus</em></p>
 
 <p><img src="/title_proj_geo.png" alt="projective geometry" width="600" height="400" /></p>
 
@@ -78,36 +265,36 @@ This extension module is then available for use in your Python code.</li>
 
 <ul>
   <li>The study of properties that are invariant under projective transformation.</li>
-  <li>The study of lower-dimensional objects through a higher-dimensional lens.</li>
+  <li>The view of objects through a higher-dimensional lens.</li>
 </ul>
 
 <h5 id="the-study-of-invariant-properties-under-projective-transformation">The Study of Invariant Properties under Projective Transformation</h5>
 
-<p>We can accurately capture the essence of abstraction in mathematics, illustrating how specific operations and entities in arithmetic and geometry are generalized into the broader frameworks of algebra and geometry. This abstraction allows mathematicians to study more complex and general properties beyond specific instances. In this context, you have a group of things that follow a specific rule, and you define an operation on the members of that group based on the premise that the members obey the laws that define the structure of the group.</p>
+<p>We can accurately capture the essence of abstraction in mathematics, illustrating how specific operations and entities in arithmetic and geometry are generalized into the broader frameworks of algebra and geometry. This abstraction allows mathematicians to study more complex and general properties beyond specific instances. In this context, you have a group of objects that follow a specific rule, and you define an operation on the members of that group based on the premise that the members obey the laws that define the structure of the group.</p>
 
 <p><img src="/abstract.png" alt="abstract" width="450" height="250" /></p>
 
 <p>Taking a cue from Kneebone’s ‘Algebraic Projective Geometry’, we see that if numbers and polynomials both satisfy the laws of algebra, then they share a common structure, and we may study a system based on that structure without going into the specifics of the nature of the objects involved other than the fact that they all possess the structure in question.<br />
-<em>This is similar to the ideas in Linear Algebra, where vectors can be of different forms, or live in different spaces. Polynomials, real numbers, and geometric objects are different objects, but they share the fundamental structure that defines linear algebra. Even though we can intuit one from the other (e.g dot products -&gt; inner products), we do not need to project the properties of one onto the other. Thus, when we talk about the “length of a polynomial” via inner products for example, we are taking a view from the geometric vector space.</em></p>
+<em>This relates to the ideas in Linear Algebra, where vectors can be of different forms, or live in different spaces. Polynomials, real numbers, and geometric objects are different objects, but they share the fundamental structure that defines linear algebra - vectors. Even though we can intuit one from the other (e.g dot products -&gt; inner products), we do not need to project the properties of one onto the other. Thus, when we talk about the “length of a polynomial” via inner products for example, we are taking a view from the geometric vector space.</em></p>
 
 <p>Now, in Euclidean geometry, rotations and scalings, for example, have a common spatial structure - they both preserve shape. Generally speaking, displacements possess a common spatial structure. A translated, rotated square is considered to be the same square, i.e., the shape is invariant. Euclidean geometry is thus the invariant theory of the group of displacements, and based on these invariants, we define a metric—a way to measure distances, angles, and other structural aspects of the geometry. In a way, these operations define a space, as the Euclidean transformations limit you to the Euclidean space. The same analogy can be carried over to projective geometry, which we define as the invariant theory of the group of projections. That is, under projective transformations, find out which properties of the object remain invariant, and then we define a metric based on those properties.</p>
 
-<h5 id="the-study-of-lower-dimensional-objects-through-a-higher-dimensional-lens">The Study of Lower-Dimensional Objects through a Higher-Dimensional Lens</h5>
+<h5 id="the-view-of-objects-through-a-higher-dimensional-lens">The view of objects through a higher-dimensional lens</h5>
 
-<p><img src="/parallel.png" alt="parralel" width="650" height="250" /></p>
+<p><img src="/parallel.png" alt="parallel" width="650" height="250" /></p>
 
 <p>On first contact, the statement: “Parallel lines meet at a point in infinity” seems rather absurd, but observing the image above, we see 2 lines (<em>treat these as lines with no limitations on length</em>), and we observe that with a rotation of the red line about the point “x”, the point of intersection of the two lines “p”, moves further and further along the blue line, and as the red line gets closer to being parallel with the blue line, it appears to be that the point “p” approaches an “infinite” point along that blue line.<br />
 Considering the oft-used “railway tracks” example, we consider the fact that those lines live on a plane, and we live in 3D space, this means that we have the liberty and freedom of an extra dimension, this extra dimension offers insight through a different view of the same object. The parallelism of the two lines says nothing about the 3D space in which they live, but the 3D space is in no way compelled to say nothing about the 2D objects in its purview.<br />
 I plan to discuss more on this and the concept of projective equivalence in a follow-up post.</p>
 
-<p><img src="/projtwod.png" alt="projtwod" width="450" height="250" /></p>
+<p><img src="/projtwod.png" alt="projectvie" width="450" height="250" /></p>
 
 <h6 id="references">References</h6>
 <ul>
   <li>
-    <p>Kneebone, G. T. (1960). Algebraic Projective Geometry. Oxford: Clarendon Press.</p>
+    <p>Hartley, R., &amp; Zisserman, A. (2004). <em>Multiple View Geometry in Computer Vision (2nd ed.)</em>. Cambridge: Cambridge University Press.</p>
   </li>
   <li>
-    <p>Hartley, R., &amp; Zisserman, A. (2004). Multiple View Geometry in Computer Vision (2nd ed.). Cambridge: Cambridge University Press.</p>
+    <p>Kneebone, G. T. (1960). <em>Algebraic Projective Geometry</em>. Oxford: Clarendon Press.</p>
   </li>
-</ul>]]></content><author><name>Anuoluwapo Adisa</name></author><category term="geometry" /><summary type="html"><![CDATA[…]]></summary></entry></feed>
+</ul>]]></content><author><name>Anuoluwapo Adisa</name></author><category term="geometry" /><summary type="html"><![CDATA[“No man ever steps in the same river twice, for it’s not the same river and he’s not the same man.” - Heraclitus]]></summary></entry></feed>

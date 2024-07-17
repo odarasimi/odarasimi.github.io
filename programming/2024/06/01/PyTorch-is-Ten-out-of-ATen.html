@@ -134,7 +134,7 @@
                 href="/blog.html"
                 
                 
-              >Blog Posts</a>
+              >Posts</a>
             </li><li class="masthead__menu-item">
               <a
                 href="/about.html"
@@ -186,6 +186,10 @@
               <li><a href="/geometry/2024/05/30/Mild-thoughts-on-projective-geometry.html">Mild thoughts on Projective Geometry</a></li>
             
               <li><a href="/programming/2024/06/01/PyTorch-is-Ten-out-of-ATen.html" class="active">PyTorch is Ten out of Aten</a></li>
+            
+              <li><a href="/geometry/2024/07/17/projective-geometry-and-transformations-of-2D.html">Projective Geometry and Transformations of 2D</a></li>
+            
+              <li><a href="/math/2024/07/17/linear-least-squares.html">Linear Least Squares</a></li>
             
           </ul>
           
@@ -250,21 +254,21 @@ This efficiency helps speed up deep learning computations, and this is what we w
 <p>PyTorch uses C++ extensively in its backend, and when one thinks of the relationship between PyTorch and ATen, there are 2 salient points to keep in mind</p>
 
 <ul>
-  <li>When you perform tensor operations in PyTorch, the higher-level Python code often triggers ATen’s C++ functions behind the scenes.</li>
-  <li>These C++ functions are implemented to perform the actual mathematical computations, memory allocation, and other low-level tasks required for tensor operations.</li>
+  <li>When one performs tensor operations in PyTorch, the higher-level Python code often triggers ATen’s C++ functions behind the scenes.</li>
+  <li>These C++ functions are implemented to perform the actual mathematical computations, memory allocation, and some other low-level tasks required for tensor operations.</li>
 </ul>
 
 <p>PyTorch’s backend, including ATen, leverages C++ to provide efficient tensor operations, memory management, and hardware abstraction. When you execute PyTorch code involving tensor operations, the relevant C++ functions from ATen are used directly, without some separate compilation step to “ATen code.” This is an orchestra of Python’s high-level expressiveness and C++’s performance optimization.
-So whenever we want to optimize our code with GPUs, we provide custom C++ code that we choose to call <em>C++ extensions</em> (using the ATen library directly for tensor computations), and we connect our familiar PyTorch frontend (Python) to our custom C++ code with python bindings (we have to connect the frontend to the backend ourselves, because they are custom)…as a consequence we reduce the overhead of the python interpreter.</p>
+So whenever we want to optimize our code with GPUs, we provide custom C++ code that we choose to call <em>C++ extensions</em> (using the ATen library directly for tensor computations), and we connect our familiar PyTorch frontend (Python) to our custom C++ code with python bindings (we have to connect the frontend to the backend ourselves, because they are custom)…as a consequence we have the option to reduce the overhead of the python interpreter (e.g fused operations).</p>
 
 <p><strong>How do we do this?</strong></p>
 <h6 id="to-integrate-c-with-pytorch">To Integrate C++ with PyTorch</h6>
 <ul>
-  <li>Write C++ Code: You write C++ code that contains the functionality you need.</li>
-  <li>Compile C++ Code: The C++ code is compiled using a C++ compiler, which generates compiled machine code that can be executed by the CPU.</li>
-  <li>Python Wrapper: You create a Python wrapper using tools like pybind11. This wrapper defines Python functions that map to the compiled C++ functions.</li>
-  <li>Compile Wrapper: The Python wrapper code is compiled into a Python extension module.</li>
-  <li>Python Interaction: When you call a Python function from the extension module, the Python interpreter uses the wrapper to call the corresponding compiled C++ function directly. This means that the compiled machine code of the C++ function is executed.</li>
+  <li>Write C++ Code: Write C++ code that contains the functionality needed.</li>
+  <li>Compile C++ Code: The C++ code is compiled using a C++ compiler, the compiler generates machine code that can be executed by the CPU.</li>
+  <li>Python Wrapper: Create a Python wrapper using tools like pybind11. This wrapper defines Python functions that map to the compiled C++ functions.</li>
+  <li>Compile Wrapper: Now the Python wrapper code is compiled into a Python extension module.</li>
+  <li>Python Interaction: When a Python function is called from the extension module, the Python interpreter uses the wrapper to call the corresponding compiled C++ function directly. This means that the compiled machine code of the C++ function is executed.</li>
   <li>C++ Execution: The compiled C++ code executes, performing the desired operations.
 Return to Python: Control returns to the Python interpreter after the C++ function completes, and any results or return values from the C++ function are returned to Python.</li>
 </ul>
@@ -272,14 +276,13 @@ Return to Python: Control returns to the Python interpreter after the C++ functi
 <h6 id="c-and-pytorch">C++ and PyTorch</h6>
 <p><strong>Ahead of Time with setuptools:</strong></p>
 <ul>
-  <li>C++ Extensions: C++ extensions are modules that contain C++ code linked with Python, allowing you to use compiled C++ functionality within Python.</li>
+  <li>C++ Extensions: C++ extensions are modules that contain C++ code linked with Python, and allows use of compiled C++ functionality within Python.</li>
   <li>setuptools: setuptools is a package used to build and distribute Python packages. It includes tools for compiling and installing Python extensions.</li>
-  <li>Building Ahead of Time: Building “ahead of time” means that you pre-compile your C++ code into a shared library (like a .so file) before running your Python program.</li>
+  <li>Building Ahead of Time: Building “ahead of time” means that we pre-compile C++ code into a shared library (like a .so file) before running the Python program.</li>
   <li>Process:
     <ul>
-      <li>You write your C++ code and create a Python wrapper using tools like pybind11 or Cython.</li>
-      <li>You use setuptools to build the C++ extension into a shared library.
-This compiled extension module can then be imported and used in your Python code like any other Python module.</li>
+      <li><span style="font-size:medium;">Write the C++ code and create a Python wrapper using tools like pybind11 or Cython.</span></li>
+      <li><span style="font-size:medium;">Use setuptools to build the C++ extension into a shared library. This compiled extension module can then be imported and used in the Python code like any other Python module.</span></li>
     </ul>
   </li>
 </ul>
@@ -287,21 +290,22 @@ This compiled extension module can then be imported and used in your Python code
 <p><strong>Just in Time with torch.utils.cpp_extension.load():</strong></p>
 <ul>
   <li>C++ Extensions: Same as above, C++ extensions are modules containing compiled C++ functionality.
-torch.utils.cpp_extension.load(): This is a PyTorch utility function that allows you to compile and load C++ extensions dynamically at runtime, rather than pre-compiling them before running your Python program.</li>
-  <li>Building Just in Time: With this approach, you don’t pre-compile the C++ extension ahead of time. Instead, you use torch.utils.cpp_extension.load() to compile and load the extension when needed.</li>
+torch.utils.cpp_extension.load(): This is a PyTorch utility function that allows one to compile and load C++ extensions dynamically at runtime, rather than pre-compiling them before running the Python program.</li>
+  <li>Building Just in Time: With this approach, we don’t pre-compile the C++ extension ahead of time. Instead, we use torch.utils.cpp_extension.load() to compile and load the extension when needed.</li>
   <li>Process:
     <ul>
-      <li>You write your C++ code and create a Python wrapper.</li>
-      <li>You use torch.utils.cpp_extension.load() to compile the C++ code and load the extension module dynamically into your Python program at runtime.
-This extension module is then available for use in your Python code.</li>
+      <li><span style="font-size:medium;">Write the C++ code and create a Python wrapper.</span></li>
+      <li><span style="font-size:medium;">Use torch.utils.cpp_extension.load() to compile the C++ code and load the extension module dynamically into the Python program at runtime. This extension module is then available for use in the Python code.</span></li>
     </ul>
   </li>
 </ul>
 
 <p>Ultimately, we can then mix C++ with CUDA kernels (which run on the GPU). The compilers for both C++ AND CUDA each handle their respective pieces of code…and as usual each function is accessible from the Pytorch python frontend.</p>
 
-<p><em>References</em>
-<a href="https://pytorch.org/tutorials/advanced/cpp_extension.html">https://pytorch.org/tutorials/advanced/cpp_extension.html</a></p>
+<h6 id="references">References</h6>
+<ul>
+  <li><a href="https://pytorch.org/tutorials/advanced/cpp_extension.html">https://pytorch.org/tutorials/advanced/cpp_extension.html</a></li>
+</ul>
 
         
       </section>
@@ -326,7 +330,8 @@ This extension module is then available for use in your Python code.</li>
 ">Previous</a>
     
     
-      <a href="#" class="pagination--pager disabled">Next</a>
+      <a href="/pages/odarasimi/geometry/2024/07/17/projective-geometry-and-transformations-of-2D.html" class="pagination--pager" title="Projective Geometry and Transformations of 2D
+">Next</a>
     
   </nav>
 
@@ -390,6 +395,23 @@ This extension module is then available for use in your Python code.</li>
 
 
 
+
+<script type="text/javascript" async
+src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+<script type="text/x-mathjax-config">
+ MathJax.Hub.Config({
+   extensions: ["tex2jax.js"],
+   jax: ["input/TeX", "output/HTML-CSS"],
+   tex2jax: {
+     inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+     displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+     processEscapes: true
+   },
+   "HTML-CSS": { availableFonts: ["TeX"] }
+ });
+</script>
 
   </body>
 </html>

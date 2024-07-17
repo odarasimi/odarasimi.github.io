@@ -11,7 +11,7 @@
     <meta charset="utf-8">
 
 <!-- begin _includes/seo.html --><title>Mild thoughts on Projective Geometry - Donuts, Simplices, and Conics</title>
-<meta name="description" content="…">
+<meta name="description" content="“No man ever steps in the same river twice, for it’s not the same river and he’s not the same man.” - Heraclitus">
 
 
   <meta name="author" content="Anuoluwapo Adisa">
@@ -27,7 +27,7 @@
 <meta property="og:url" content="https://odarasimi.github.io/pages/odarasimi/geometry/2024/05/30/Mild-thoughts-on-projective-geometry.html">
 
 
-  <meta property="og:description" content="…">
+  <meta property="og:description" content="“No man ever steps in the same river twice, for it’s not the same river and he’s not the same man.” - Heraclitus">
 
 
 
@@ -134,7 +134,7 @@
                 href="/blog.html"
                 
                 
-              >Blog Posts</a>
+              >Posts</a>
             </li><li class="masthead__menu-item">
               <a
                 href="/about.html"
@@ -187,6 +187,10 @@
             
               <li><a href="/programming/2024/06/01/PyTorch-is-Ten-out-of-ATen.html">PyTorch is Ten out of Aten</a></li>
             
+              <li><a href="/geometry/2024/07/17/projective-geometry-and-transformations-of-2D.html">Projective Geometry and Transformations of 2D</a></li>
+            
+              <li><a href="/math/2024/07/17/linear-least-squares.html">Linear Least Squares</a></li>
+            
           </ul>
           
         </li>
@@ -214,7 +218,7 @@
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Mild thoughts on Projective Geometry">
-    <meta itemprop="description" content="…">
+    <meta itemprop="description" content="“No man ever steps in the same river twice, for it’s not the same river and he’s not the same man.” - Heraclitus">
     <meta itemprop="datePublished" content="2024-05-30T11:10:53+00:00">
     
 
@@ -233,9 +237,7 @@
 
       <section class="page__content" itemprop="text">
         
-        <p>…</p>
-
-<p><em>“No man ever steps in the same river twice, for it’s not the same river and he’s not the same man.” - Heraclitus</em></p>
+        <p><em>“No man ever steps in the same river twice, for it’s not the same river and he’s not the same man.” - Heraclitus</em></p>
 
 <p><img src="/title_proj_geo.png" alt="projective geometry" width="600" height="400" /></p>
 
@@ -245,37 +247,37 @@
 
 <ul>
   <li>The study of properties that are invariant under projective transformation.</li>
-  <li>The study of lower-dimensional objects through a higher-dimensional lens.</li>
+  <li>The view of objects through a higher-dimensional lens.</li>
 </ul>
 
 <h5 id="the-study-of-invariant-properties-under-projective-transformation">The Study of Invariant Properties under Projective Transformation</h5>
 
-<p>We can accurately capture the essence of abstraction in mathematics, illustrating how specific operations and entities in arithmetic and geometry are generalized into the broader frameworks of algebra and geometry. This abstraction allows mathematicians to study more complex and general properties beyond specific instances. In this context, you have a group of things that follow a specific rule, and you define an operation on the members of that group based on the premise that the members obey the laws that define the structure of the group.</p>
+<p>We can accurately capture the essence of abstraction in mathematics, illustrating how specific operations and entities in arithmetic and geometry are generalized into the broader frameworks of algebra and geometry. This abstraction allows mathematicians to study more complex and general properties beyond specific instances. In this context, you have a group of objects that follow a specific rule, and you define an operation on the members of that group based on the premise that the members obey the laws that define the structure of the group.</p>
 
 <p><img src="/abstract.png" alt="abstract" width="450" height="250" /></p>
 
 <p>Taking a cue from Kneebone’s ‘Algebraic Projective Geometry’, we see that if numbers and polynomials both satisfy the laws of algebra, then they share a common structure, and we may study a system based on that structure without going into the specifics of the nature of the objects involved other than the fact that they all possess the structure in question.<br />
-<em>This is similar to the ideas in Linear Algebra, where vectors can be of different forms, or live in different spaces. Polynomials, real numbers, and geometric objects are different objects, but they share the fundamental structure that defines linear algebra. Even though we can intuit one from the other (e.g dot products -&gt; inner products), we do not need to project the properties of one onto the other. Thus, when we talk about the “length of a polynomial” via inner products for example, we are taking a view from the geometric vector space.</em></p>
+<em>This relates to the ideas in Linear Algebra, where vectors can be of different forms, or live in different spaces. Polynomials, real numbers, and geometric objects are different objects, but they share the fundamental structure that defines linear algebra - vectors. Even though we can intuit one from the other (e.g dot products -&gt; inner products), we do not need to project the properties of one onto the other. Thus, when we talk about the “length of a polynomial” via inner products for example, we are taking a view from the geometric vector space.</em></p>
 
 <p>Now, in Euclidean geometry, rotations and scalings, for example, have a common spatial structure - they both preserve shape. Generally speaking, displacements possess a common spatial structure. A translated, rotated square is considered to be the same square, i.e., the shape is invariant. Euclidean geometry is thus the invariant theory of the group of displacements, and based on these invariants, we define a metric—a way to measure distances, angles, and other structural aspects of the geometry. In a way, these operations define a space, as the Euclidean transformations limit you to the Euclidean space. The same analogy can be carried over to projective geometry, which we define as the invariant theory of the group of projections. That is, under projective transformations, find out which properties of the object remain invariant, and then we define a metric based on those properties.</p>
 
-<h5 id="the-study-of-lower-dimensional-objects-through-a-higher-dimensional-lens">The Study of Lower-Dimensional Objects through a Higher-Dimensional Lens</h5>
+<h5 id="the-view-of-objects-through-a-higher-dimensional-lens">The view of objects through a higher-dimensional lens</h5>
 
-<p><img src="/parallel.png" alt="parralel" width="650" height="250" /></p>
+<p><img src="/parallel.png" alt="parallel" width="650" height="250" /></p>
 
 <p>On first contact, the statement: “Parallel lines meet at a point in infinity” seems rather absurd, but observing the image above, we see 2 lines (<em>treat these as lines with no limitations on length</em>), and we observe that with a rotation of the red line about the point “x”, the point of intersection of the two lines “p”, moves further and further along the blue line, and as the red line gets closer to being parallel with the blue line, it appears to be that the point “p” approaches an “infinite” point along that blue line.<br />
 Considering the oft-used “railway tracks” example, we consider the fact that those lines live on a plane, and we live in 3D space, this means that we have the liberty and freedom of an extra dimension, this extra dimension offers insight through a different view of the same object. The parallelism of the two lines says nothing about the 3D space in which they live, but the 3D space is in no way compelled to say nothing about the 2D objects in its purview.<br />
 I plan to discuss more on this and the concept of projective equivalence in a follow-up post.</p>
 
-<p><img src="/projtwod.png" alt="projtwod" width="450" height="250" /></p>
+<p><img src="/projtwod.png" alt="projectvie" width="450" height="250" /></p>
 
 <h6 id="references">References</h6>
 <ul>
   <li>
-    <p>Kneebone, G. T. (1960). Algebraic Projective Geometry. Oxford: Clarendon Press.</p>
+    <p>Hartley, R., &amp; Zisserman, A. (2004). <em>Multiple View Geometry in Computer Vision (2nd ed.)</em>. Cambridge: Cambridge University Press.</p>
   </li>
   <li>
-    <p>Hartley, R., &amp; Zisserman, A. (2004). Multiple View Geometry in Computer Vision (2nd ed.). Cambridge: Cambridge University Press.</p>
+    <p>Kneebone, G. T. (1960). <em>Algebraic Projective Geometry</em>. Oxford: Clarendon Press.</p>
   </li>
 </ul>
 
@@ -366,6 +368,23 @@ I plan to discuss more on this and the concept of projective equivalence in a fo
 
 
 
+
+<script type="text/javascript" async
+src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+<script type="text/x-mathjax-config">
+ MathJax.Hub.Config({
+   extensions: ["tex2jax.js"],
+   jax: ["input/TeX", "output/HTML-CSS"],
+   tex2jax: {
+     inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+     displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+     processEscapes: true
+   },
+   "HTML-CSS": { availableFonts: ["TeX"] }
+ });
+</script>
 
   </body>
 </html>
