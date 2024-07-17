@@ -62,7 +62,7 @@ body {
 .initial-content {
   flex: 1 1 auto;
   box-sizing: unset;
-  padding-left: 3em;
+  padding-left: 0em;
   width: 85%;
   overflow-y: auto;
   scrollbar-width: none;
@@ -114,7 +114,7 @@ body {
     // color: $text-color;
     text-decoration: none;
     font-size: $type-size-4;
-    line-height: 0.9; 
+    line-height: 1.0; 
     font-weight: 100; 
     color: #242424;
     text-rendering: optimizeLegibility;
@@ -146,6 +146,7 @@ body {
 			-moz-transition: opacity 0.2s ease-in-out 0.1s;
 			-o-transition: opacity 0.2s ease-in-out 0.1s;
 			transition: opacity 0.2s ease-in-out 0.1s;
+      color: #2F7D95;
 		}
 
 		&:hover .header-link {

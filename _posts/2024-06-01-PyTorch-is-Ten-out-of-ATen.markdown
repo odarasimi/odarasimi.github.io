@@ -23,19 +23,19 @@ This efficiency helps speed up deep learning computations, and this is what we w
 ###### PyTorch and ATen
 PyTorch uses C++ extensively in its backend, and when one thinks of the relationship between PyTorch and ATen, there are 2 salient points to keep in mind
 
-- When you perform tensor operations in PyTorch, the higher-level Python code often triggers ATen's C++ functions behind the scenes.
-- These C++ functions are implemented to perform the actual mathematical computations, memory allocation, and other low-level tasks required for tensor operations.
+- When one performs tensor operations in PyTorch, the higher-level Python code often triggers ATen's C++ functions behind the scenes.
+- These C++ functions are implemented to perform the actual mathematical computations, memory allocation, and some other low-level tasks required for tensor operations.
 
 PyTorch's backend, including ATen, leverages C++ to provide efficient tensor operations, memory management, and hardware abstraction. When you execute PyTorch code involving tensor operations, the relevant C++ functions from ATen are used directly, without some separate compilation step to "ATen code." This is an orchestra of Python's high-level expressiveness and C++'s performance optimization.
-So whenever we want to optimize our code with GPUs, we provide custom C++ code that we choose to call *C++ extensions* (using the ATen library directly for tensor computations), and we connect our familiar PyTorch frontend (Python) to our custom C++ code with python bindings (we have to connect the frontend to the backend ourselves, because they are custom)...as a consequence we reduce the overhead of the python interpreter.
+So whenever we want to optimize our code with GPUs, we provide custom C++ code that we choose to call *C++ extensions* (using the ATen library directly for tensor computations), and we connect our familiar PyTorch frontend (Python) to our custom C++ code with python bindings (we have to connect the frontend to the backend ourselves, because they are custom)...as a consequence we have the option to reduce the overhead of the python interpreter (e.g fused operations).
 
 **How do we do this?**
 ###### To Integrate C++ with PyTorch
-- Write C++ Code: You write C++ code that contains the functionality you need.
-- Compile C++ Code: The C++ code is compiled using a C++ compiler, which generates compiled machine code that can be executed by the CPU.
-- Python Wrapper: You create a Python wrapper using tools like pybind11. This wrapper defines Python functions that map to the compiled C++ functions.
-- Compile Wrapper: The Python wrapper code is compiled into a Python extension module.
-- Python Interaction: When you call a Python function from the extension module, the Python interpreter uses the wrapper to call the corresponding compiled C++ function directly. This means that the compiled machine code of the C++ function is executed.
+- Write C++ Code: Write C++ code that contains the functionality needed.
+- Compile C++ Code: The C++ code is compiled using a C++ compiler, the compiler generates machine code that can be executed by the CPU.
+- Python Wrapper: Create a Python wrapper using tools like pybind11. This wrapper defines Python functions that map to the compiled C++ functions.
+- Compile Wrapper: Now the Python wrapper code is compiled into a Python extension module.
+- Python Interaction: When a Python function is called from the extension module, the Python interpreter uses the wrapper to call the corresponding compiled C++ function directly. This means that the compiled machine code of the C++ function is executed.
 - C++ Execution: The compiled C++ code executes, performing the desired operations.
 Return to Python: Control returns to the Python interpreter after the C++ function completes, and any results or return values from the C++ function are returned to Python.
 
@@ -43,27 +43,25 @@ Return to Python: Control returns to the Python interpreter after the C++ functi
 
 ###### C++ and PyTorch
 **Ahead of Time with setuptools:**
-- C++ Extensions: C++ extensions are modules that contain C++ code linked with Python, allowing you to use compiled C++ functionality within Python.
+- C++ Extensions: C++ extensions are modules that contain C++ code linked with Python, and allows use of compiled C++ functionality within Python.
 - setuptools: setuptools is a package used to build and distribute Python packages. It includes tools for compiling and installing Python extensions.
-- Building Ahead of Time: Building "ahead of time" means that you pre-compile your C++ code into a shared library (like a .so file) before running your Python program.
+- Building Ahead of Time: Building "ahead of time" means that we pre-compile C++ code into a shared library (like a .so file) before running the Python program.
 - Process:
-    - You write your C++ code and create a Python wrapper using tools like pybind11 or Cython.
-    - You use setuptools to build the C++ extension into a shared library.
-This compiled extension module can then be imported and used in your Python code like any other Python module.
+  - <span style="font-size:medium;">Write the C++ code and create a Python wrapper using tools like pybind11 or Cython.</span>
+  - <span style="font-size:medium;">Use setuptools to build the C++ extension into a shared library. This compiled extension module can then be imported and used in the Python code like any other Python module.</span>
 
 **Just in Time with torch.utils.cpp_extension.load():**
 - C++ Extensions: Same as above, C++ extensions are modules containing compiled C++ functionality.
-torch.utils.cpp_extension.load(): This is a PyTorch utility function that allows you to compile and load C++ extensions dynamically at runtime, rather than pre-compiling them before running your Python program.
-- Building Just in Time: With this approach, you don't pre-compile the C++ extension ahead of time. Instead, you use torch.utils.cpp_extension.load() to compile and load the extension when needed.
+torch.utils.cpp_extension.load(): This is a PyTorch utility function that allows one to compile and load C++ extensions dynamically at runtime, rather than pre-compiling them before running the Python program.
+- Building Just in Time: With this approach, we don't pre-compile the C++ extension ahead of time. Instead, we use torch.utils.cpp_extension.load() to compile and load the extension when needed.
 - Process:
-    - You write your C++ code and create a Python wrapper.
-    - You use torch.utils.cpp_extension.load() to compile the C++ code and load the extension module dynamically into your Python program at runtime.
-This extension module is then available for use in your Python code.
+  - <span style="font-size:medium;">Write the C++ code and create a Python wrapper.</span>
+  - <span style="font-size:medium;">Use torch.utils.cpp_extension.load() to compile the C++ code and load the extension module dynamically into the Python program at runtime. This extension module is then available for use in the Python code.</span>
 
 
 
 Ultimately, we can then mix C++ with CUDA kernels (which run on the GPU). The compilers for both C++ AND CUDA each handle their respective pieces of code…and as usual each function is accessible from the Pytorch python frontend.
 
 
-*References*
-<https://pytorch.org/tutorials/advanced/cpp_extension.html>
+###### References
+- <https://pytorch.org/tutorials/advanced/cpp_extension.html>

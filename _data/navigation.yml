@@ -4,7 +4,7 @@ main:
     url: /index.html
   - title: "About"
     url: /about.html
-  - title: "Blog Posts"
+  - title: "Posts"
     url: /blog.html
   - title: "Pending"
     url: /about.html
@@ -20,6 +20,11 @@ links:
       url: /geometry/2024/05/30/Mild-thoughts-on-projective-geometry.html
     - title: "PyTorch is Ten out of Aten"
       url: /programming/2024/06/01/PyTorch-is-Ten-out-of-ATen.html
+    - title: "Projective Geometry and Transformations of 2D"
+      url: /geometry/2024/07/17/projective-geometry-and-transformations-of-2D.html
+    - title: "Linear Least Squares"
+      url: /math/2024/07/17/linear-least-squares.html
+
 
 # - title: Customization
 #   children:
