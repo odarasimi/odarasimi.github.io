@@ -10,7 +10,7 @@ sidebar:
 *"An approximate answer to the right problem is worth a good deal more than an exact answer to an approximate problem." - John Tukey*
 
 
-###### Preamble
+###### *Preamble*
 
 Lagrange multipliers <br>
 We have a function $a$ -> $f(x,y)$ and an equation $b$ -> $x^2 + y^2 = 1$. We want values of $x$ and $y$ that satisfies both, and that results in a subset of the $x,y$ plane that satisfies the equation. With our example, that would mean that the only $x,y$ values we want are the ones that satisfy the equation: $x^2 + y^2 = 1$.
@@ -26,6 +26,7 @@ So we have 2 equations, and we add a third equation which is the constraint itse
 Then we solve the system of equations with the lagrangian: $L(x, y, \lambda) = f(x,y) - \lambda(b(x,y) - const)$ <br>
 When we take the gradient of that lagrangian function above and set it to 0 as in: $\partial _{x,y, \lambda}L$, we have the 3 equations packed together.
 
+###### Linear Least Squares
 Problem: $Ax = b$ <br>
 $Ax$ is a linear combination of the vectors in $x$ that results is a vector $b$, we have the matrix, we have $b$ and we want to find $x$, but sometimes we can't get the exact solution, so we want to get very close to the correct answer i.e the most correct $x$ that $A$ transforms to $b$, but in what instances can't we get the exact solution? We cannot get the exact solution when the matrix is a subspace of the space $b$ lives in, thus the rank of $A$ is not maximal.
 Assuming $A$ is a $n \times p$ matrix, when $n < p$,then there are multiple solutions.
@@ -36,13 +37,14 @@ If $b = 0$, then $Ax = 0$ and a solution is $x = 0$, but we do not want that tri
 Hence we want to minimise $\lVert Ax \rVert$ if $b = 0$ and $\lVert Ax-b \rVert$ if $b != 0$ <br>
 
 Let's tackle the case where $b = 0$ and we want to minimise $\lVert Ax \rVert$ s.t a constraint on $x$.
-We have to make a minor modification though, because we calculate norms with dot products $\lVert Ax \rVert$ = $\sqrt{(Ax \cdot Ax)} = \sqrt{(A{x}^TAx)}$, but this function is undefined at $x = 0$ and thus not differentiable at that point, and we know that for minimization purposes we need it to be differentiable everywhere...so instead we minimise ${\lVert Ax \rVert}^2 = A{x}^TAx$, which is a smooth function and gives us the same results (gives us the same results because it is a monotonic order preserving transformation i.e if $x>y$ then $f(x) > f(y)$.  
+We have to make a minor modification though, because we calculate norms with dot products. $\lVert Ax \rVert$ = $\sqrt{(Ax \cdot Ax)} = \sqrt{(A{x}^TAx)}$, but this function is undefined at $x = 0$ and thus not differentiable at that point. We know that for minimization purposes we need it to be differentiable everywhere. <br>
+So instead we minimise ${\lVert Ax \rVert}^2 = A{x}^TAx$, which is a smooth function and gives us the same results (gives us the same results because it is a monotonic order preserving transformation i.e if $x>y$ then $f(x) > f(y)$.  
 
 Now we simplify ${Ax}^TAx$, and obtain ${x}^T{A}^TAx$. <br>
 Looks like we have gotten an optimisation problem where we have to minimise a quadratic form subject to a constraint.<br>
--> minimize ${x}^T{A}^TAx$ st the condition that $\lVert x \rVert = 1$ <br>
--> minimize ${x}^T{A}^TAx$ st the condition that ${x}^Tx = 1$ <br>
-This constrained optimization problem can be solved with Lagrange multipliers. As explained above we end up having to minimize: ${x}^T{A}^TAx + \lambda({x}Tx-1)$ <br>
+=> minimize ${x}^T{A}^TAx$ st the condition that $\lVert x \rVert = 1$ <br>
+=> minimize ${x}^T{A}^TAx$ st the condition that ${x}^Tx = 1$ <br>
+This constrained optimization problem can be solved with Lagrange multipliers. As explained above, we end up having to minimize: ${x}^T{A}^TAx + \lambda({x}Tx-1)$ <br>
 Take derivatives of the lagrangian with respect to $x$ and we get: <br>
 ${A}^TAx + \lambda x = 0$. <br>
 The equation derived from the $x$ partial derivative: ${A}^TAx + \lambda x = 0$ indicates that $x$ is an eigenvector of ${A}^TA$ with eigenvalue $-\lambda$.
@@ -65,5 +67,5 @@ Thus $A$ is orthogonal to $Ax - b$
 If the span of A defines a plane, then it means that Ax - b is orthogonal to the plane. <br>
 $x = {({A}^TA)}^{−1}A^Tb$. (Note that $A$ has to be invertible)
 
-###### References
-- https://www.cim.mcgill.ca/~langer/558/2009/lecture13.pdf
+###### *References*
+- <https://www.cim.mcgill.ca/~langer/558/2009/lecture13.pdf>

@@ -455,6 +455,7 @@
     padding-left: 0.5em;
     padding-right: 0.5em;
     font-weight: bold;
+    color: #2F7D95;
   }
 
   @include breakpoint(max-width $large - 1px) {

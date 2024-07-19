@@ -40,7 +40,7 @@ I plan to discuss more on this and the concept of projective equivalence in a fo
 <img src="/projtwod.png" alt="projectvie" width="450" height="250" />
 
 
-###### References
+###### *References*
 - Hartley, R., & Zisserman, A. (2004). *Multiple View Geometry in Computer Vision (2nd ed.)*. Cambridge: Cambridge University Press.
 
 - Kneebone, G. T. (1960). *Algebraic Projective Geometry*. Oxford: Clarendon Press.
