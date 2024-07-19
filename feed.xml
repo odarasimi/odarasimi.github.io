@@ -1,13 +1,13 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.5">Jekyll</generator><link href="https://odarasimi.github.io/pages/odarasimi/feed.xml" rel="self" type="application/atom+xml" /><link href="https://odarasimi.github.io/pages/odarasimi/" rel="alternate" type="text/html" /><updated>2024-07-19T05:55:50+00:00</updated><id>https://odarasimi.github.io/pages/odarasimi/feed.xml</id><title type="html">Donuts, Simplices, and Conics</title><subtitle>Let&apos;s talk about Geometry, Cameras. Conics, Manifolds</subtitle><author><name>Anuoluwapo Adisa</name></author><entry><title type="html">Linear Least Squares</title><link href="https://odarasimi.github.io/pages/odarasimi/math/2024/07/17/linear-least-squares.html" rel="alternate" type="text/html" title="Linear Least Squares" /><published>2024-07-17T07:00:53+00:00</published><updated>2024-07-17T07:00:53+00:00</updated><id>https://odarasimi.github.io/pages/odarasimi/math/2024/07/17/linear-least-squares</id><content type="html" xml:base="https://odarasimi.github.io/pages/odarasimi/math/2024/07/17/linear-least-squares.html"><![CDATA[<p><em>“An approximate answer to the right problem is worth a good deal more than an exact answer to an approximate problem.” - John Tukey</em></p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.5">Jekyll</generator><link href="https://odarasimi.github.io/pages/odarasimi/feed.xml" rel="self" type="application/atom+xml" /><link href="https://odarasimi.github.io/pages/odarasimi/" rel="alternate" type="text/html" /><updated>2024-07-19T06:41:03+00:00</updated><id>https://odarasimi.github.io/pages/odarasimi/feed.xml</id><title type="html">Donuts, Simplices, and Conics</title><subtitle>Let&apos;s talk about Geometry, Cameras. Conics, Manifolds</subtitle><author><name>Anuoluwapo Adisa</name></author><entry><title type="html">Linear Least Squares</title><link href="https://odarasimi.github.io/pages/odarasimi/math/2024/07/17/linear-least-squares.html" rel="alternate" type="text/html" title="Linear Least Squares" /><published>2024-07-17T07:00:53+00:00</published><updated>2024-07-17T07:00:53+00:00</updated><id>https://odarasimi.github.io/pages/odarasimi/math/2024/07/17/linear-least-squares</id><content type="html" xml:base="https://odarasimi.github.io/pages/odarasimi/math/2024/07/17/linear-least-squares.html"><![CDATA[<p><em>“An approximate answer to the right problem is worth a good deal more than an exact answer to an approximate problem.” - John Tukey</em></p>
 
 <h6 id="preamble"><em>Preamble</em></h6>
 
 <p>Lagrange multipliers <br />
 We have a function $a$ -&gt; $f(x,y)$ and an equation $b$ -&gt; $x^2 + y^2 = 1$. We want values of $x$ and $y$ that satisfies both, and that results in a subset of the $x,y$ plane that satisfies the equation. With our example, that would mean that the only $x,y$ values we want are the ones that satisfy the equation: $x^2 + y^2 = 1$.
 Not only do we want to find a, we may want to find a subset that optimises the value of $a$. We may want to find the minima of $a$, or the maxima.
-Now note that the contour lines indicates the boundaries of different values for $f(x,y)$ and $b(x,y)$, and if you wanted to change values the fastest,a straight perpendicular line between the curves does the job (obviously, since it’s the gradient). Hence the gradients of $a$ and $b$ will be perpendicular at the point indicated.</p>
+Now note that the contour lines indicates the boundaries of different values for $f(x,y)$ and $b(x,y)$, and if you wanted to change values the fastest,a straight perpendicular line between the curves does the job (obviously, since it’s the gradient). Hence the gradients of $a$ and $b$ will be perpendicular at the point indicated.<br /></p>
 
-<p><img src="/assets/images/contour.png" alt="contour lines" width="500" height="400" /></p>
+<p><img src="/assets/images/contour.png" alt="contour lines" width="500" height="400" /><br /></p>
 
 <p>The gradient of $b$ will point in the direction as the gradient of $f$, and they will not necessarily be equal but proportional to each other: 
 \(\partial _{x,y} a = \lambda \partial _{x,y} b\)</p>
@@ -49,9 +49,9 @@ Take partial derivatives of the function and set them to $0$ (to find the minimu
 =&gt; $2{A}^TAx−2{A}^Tb=0$. <br />
 =&gt; ${A}^TAx - {A}^Tb = 0$. <br />
 Hence ${A}^T (Ax - b) = 0$ =&gt; $A \cdot (Ax-b)$ = 0 <br />
-Thus $A$ is orthogonal to $Ax - b$</p>
-
-<p><img src="/assets/images/least_sq.png" alt="least squares" width="500" height="400" /></p>
+Thus $A$ is orthogonal to $Ax - b$ 
+<br />
+<img src="/assets/images/least_sq.png" alt="least squares" width="500" height="400" /><br /></p>
 
 <p>If the span of A defines a plane, then it means that Ax - b is orthogonal to the plane. <br />
 $x = {({A}^TA)}^{−1}A^Tb$. (Note that $A$ has to be invertible)</p>
@@ -63,16 +63,16 @@ $x = {({A}^TA)}^{−1}A^Tb$. (Note that $A$ has to be invertible)</p>
 
 <p><br /></p>
 
-<p><img src="/assets/images/mvg_one_header.png" alt="header" width="600" height="400" /></p>
+<p><img src="/assets/images/mvg_one_header.png" alt="header" width="600" height="400" /><br /></p>
 
 <p>This is first in a series meant to go through some of the chapters in Hartley and Zisserman’s book titled <em>Multiple View Geometry in Computer Vision</em>. A cursory preview can be found in this earlier <a href="https://odarasimi.github.io/geometry/2024/05/30/Mild-thoughts-on-projective-geometry.html">post</a>. This post covers the first part of Chapter 2 in the aforementioned book.</p>
 
 <h6 id="preamble">Preamble</h6>
 
 <p>In this series, we will be looking at the geometric and algebraic principles used to analyze and understand spatial relationships between objects in space.
-I believe it’s always helpful to remember that this journey takes us through a very illuminating map of spatial objects and elements. However, it’s important to note that the map is not the territory, and a description of a square is not the square itself, but rather a rich view that encodes the characteristics of that square. For example, a plane is represented mathematically by its normal vector, this method references the fact that we can represent a set by an element that is not contained within it. As an example of this, let’s consider that you have 5 out of the only 6 cars that exist in the world, you can represent your cars by listing all the cars that you have, but if you want to conserve time and space, you can as well represent your cars by listing the only car that you do not have, thus, the exception determines the rule.</p>
+I believe it’s always helpful to remember that this journey takes us through a very illuminating map of spatial objects and elements. However, it’s important to note that the map is not the territory, and a description of a square is not the square itself, but rather a rich view that encodes the characteristics of that square. For example, a plane is represented mathematically by its normal vector, this method references the fact that we can represent a set by an element that is not contained within it. As an example of this, let’s consider that you have 5 out of the only 6 cars that exist in the world, you can represent your cars by listing all the cars that you have, but if you want to conserve time and space, you can as well represent your cars by listing the only car that you do not have, thus, the exception determines the rule.<br /></p>
 
-<p><img src="/assets/images/normal_vector.png" alt="header" width="600" height="400" /></p>
+<p><img src="/assets/images/normal_vector.png" alt="header" width="600" height="400" /><br /></p>
 
 <p>First, let’s get through some basic ideas.</p>
 <ul>
@@ -80,12 +80,14 @@ I believe it’s always helpful to remember that this journey takes us through a
     <p><span style="font-size:1.2em;">A model is a description or characterisation of an element, and that description serves as a window through which we may view a particular set of features possessed by the element under consideration, we know that no model is absolute, so a combination or fusion of models supplies a richer view of the peculiarities and particulars of that element.</span></p>
   </li>
   <li>
-    <p><span style="font-size:1.2em;">Equality between entities/objects mainly specifies and refers to those components that are identical, which may only be part of an entity but determine the whole, and specify its intrinsic meaning, as determined by the intentions used to characterise the entity. When we say that entities are identical to each other, they may not be the same, but they share the same properties with respect to all the operations we expect to perform on it. For example, am I the same as the person I was yesterday? perhaps not, but am I equal to that person for all legal intent and purposes? yes I am…within the space of physiological/philosophical operations, I may not be equal to who I was yesterday, but within the space of legal operations, I am ‘legally equal’ to that person as a legal entity.</span>
-<img src="/assets/images/equal_shapes.png" alt="header" width="600" height="400" /></p>
+    <p><span style="font-size:1.2em;">Equality between entities/objects mainly specifies and refers to those components that are identical, which may only be part of an entity but determine the whole, and specify its intrinsic meaning, as determined by the intentions used to characterise the entity. When we say that entities are identical to each other, they may not be the same, but they share the same properties with respect to all the operations we expect to perform on it. For example, am I the same as the person I was yesterday? perhaps not, but am I equal to that person for all legal intent and purposes? yes I am…within the space of physiological/philosophical operations, I may not be equal to who I was yesterday, but within the space of legal operations, I am ‘legally equal’ to that person as a legal entity.</span><br /></p>
   </li>
-  <li>
-    <p><span style="font-size:1.2em;">Euclidean Geometry was seen as the only geometry to exist, as it described the space we live in to great exactness. Then it was thought that surely the parallel postulate was such a necessary property of straight lines that it would follow from the previou postulate, however this was found to be an erroneous assumption, the parallel postulate does not arise from the first 4 and is not superfluous, this means that if we take the first 4 to be true, it does not necessarily mean that the 5th is false or true. And since we cannot travel to infinity to verify the case ourselves, the consequence is that we can assume the parallel postulate to be true or false, and based on the varying interpretations, we get different types of geometry (different descriptions of space), this means there can be more than one logically possible geometry.</span></p>
-  </li>
+</ul>
+
+<p><img src="/assets/images/equal_shapes.png" alt="header" width="600" height="400" /><br /></p>
+
+<ul>
+  <li><span style="font-size:1.2em;">Euclidean Geometry was seen as the only geometry to exist, as it described the space we live in to great exactness. Then it was thought that surely the parallel postulate was such a necessary property of straight lines that it would follow from the previou postulate, however this was found to be an erroneous assumption, the parallel postulate does not arise from the first 4 and is not superfluous, this means that if we take the first 4 to be true, it does not necessarily mean that the 5th is false or true. And since we cannot travel to infinity to verify the case ourselves, the consequence is that we can assume the parallel postulate to be true or false, and based on the varying interpretations, we get different types of geometry (different descriptions of space), this means there can be more than one logically possible geometry.</span></li>
 </ul>
 
 <p>Our focus is primarily on projective geometry, but to gain a good foothold, we need to set our feet on more solid ground, and sweep through the basic ideas.</p>
@@ -121,8 +123,9 @@ This idea of relating properties of figures to the associated geometry was intro
 
 <p>Let’s take a look at an example</p>
 
-<p>Imagine we had vectors living on a line (born in 1D space); we focus particularly on 2 vectors - on the 1-D plane shown below…and we can translate both points to any other point on the 1D number line.? The line may be oriented in various ways, but it still refers to the same 1D space. The 2 vectors only understand and live in the 1D space, you can move the 1D space around, and spin it about, put it in a box, or take it to the moon, the vectors <em>inside</em> that 1D space only know about the internal properties of the space they live on, all they know is that they live on a 1D conveyor belt and that conveyor belt moves them from one point to the other. They live inside a house and understand the interior alone, and do not know if the house itself has been moved or relocated to some other spot.
-<img src="/assets/images/a_and_b.png" alt="header" width="600" height="400" /></p>
+<p>Imagine we had vectors living on a line (born in 1D space); we focus particularly on 2 vectors - on the 1-D plane shown below…and we can translate both points to any other point on the 1D number line.? The line may be oriented in various ways, but it still refers to the same 1D space. The 2 vectors only understand and live in the 1D space, you can move the 1D space around, and spin it about, put it in a box, or take it to the moon, the vectors <em>inside</em> that 1D space only know about the internal properties of the space they live on, all they know is that they live on a 1D conveyor belt and that conveyor belt moves them from one point to the other. They live inside a house and understand the interior alone, and do not know if the house itself has been moved or relocated to some other spot.<br /></p>
+
+<p><img src="/assets/images/a_and_b.png" alt="header" width="600" height="400" /><br /></p>
 
 <p>Now when both vectors are transformed, they both intend to maintain a distance between each other, let’s say the intend to maintain their current separation of 3 and we want to transform the red vector to -7, we cannot simply add -3 to the vectors because -3 is a scalar and you do not add scalars to vectors (remember that a scalar has no sense of direction and our 1D vector is oriented in a very particular way), so we need to stretch/scale the specific vector (Red) to another point on the same line, recall that we can scale or stretch via multiplication.</p>
 
@@ -136,16 +139,19 @@ Recall again that for all intents and purposes, the fact that red and blue are n
 
 <p>Now that we’ve seen that we can represent points as vectors, we recognise the fact that we can likewise represent lines as vectors.
 To draw a line in the plane, we generally use the equation of a line: $ax + by + c = 0$, with $x,y$ as points over the plane, $a,b,c$ determines a unique line. 
-Points: We can represent the points as vectors in the plane $(x,y)$…hence in homogeneous coordinates, this will be $(x,y,1)$, or more generally $k(x,y,1)$ -&gt; $(kx, ky, k)$. With  $(kx, ky, k)$, if we want the exact points we started out with in Euclidean space (because Euclidean space selects a particular plane out of all equivalent planes), we divide by k so that the last coordinate value equals 1 (recall what we said in the preamble about projective equivalence and note that these points $(x,y,1), (kx, ky, k)$ are projectively equivalent). 
-<img src="/assets/images/proj_equi.png" alt="projective equivalence" width="600" height="400" /></p>
+Points: We can represent the points as vectors in the plane $(x,y)$…hence in homogeneous coordinates, this will be $(x,y,1)$, or more generally $k(x,y,1)$ -&gt; $(kx, ky, k)$. With  $(kx, ky, k)$, if we want the exact points we started out with in Euclidean space (because Euclidean space selects a particular plane out of all equivalent planes), we divide by k so that the last coordinate value equals 1 (recall what we said in the preamble about projective equivalence and note that these points $(x,y,1), (kx, ky, k)$ are projectively equivalent). <br /></p>
+
+<p><img src="/assets/images/proj_equi.png" alt="projective equivalence" width="600" height="400" /><br /></p>
 
 <p>Lines: Let’s take a look at how homgeneous lines will look like, we observe that the whole pattern forms a plane, this means we can represent our 2D lines homogeneously with a 3 vector which is normal to that plane, and this naturally turns out to be our vector $a,b,c$ from $ax + by + c = 0$. 
 The general form of a plane : $Ax + By + Cz = D$, <em>where $z = 0$, $Ax + By + D = 0$, (D can be any number, negative or positive).</em></p>
 
 <p>Here comes something lovely, if $(a,b,c)$ and $(x,y,1)$ are vectors ,we can insert them into the line equation to see the constraint that the dot product of the 2 vectors must be equal to 0,  $(a, b, c) \cdot (x, y, 1) = 0$. This means that both vectors are orthogonal to each other with an angle of 90 degrees. We represent this relationship succintly with $l \cdot x = 0$ or $x \times l^T = 0$ or $l \times x = 0$</p>
 
-<p>Intersection of lines: We know from common experience that 2 lines intersect at a point (even parallel lines, which we will see later on). Let’s check. Given two lines with a common intersection, we know that any point that lies on a line needs to satisfy $x \cdot l = 0$, so if we have two lines $l$ and $l’$, and a point lies on both lines,the vectors that represent the objects to satisfy the equations $x \cdot l = x \cdot l’ = 0$, this means that it is orthogonal to both lines…and this means we have to find the cross product $l \times l’$; thus the intersection of two lines $l$ and $l’$ is the point $x = l \times l’$
-<img src="/assets/images/line_normals.png" alt="line normal" width="600" height="400" /></p>
+<p>Intersection of lines: We know from common experience that 2 lines intersect at a point (even parallel lines, which we will see later on). Let’s check. Given two lines with a common intersection, we know that any point that lies on a line needs to satisfy $x \cdot l = 0$, so if we have two lines $l$ and $l’$, and a point lies on both lines,the vectors that represent the objects to satisfy the equations $x \cdot l = x \cdot l’ = 0$, this means that it is orthogonal to both lines…and this means we have to find the cross product $l \times l’$; thus the intersection of two lines $l$ and $l’$ is the point $x = l \times l’$ 
+<br /></p>
+
+<p><img src="/assets/images/line_normals.png" alt="line normal" width="600" height="400" /><br /></p>
 
 <p>Lines joining points: Following a similar argument for the intersection of lines above, a line $l$ that joins two points has to satisfy $l \cdot x = l \cdot x’ = 0$, hence the vector representing $l$ has to be orthogonal to the vectors representing the points. Thus $l = x \times x’$
 Degrees of freedom (dof): A point can be represented in the plane with the 2 coordinates $x$ and $y$…and hence has 2 dof , a line also has 2 d.o.f if you consider the point slope form of a line $y = -a/bx - c = mx + c$ …where the 2 parameters needed = $m$ and $c$, alternatively the two independent ratios ${a : b : c} =&gt; $a/b$; $b/c$.</p>
@@ -155,9 +161,11 @@ Degrees of freedom (dof): A point can be represented in the plane with the 2 coo
 <h6 id="ideal-points-and-the-line-at-infinity">Ideal points and the line at infinity</h6>
 <p>Now we arrive at an interesting point - infinity. First we need to consider the notion that  the 2D space we are looking at is a projection of the real world, hence the 2D plane is a projected reality.
 Now in this 2D Euclidean plane, parallel lines do not meet, but by now, we know that Euclidean geometry is not the only geometry that exists..perhaps what we do not see in the current 2D form exists in some other projected form? The following is an attempt to tackle the intuition behind these ideas. 
-Imagine two intersecting lines and take note of both ends of both lines &amp; the intersection point, now rotate one of those lines and watch the intersection point extend further out through your mind’s eye…at a certain point that intersection point gets farther and farther till infinity, then the line becomes parallel right? And just when you rotate past the point where it’s parallel, the intersection point immediatel snaps back to reappear at the other end of the line. At the point where the lines are parallel to each other, we may say the line intersects at infinity, since we observe that the further and further and further and further the intersection point goes, the ‘more parallel’ it becomes,we deduce therefore that the lines become parallel at the limit of intersection.
-<img src="/assets/images/parallel_projection.png" alt="parallel projection" width="600" height="400" />
-We know that we cannot play fast and loose when dealing with infinity, so we are aware of the fact that we have a point at infinity that we cannot observe, but how do we represent that  point? We use vectors as usual, vectors represent direction, so even if we cannot get to that point, we can point to the ‘limiting’ direction.</p>
+Imagine two intersecting lines and take note of both ends of both lines &amp; the intersection point, now rotate one of those lines and watch the intersection point extend further out through your mind’s eye…at a certain point that intersection point gets farther and farther till infinity, then the line becomes parallel right? And just when you rotate past the point where it’s parallel, the intersection point immediatel snaps back to reappear at the other end of the line. At the point where the lines are parallel to each other, we may say the line intersects at infinity, since we observe that the further and further and further and further the intersection point goes, the ‘more parallel’ it becomes,we deduce therefore that the lines become parallel at the limit of intersection.<br /></p>
+
+<p><img src="/assets/images/parallel_projection.png" alt="parallel projection" width="600" height="400" /><br /></p>
+
+<p>We know that we cannot play fast and loose when dealing with infinity, so we are aware of the fact that we have a point at infinity that we cannot observe, but how do we represent that  point? We use vectors as usual, vectors represent direction, so even if we cannot get to that point, we can point to the ‘limiting’ direction.</p>
 
 <p>Now let’s align our intuition with equations. We  consider 2 parallel lines and compute their intersection points, we find that the 3rd coordinate is 0, and the inhomogeneous representation of this point (b/0,-a/0) results in a division by 0 which points to an infinitely large number $(\infty,\infty)$ and agrees with our intuition. Thus points at infinity have 0 as the z coordinate, and thus all ideal points may be represented as  $(x,y,0)$.
 These points lie on a line (the line at infinity), and the line is represented as usual by the plane normal vector $(0, 0, 1)$</p>
@@ -259,7 +267,7 @@ torch.utils.cpp_extension.load(): This is a PyTorch utility function that allows
   <li><a href="https://pytorch.org/tutorials/advanced/cpp_extension.html">https://pytorch.org/tutorials/advanced/cpp_extension.html</a></li>
 </ul>]]></content><author><name>Anuoluwapo Adisa</name></author><category term="Programming" /><summary type="html"><![CDATA[“I have made this letter longer than usual, only because I have not had the time to make it shorter.” - Blaise Pascal]]></summary></entry><entry><title type="html">Mild thoughts on Projective Geometry</title><link href="https://odarasimi.github.io/pages/odarasimi/geometry/2024/05/30/Mild-thoughts-on-projective-geometry.html" rel="alternate" type="text/html" title="Mild thoughts on Projective Geometry" /><published>2024-05-30T11:10:53+00:00</published><updated>2024-05-30T11:10:53+00:00</updated><id>https://odarasimi.github.io/pages/odarasimi/geometry/2024/05/30/Mild-thoughts-on-projective-geometry</id><content type="html" xml:base="https://odarasimi.github.io/pages/odarasimi/geometry/2024/05/30/Mild-thoughts-on-projective-geometry.html"><![CDATA[<p><em>“No man ever steps in the same river twice, for it’s not the same river and he’s not the same man.” - Heraclitus</em></p>
 
-<p><img src="/title_proj_geo.png" alt="projective geometry" width="600" height="400" /></p>
+<p><img src="/title_proj_geo.png" alt="projective geometry" width="600" height="400" /><br /></p>
 
 <p>“When an object is transformed, we observe a change in it. However, does any property of the object truly change, or is it our perception of the object that changes?”. I believe the question of perception and change lends key insight into the nature of geometry and projective equivalence.</p>
 
@@ -272,9 +280,9 @@ torch.utils.cpp_extension.load(): This is a PyTorch utility function that allows
 
 <h5 id="the-study-of-invariant-properties-under-projective-transformation">The Study of Invariant Properties under Projective Transformation</h5>
 
-<p>We can accurately capture the essence of abstraction in mathematics, illustrating how specific operations and entities in arithmetic and geometry are generalized into the broader frameworks of algebra and geometry. This abstraction allows mathematicians to study more complex and general properties beyond specific instances. In this context, you have a group of objects that follow a specific rule, and you define an operation on the members of that group based on the premise that the members obey the laws that define the structure of the group.</p>
+<p>We can accurately capture the essence of abstraction in mathematics, illustrating how specific operations and entities in arithmetic and geometry are generalized into the broader frameworks of algebra and geometry. This abstraction allows mathematicians to study more complex and general properties beyond specific instances. In this context, you have a group of objects that follow a specific rule, and you define an operation on the members of that group based on the premise that the members obey the laws that define the structure of the group.<br /></p>
 
-<p><img src="/abstract.png" alt="abstract" width="450" height="250" /></p>
+<p><img src="/abstract.png" alt="abstract" width="450" height="250" /><br /></p>
 
 <p>Taking a cue from Kneebone’s ‘Algebraic Projective Geometry’, we see that if numbers and polynomials both satisfy the laws of algebra, then they share a common structure, and we may study a system based on that structure without going into the specifics of the nature of the objects involved other than the fact that they all possess the structure in question.<br />
 <em>This relates to the ideas in Linear Algebra, where vectors can be of different forms, or live in different spaces. Polynomials, real numbers, and geometric objects are different objects, but they share the fundamental structure that defines linear algebra - vectors. Even though we can intuit one from the other (e.g dot products -&gt; inner products), we do not need to project the properties of one onto the other. Thus, when we talk about the “length of a polynomial” via inner products for example, we are taking a view from the geometric vector space.</em></p>
@@ -283,11 +291,11 @@ torch.utils.cpp_extension.load(): This is a PyTorch utility function that allows
 
 <h5 id="the-view-of-objects-through-a-higher-dimensional-lens">The view of objects through a higher-dimensional lens</h5>
 
-<p><img src="/parallel.png" alt="parallel" width="650" height="250" /></p>
+<p><img src="/parallel.png" alt="parallel" width="650" height="250" /><br /></p>
 
 <p>On first contact, the statement: “Parallel lines meet at a point in infinity” seems rather absurd, but observing the image above, we see 2 lines (<em>treat these as lines with no limitations on length</em>), and we observe that with a rotation of the red line about the point “x”, the point of intersection of the two lines “p”, moves further and further along the blue line, and as the red line gets closer to being parallel with the blue line, it appears to be that the point “p” approaches an “infinite” point along that blue line.<br />
 Considering the oft-used “railway tracks” example, we consider the fact that those lines live on a plane, and we live in 3D space, this means that we have the liberty and freedom of an extra dimension, this extra dimension offers insight through a different view of the same object. The parallelism of the two lines says nothing about the 3D space in which they live, but the 3D space is in no way compelled to say nothing about the 2D objects in its purview.<br />
-I plan to discuss more on this and the concept of projective equivalence in a follow-up post.</p>
+I plan to discuss more on this and the concept of projective equivalence in a follow-up post.<br /></p>
 
 <p><img src="/projtwod.png" alt="projectvie" width="450" height="250" /></p>
 
