@@ -255,14 +255,14 @@ I believe it’s always helpful to remember that this journey takes us through a
 <p>First, let’s get through some basic ideas.</p>
 <ul>
   <li>
-    <p><span style="font-size:medium;">A model is a description or characterisation of an element, and that description serves as a window through which we may view a particular set of features possessed by the element under consideration, we know that no model is absolute, so a combination or fusion of models supplies a richer view of the peculiarities and particulars of that element.</span></p>
+    <p><span style="font-size:1.2em;">A model is a description or characterisation of an element, and that description serves as a window through which we may view a particular set of features possessed by the element under consideration, we know that no model is absolute, so a combination or fusion of models supplies a richer view of the peculiarities and particulars of that element.</span></p>
   </li>
   <li>
-    <p><span style="font-size:medium;">Equality between entities/objects mainly specifies and refers to those components that are identical, which may only be part of an entity but determine the whole, and specify its intrinsic meaning, as determined by the intentions used to characterise the entity. When we say that entities are identical to each other, they may not be the same, but they share the same properties with respect to all the operations we expect to perform on it. For example, am I the same as the person I was yesterday? perhaps not, but am I equal to that person for all legal intent and purposes? yes I am…within the space of physiological/philosophical operations, I may not be equal to who I was yesterday, but within the space of legal operations, I am ‘legally equal’ to that person as a legal entity.</span>
+    <p><span style="font-size:1.2em;">Equality between entities/objects mainly specifies and refers to those components that are identical, which may only be part of an entity but determine the whole, and specify its intrinsic meaning, as determined by the intentions used to characterise the entity. When we say that entities are identical to each other, they may not be the same, but they share the same properties with respect to all the operations we expect to perform on it. For example, am I the same as the person I was yesterday? perhaps not, but am I equal to that person for all legal intent and purposes? yes I am…within the space of physiological/philosophical operations, I may not be equal to who I was yesterday, but within the space of legal operations, I am ‘legally equal’ to that person as a legal entity.</span>
 <img src="/assets/images/equal_shapes.png" alt="header" width="600" height="400" /></p>
   </li>
   <li>
-    <p><span style="font-size:medium;">Euclidean Geometry was seen as the only geometry to exist, as it described the space we live in to great exactness. Then it was thought that surely the parallel postulate was such a necessary property of straight lines that it would follow from the previou postulate, however this was found to be an erroneous assumption, the parallel postulate does not arise from the first 4 and is not superfluous, this means that if we take the first 4 to be true, it does not necessarily mean that the 5th is false or true. And since we cannot travel to infinity to verify the case ourselves, the consequence is that we can assume the parallel postulate to be true or false, and based on the varying interpretations, we get different types of geometry (different descriptions of space), this means there can be more than one logically possible geometry.</span></p>
+    <p><span style="font-size:1.2em;">Euclidean Geometry was seen as the only geometry to exist, as it described the space we live in to great exactness. Then it was thought that surely the parallel postulate was such a necessary property of straight lines that it would follow from the previou postulate, however this was found to be an erroneous assumption, the parallel postulate does not arise from the first 4 and is not superfluous, this means that if we take the first 4 to be true, it does not necessarily mean that the 5th is false or true. And since we cannot travel to infinity to verify the case ourselves, the consequence is that we can assume the parallel postulate to be true or false, and based on the varying interpretations, we get different types of geometry (different descriptions of space), this means there can be more than one logically possible geometry.</span></p>
   </li>
 </ul>
 
@@ -352,7 +352,7 @@ What do you get when you interchange the roles of points and lines in the origin
 
 <p>For the next section we will begin with conics and dual conics</p>
 
-<h6 id="references">References</h6>
+<h6 id="references"><em>References</em></h6>
 
 <ul>
   <li>
@@ -459,22 +459,29 @@ What do you get when you interchange the roles of points and lines in the origin
 
 
 
-<script type="text/javascript" async
-src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-MML-AM_CHTML">
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ["\\(", "\\)"]],
+      displayMath: [['$$', '$$'], ["\\[", "\\]"]],
+      processEscapes: true,
+      autoload: {
+        color: [],
+        colorv2: ['color']
+      },
+      packages: {'[+]': ['noerrors']}
+    },
+    options: {
+      ignoreHtmlClass: 'tex2jax_ignore',
+      processHtmlClass: 'tex2jax_process'
+    },
+    loader: {
+      load: ['input/asciimath', '[tex]/noerrors']
+    }
+  };
 </script>
-
-<script type="text/x-mathjax-config">
- MathJax.Hub.Config({
-   extensions: ["tex2jax.js"],
-   jax: ["input/TeX", "output/HTML-CSS"],
-   tex2jax: {
-     inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-     displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
-     processEscapes: true
-   },
-   "HTML-CSS": { availableFonts: ["TeX"] }
- });
-</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" id="MathJax-script"></script>
+  
 
   </body>
 </html>

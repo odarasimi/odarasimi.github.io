@@ -281,8 +281,8 @@ Return to Python: Control returns to the Python interpreter after the C++ functi
   <li>Building Ahead of Time: Building “ahead of time” means that we pre-compile C++ code into a shared library (like a .so file) before running the Python program.</li>
   <li>Process:
     <ul>
-      <li><span style="font-size:medium;">Write the C++ code and create a Python wrapper using tools like pybind11 or Cython.</span></li>
-      <li><span style="font-size:medium;">Use setuptools to build the C++ extension into a shared library. This compiled extension module can then be imported and used in the Python code like any other Python module.</span></li>
+      <li><span style="font-size:1.2em;">Write the C++ code and create a Python wrapper using tools like pybind11 or Cython.</span></li>
+      <li><span style="font-size:1.2em;">Use setuptools to build the C++ extension into a shared library. This compiled extension module can then be imported and used in the Python code like any other Python module.</span></li>
     </ul>
   </li>
 </ul>
@@ -294,15 +294,15 @@ torch.utils.cpp_extension.load(): This is a PyTorch utility function that allows
   <li>Building Just in Time: With this approach, we don’t pre-compile the C++ extension ahead of time. Instead, we use torch.utils.cpp_extension.load() to compile and load the extension when needed.</li>
   <li>Process:
     <ul>
-      <li><span style="font-size:medium;">Write the C++ code and create a Python wrapper.</span></li>
-      <li><span style="font-size:medium;">Use torch.utils.cpp_extension.load() to compile the C++ code and load the extension module dynamically into the Python program at runtime. This extension module is then available for use in the Python code.</span></li>
+      <li><span style="font-size:1.2em;">Write the C++ code and create a Python wrapper.</span></li>
+      <li><span style="font-size:1.2em;">Use torch.utils.cpp_extension.load() to compile the C++ code and load the extension module dynamically into the Python program at runtime. This extension module is then available for use in the Python code.</span></li>
     </ul>
   </li>
 </ul>
 
 <p>Ultimately, we can then mix C++ with CUDA kernels (which run on the GPU). The compilers for both C++ AND CUDA each handle their respective pieces of code…and as usual each function is accessible from the Pytorch python frontend.</p>
 
-<h6 id="references">References</h6>
+<h6 id="references"><em>References</em></h6>
 <ul>
   <li><a href="https://pytorch.org/tutorials/advanced/cpp_extension.html">https://pytorch.org/tutorials/advanced/cpp_extension.html</a></li>
 </ul>
@@ -396,22 +396,29 @@ torch.utils.cpp_extension.load(): This is a PyTorch utility function that allows
 
 
 
-<script type="text/javascript" async
-src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-MML-AM_CHTML">
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ["\\(", "\\)"]],
+      displayMath: [['$$', '$$'], ["\\[", "\\]"]],
+      processEscapes: true,
+      autoload: {
+        color: [],
+        colorv2: ['color']
+      },
+      packages: {'[+]': ['noerrors']}
+    },
+    options: {
+      ignoreHtmlClass: 'tex2jax_ignore',
+      processHtmlClass: 'tex2jax_process'
+    },
+    loader: {
+      load: ['input/asciimath', '[tex]/noerrors']
+    }
+  };
 </script>
-
-<script type="text/x-mathjax-config">
- MathJax.Hub.Config({
-   extensions: ["tex2jax.js"],
-   jax: ["input/TeX", "output/HTML-CSS"],
-   tex2jax: {
-     inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-     displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
-     processEscapes: true
-   },
-   "HTML-CSS": { availableFonts: ["TeX"] }
- });
-</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" id="MathJax-script"></script>
+  
 
   </body>
 </html>

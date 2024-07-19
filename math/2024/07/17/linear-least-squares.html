@@ -239,7 +239,7 @@
         
         <p><em>“An approximate answer to the right problem is worth a good deal more than an exact answer to an approximate problem.” - John Tukey</em></p>
 
-<h6 id="preamble">Preamble</h6>
+<h6 id="preamble"><em>Preamble</em></h6>
 
 <p>Lagrange multipliers <br />
 We have a function $a$ -&gt; $f(x,y)$ and an equation $b$ -&gt; $x^2 + y^2 = 1$. We want values of $x$ and $y$ that satisfies both, and that results in a subset of the $x,y$ plane that satisfies the equation. With our example, that would mean that the only $x,y$ values we want are the ones that satisfy the equation: $x^2 + y^2 = 1$.
@@ -255,6 +255,7 @@ Now note that the contour lines indicates the boundaries of different values for
 Then we solve the system of equations with the lagrangian: $L(x, y, \lambda) = f(x,y) - \lambda(b(x,y) - const)$ <br />
 When we take the gradient of that lagrangian function above and set it to 0 as in: $\partial _{x,y, \lambda}L$, we have the 3 equations packed together.</p>
 
+<h6 id="linear-least-squares">Linear Least Squares</h6>
 <p>Problem: $Ax = b$ <br />
 $Ax$ is a linear combination of the vectors in $x$ that results is a vector $b$, we have the matrix, we have $b$ and we want to find $x$, but sometimes we can’t get the exact solution, so we want to get very close to the correct answer i.e the most correct $x$ that $A$ transforms to $b$, but in what instances can’t we get the exact solution? We cannot get the exact solution when the matrix is a subspace of the space $b$ lives in, thus the rank of $A$ is not maximal.
 Assuming $A$ is a $n \times p$ matrix, when $n &lt; p$,then there are multiple solutions.</p>
@@ -265,13 +266,14 @@ If $b = 0$, then $Ax = 0$ and a solution is $x = 0$, but we do not want that tri
 Hence we want to minimise $\lVert Ax \rVert$ if $b = 0$ and $\lVert Ax-b \rVert$ if $b != 0$ <br /></p>
 
 <p>Let’s tackle the case where $b = 0$ and we want to minimise $\lVert Ax \rVert$ s.t a constraint on $x$.
-We have to make a minor modification though, because we calculate norms with dot products $\lVert Ax \rVert$ = $\sqrt{(Ax \cdot Ax)} = \sqrt{(A{x}^TAx)}$, but this function is undefined at $x = 0$ and thus not differentiable at that point, and we know that for minimization purposes we need it to be differentiable everywhere…so instead we minimise ${\lVert Ax \rVert}^2 = A{x}^TAx$, which is a smooth function and gives us the same results (gives us the same results because it is a monotonic order preserving transformation i.e if $x&gt;y$ then $f(x) &gt; f(y)$.</p>
+We have to make a minor modification though, because we calculate norms with dot products. $\lVert Ax \rVert$ = $\sqrt{(Ax \cdot Ax)} = \sqrt{(A{x}^TAx)}$, but this function is undefined at $x = 0$ and thus not differentiable at that point. We know that for minimization purposes we need it to be differentiable everywhere. <br />
+So instead we minimise ${\lVert Ax \rVert}^2 = A{x}^TAx$, which is a smooth function and gives us the same results (gives us the same results because it is a monotonic order preserving transformation i.e if $x&gt;y$ then $f(x) &gt; f(y)$.</p>
 
 <p>Now we simplify ${Ax}^TAx$, and obtain ${x}^T{A}^TAx$. <br />
 Looks like we have gotten an optimisation problem where we have to minimise a quadratic form subject to a constraint.<br />
--&gt; minimize ${x}^T{A}^TAx$ st the condition that $\lVert x \rVert = 1$ <br />
--&gt; minimize ${x}^T{A}^TAx$ st the condition that ${x}^Tx = 1$ <br />
-This constrained optimization problem can be solved with Lagrange multipliers. As explained above we end up having to minimize: ${x}^T{A}^TAx + \lambda({x}Tx-1)$ <br />
+=&gt; minimize ${x}^T{A}^TAx$ st the condition that $\lVert x \rVert = 1$ <br />
+=&gt; minimize ${x}^T{A}^TAx$ st the condition that ${x}^Tx = 1$ <br />
+This constrained optimization problem can be solved with Lagrange multipliers. As explained above, we end up having to minimize: ${x}^T{A}^TAx + \lambda({x}Tx-1)$ <br />
 Take derivatives of the lagrangian with respect to $x$ and we get: <br />
 ${A}^TAx + \lambda x = 0$. <br />
 The equation derived from the $x$ partial derivative: ${A}^TAx + \lambda x = 0$ indicates that $x$ is an eigenvector of ${A}^TA$ with eigenvalue $-\lambda$.</p>
@@ -293,9 +295,9 @@ Thus $A$ is orthogonal to $Ax - b$</p>
 <p>If the span of A defines a plane, then it means that Ax - b is orthogonal to the plane. <br />
 $x = {({A}^TA)}^{−1}A^Tb$. (Note that $A$ has to be invertible)</p>
 
-<h6 id="references">References</h6>
+<h6 id="references"><em>References</em></h6>
 <ul>
-  <li>https://www.cim.mcgill.ca/~langer/558/2009/lecture13.pdf</li>
+  <li><a href="https://www.cim.mcgill.ca/~langer/558/2009/lecture13.pdf">https://www.cim.mcgill.ca/~langer/558/2009/lecture13.pdf</a></li>
 </ul>
 
         
@@ -386,22 +388,29 @@ $x = {({A}^TA)}^{−1}A^Tb$. (Note that $A$ has to be invertible)</p>
 
 
 
-<script type="text/javascript" async
-src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-MML-AM_CHTML">
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ["\\(", "\\)"]],
+      displayMath: [['$$', '$$'], ["\\[", "\\]"]],
+      processEscapes: true,
+      autoload: {
+        color: [],
+        colorv2: ['color']
+      },
+      packages: {'[+]': ['noerrors']}
+    },
+    options: {
+      ignoreHtmlClass: 'tex2jax_ignore',
+      processHtmlClass: 'tex2jax_process'
+    },
+    loader: {
+      load: ['input/asciimath', '[tex]/noerrors']
+    }
+  };
 </script>
-
-<script type="text/x-mathjax-config">
- MathJax.Hub.Config({
-   extensions: ["tex2jax.js"],
-   jax: ["input/TeX", "output/HTML-CSS"],
-   tex2jax: {
-     inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-     displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
-     processEscapes: true
-   },
-   "HTML-CSS": { availableFonts: ["TeX"] }
- });
-</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" id="MathJax-script"></script>
+  
 
   </body>
 </html>

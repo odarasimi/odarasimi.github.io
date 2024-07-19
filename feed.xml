@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.5">Jekyll</generator><link href="https://odarasimi.github.io/pages/odarasimi/feed.xml" rel="self" type="application/atom+xml" /><link href="https://odarasimi.github.io/pages/odarasimi/" rel="alternate" type="text/html" /><updated>2024-07-17T16:46:28+00:00</updated><id>https://odarasimi.github.io/pages/odarasimi/feed.xml</id><title type="html">Donuts, Simplices, and Conics</title><subtitle>Let&apos;s talk about Geometry, Cameras. Conics, Manifolds</subtitle><author><name>Anuoluwapo Adisa</name></author><entry><title type="html">Linear Least Squares</title><link href="https://odarasimi.github.io/pages/odarasimi/math/2024/07/17/linear-least-squares.html" rel="alternate" type="text/html" title="Linear Least Squares" /><published>2024-07-17T07:00:53+00:00</published><updated>2024-07-17T07:00:53+00:00</updated><id>https://odarasimi.github.io/pages/odarasimi/math/2024/07/17/linear-least-squares</id><content type="html" xml:base="https://odarasimi.github.io/pages/odarasimi/math/2024/07/17/linear-least-squares.html"><![CDATA[<p><em>“An approximate answer to the right problem is worth a good deal more than an exact answer to an approximate problem.” - John Tukey</em></p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.5">Jekyll</generator><link href="https://odarasimi.github.io/pages/odarasimi/feed.xml" rel="self" type="application/atom+xml" /><link href="https://odarasimi.github.io/pages/odarasimi/" rel="alternate" type="text/html" /><updated>2024-07-19T05:55:50+00:00</updated><id>https://odarasimi.github.io/pages/odarasimi/feed.xml</id><title type="html">Donuts, Simplices, and Conics</title><subtitle>Let&apos;s talk about Geometry, Cameras. Conics, Manifolds</subtitle><author><name>Anuoluwapo Adisa</name></author><entry><title type="html">Linear Least Squares</title><link href="https://odarasimi.github.io/pages/odarasimi/math/2024/07/17/linear-least-squares.html" rel="alternate" type="text/html" title="Linear Least Squares" /><published>2024-07-17T07:00:53+00:00</published><updated>2024-07-17T07:00:53+00:00</updated><id>https://odarasimi.github.io/pages/odarasimi/math/2024/07/17/linear-least-squares</id><content type="html" xml:base="https://odarasimi.github.io/pages/odarasimi/math/2024/07/17/linear-least-squares.html"><![CDATA[<p><em>“An approximate answer to the right problem is worth a good deal more than an exact answer to an approximate problem.” - John Tukey</em></p>
 
-<h6 id="preamble">Preamble</h6>
+<h6 id="preamble"><em>Preamble</em></h6>
 
 <p>Lagrange multipliers <br />
 We have a function $a$ -&gt; $f(x,y)$ and an equation $b$ -&gt; $x^2 + y^2 = 1$. We want values of $x$ and $y$ that satisfies both, and that results in a subset of the $x,y$ plane that satisfies the equation. With our example, that would mean that the only $x,y$ values we want are the ones that satisfy the equation: $x^2 + y^2 = 1$.
@@ -16,6 +16,7 @@ Now note that the contour lines indicates the boundaries of different values for
 Then we solve the system of equations with the lagrangian: $L(x, y, \lambda) = f(x,y) - \lambda(b(x,y) - const)$ <br />
 When we take the gradient of that lagrangian function above and set it to 0 as in: $\partial _{x,y, \lambda}L$, we have the 3 equations packed together.</p>
 
+<h6 id="linear-least-squares">Linear Least Squares</h6>
 <p>Problem: $Ax = b$ <br />
 $Ax$ is a linear combination of the vectors in $x$ that results is a vector $b$, we have the matrix, we have $b$ and we want to find $x$, but sometimes we can’t get the exact solution, so we want to get very close to the correct answer i.e the most correct $x$ that $A$ transforms to $b$, but in what instances can’t we get the exact solution? We cannot get the exact solution when the matrix is a subspace of the space $b$ lives in, thus the rank of $A$ is not maximal.
 Assuming $A$ is a $n \times p$ matrix, when $n &lt; p$,then there are multiple solutions.</p>
@@ -26,13 +27,14 @@ If $b = 0$, then $Ax = 0$ and a solution is $x = 0$, but we do not want that tri
 Hence we want to minimise $\lVert Ax \rVert$ if $b = 0$ and $\lVert Ax-b \rVert$ if $b != 0$ <br /></p>
 
 <p>Let’s tackle the case where $b = 0$ and we want to minimise $\lVert Ax \rVert$ s.t a constraint on $x$.
-We have to make a minor modification though, because we calculate norms with dot products $\lVert Ax \rVert$ = $\sqrt{(Ax \cdot Ax)} = \sqrt{(A{x}^TAx)}$, but this function is undefined at $x = 0$ and thus not differentiable at that point, and we know that for minimization purposes we need it to be differentiable everywhere…so instead we minimise ${\lVert Ax \rVert}^2 = A{x}^TAx$, which is a smooth function and gives us the same results (gives us the same results because it is a monotonic order preserving transformation i.e if $x&gt;y$ then $f(x) &gt; f(y)$.</p>
+We have to make a minor modification though, because we calculate norms with dot products. $\lVert Ax \rVert$ = $\sqrt{(Ax \cdot Ax)} = \sqrt{(A{x}^TAx)}$, but this function is undefined at $x = 0$ and thus not differentiable at that point. We know that for minimization purposes we need it to be differentiable everywhere. <br />
+So instead we minimise ${\lVert Ax \rVert}^2 = A{x}^TAx$, which is a smooth function and gives us the same results (gives us the same results because it is a monotonic order preserving transformation i.e if $x&gt;y$ then $f(x) &gt; f(y)$.</p>
 
 <p>Now we simplify ${Ax}^TAx$, and obtain ${x}^T{A}^TAx$. <br />
 Looks like we have gotten an optimisation problem where we have to minimise a quadratic form subject to a constraint.<br />
--&gt; minimize ${x}^T{A}^TAx$ st the condition that $\lVert x \rVert = 1$ <br />
--&gt; minimize ${x}^T{A}^TAx$ st the condition that ${x}^Tx = 1$ <br />
-This constrained optimization problem can be solved with Lagrange multipliers. As explained above we end up having to minimize: ${x}^T{A}^TAx + \lambda({x}Tx-1)$ <br />
+=&gt; minimize ${x}^T{A}^TAx$ st the condition that $\lVert x \rVert = 1$ <br />
+=&gt; minimize ${x}^T{A}^TAx$ st the condition that ${x}^Tx = 1$ <br />
+This constrained optimization problem can be solved with Lagrange multipliers. As explained above, we end up having to minimize: ${x}^T{A}^TAx + \lambda({x}Tx-1)$ <br />
 Take derivatives of the lagrangian with respect to $x$ and we get: <br />
 ${A}^TAx + \lambda x = 0$. <br />
 The equation derived from the $x$ partial derivative: ${A}^TAx + \lambda x = 0$ indicates that $x$ is an eigenvector of ${A}^TA$ with eigenvalue $-\lambda$.</p>
@@ -54,9 +56,9 @@ Thus $A$ is orthogonal to $Ax - b$</p>
 <p>If the span of A defines a plane, then it means that Ax - b is orthogonal to the plane. <br />
 $x = {({A}^TA)}^{−1}A^Tb$. (Note that $A$ has to be invertible)</p>
 
-<h6 id="references">References</h6>
+<h6 id="references"><em>References</em></h6>
 <ul>
-  <li>https://www.cim.mcgill.ca/~langer/558/2009/lecture13.pdf</li>
+  <li><a href="https://www.cim.mcgill.ca/~langer/558/2009/lecture13.pdf">https://www.cim.mcgill.ca/~langer/558/2009/lecture13.pdf</a></li>
 </ul>]]></content><author><name>Anuoluwapo Adisa</name></author><category term="math" /><summary type="html"><![CDATA[“An approximate answer to the right problem is worth a good deal more than an exact answer to an approximate problem.” - John Tukey]]></summary></entry><entry><title type="html">Projective Geometry and Transformations of 2D</title><link href="https://odarasimi.github.io/pages/odarasimi/geometry/2024/07/17/projective-geometry-and-transformations-of-2D.html" rel="alternate" type="text/html" title="Projective Geometry and Transformations of 2D" /><published>2024-07-17T07:00:00+00:00</published><updated>2024-07-17T07:00:00+00:00</updated><id>https://odarasimi.github.io/pages/odarasimi/geometry/2024/07/17/projective-geometry-and-transformations-of-2D</id><content type="html" xml:base="https://odarasimi.github.io/pages/odarasimi/geometry/2024/07/17/projective-geometry-and-transformations-of-2D.html"><![CDATA[<p><em>“Algebra is the offer made by the devil to the mathematician. The devil says: “I will give you this powerful machine, and it will answer any question you like. All you need to do is give me your soul: give up geometry and you will have this marvellous machine.” . . . the danger to our soul is there, because when you pass over into algebraic calculation, essentially you stop thinking: you stop thinking geometrically, you stop thinking about the meaning.” - Sir Michael Atiyah</em></p>
 
 <p><br /></p>
@@ -75,14 +77,14 @@ I believe it’s always helpful to remember that this journey takes us through a
 <p>First, let’s get through some basic ideas.</p>
 <ul>
   <li>
-    <p><span style="font-size:medium;">A model is a description or characterisation of an element, and that description serves as a window through which we may view a particular set of features possessed by the element under consideration, we know that no model is absolute, so a combination or fusion of models supplies a richer view of the peculiarities and particulars of that element.</span></p>
+    <p><span style="font-size:1.2em;">A model is a description or characterisation of an element, and that description serves as a window through which we may view a particular set of features possessed by the element under consideration, we know that no model is absolute, so a combination or fusion of models supplies a richer view of the peculiarities and particulars of that element.</span></p>
   </li>
   <li>
-    <p><span style="font-size:medium;">Equality between entities/objects mainly specifies and refers to those components that are identical, which may only be part of an entity but determine the whole, and specify its intrinsic meaning, as determined by the intentions used to characterise the entity. When we say that entities are identical to each other, they may not be the same, but they share the same properties with respect to all the operations we expect to perform on it. For example, am I the same as the person I was yesterday? perhaps not, but am I equal to that person for all legal intent and purposes? yes I am…within the space of physiological/philosophical operations, I may not be equal to who I was yesterday, but within the space of legal operations, I am ‘legally equal’ to that person as a legal entity.</span>
+    <p><span style="font-size:1.2em;">Equality between entities/objects mainly specifies and refers to those components that are identical, which may only be part of an entity but determine the whole, and specify its intrinsic meaning, as determined by the intentions used to characterise the entity. When we say that entities are identical to each other, they may not be the same, but they share the same properties with respect to all the operations we expect to perform on it. For example, am I the same as the person I was yesterday? perhaps not, but am I equal to that person for all legal intent and purposes? yes I am…within the space of physiological/philosophical operations, I may not be equal to who I was yesterday, but within the space of legal operations, I am ‘legally equal’ to that person as a legal entity.</span>
 <img src="/assets/images/equal_shapes.png" alt="header" width="600" height="400" /></p>
   </li>
   <li>
-    <p><span style="font-size:medium;">Euclidean Geometry was seen as the only geometry to exist, as it described the space we live in to great exactness. Then it was thought that surely the parallel postulate was such a necessary property of straight lines that it would follow from the previou postulate, however this was found to be an erroneous assumption, the parallel postulate does not arise from the first 4 and is not superfluous, this means that if we take the first 4 to be true, it does not necessarily mean that the 5th is false or true. And since we cannot travel to infinity to verify the case ourselves, the consequence is that we can assume the parallel postulate to be true or false, and based on the varying interpretations, we get different types of geometry (different descriptions of space), this means there can be more than one logically possible geometry.</span></p>
+    <p><span style="font-size:1.2em;">Euclidean Geometry was seen as the only geometry to exist, as it described the space we live in to great exactness. Then it was thought that surely the parallel postulate was such a necessary property of straight lines that it would follow from the previou postulate, however this was found to be an erroneous assumption, the parallel postulate does not arise from the first 4 and is not superfluous, this means that if we take the first 4 to be true, it does not necessarily mean that the 5th is false or true. And since we cannot travel to infinity to verify the case ourselves, the consequence is that we can assume the parallel postulate to be true or false, and based on the varying interpretations, we get different types of geometry (different descriptions of space), this means there can be more than one logically possible geometry.</span></p>
   </li>
 </ul>
 
@@ -172,7 +174,7 @@ What do you get when you interchange the roles of points and lines in the origin
 
 <p>For the next section we will begin with conics and dual conics</p>
 
-<h6 id="references">References</h6>
+<h6 id="references"><em>References</em></h6>
 
 <ul>
   <li>
@@ -231,8 +233,8 @@ Return to Python: Control returns to the Python interpreter after the C++ functi
   <li>Building Ahead of Time: Building “ahead of time” means that we pre-compile C++ code into a shared library (like a .so file) before running the Python program.</li>
   <li>Process:
     <ul>
-      <li><span style="font-size:medium;">Write the C++ code and create a Python wrapper using tools like pybind11 or Cython.</span></li>
-      <li><span style="font-size:medium;">Use setuptools to build the C++ extension into a shared library. This compiled extension module can then be imported and used in the Python code like any other Python module.</span></li>
+      <li><span style="font-size:1.2em;">Write the C++ code and create a Python wrapper using tools like pybind11 or Cython.</span></li>
+      <li><span style="font-size:1.2em;">Use setuptools to build the C++ extension into a shared library. This compiled extension module can then be imported and used in the Python code like any other Python module.</span></li>
     </ul>
   </li>
 </ul>
@@ -244,15 +246,15 @@ torch.utils.cpp_extension.load(): This is a PyTorch utility function that allows
   <li>Building Just in Time: With this approach, we don’t pre-compile the C++ extension ahead of time. Instead, we use torch.utils.cpp_extension.load() to compile and load the extension when needed.</li>
   <li>Process:
     <ul>
-      <li><span style="font-size:medium;">Write the C++ code and create a Python wrapper.</span></li>
-      <li><span style="font-size:medium;">Use torch.utils.cpp_extension.load() to compile the C++ code and load the extension module dynamically into the Python program at runtime. This extension module is then available for use in the Python code.</span></li>
+      <li><span style="font-size:1.2em;">Write the C++ code and create a Python wrapper.</span></li>
+      <li><span style="font-size:1.2em;">Use torch.utils.cpp_extension.load() to compile the C++ code and load the extension module dynamically into the Python program at runtime. This extension module is then available for use in the Python code.</span></li>
     </ul>
   </li>
 </ul>
 
 <p>Ultimately, we can then mix C++ with CUDA kernels (which run on the GPU). The compilers for both C++ AND CUDA each handle their respective pieces of code…and as usual each function is accessible from the Pytorch python frontend.</p>
 
-<h6 id="references">References</h6>
+<h6 id="references"><em>References</em></h6>
 <ul>
   <li><a href="https://pytorch.org/tutorials/advanced/cpp_extension.html">https://pytorch.org/tutorials/advanced/cpp_extension.html</a></li>
 </ul>]]></content><author><name>Anuoluwapo Adisa</name></author><category term="Programming" /><summary type="html"><![CDATA[“I have made this letter longer than usual, only because I have not had the time to make it shorter.” - Blaise Pascal]]></summary></entry><entry><title type="html">Mild thoughts on Projective Geometry</title><link href="https://odarasimi.github.io/pages/odarasimi/geometry/2024/05/30/Mild-thoughts-on-projective-geometry.html" rel="alternate" type="text/html" title="Mild thoughts on Projective Geometry" /><published>2024-05-30T11:10:53+00:00</published><updated>2024-05-30T11:10:53+00:00</updated><id>https://odarasimi.github.io/pages/odarasimi/geometry/2024/05/30/Mild-thoughts-on-projective-geometry</id><content type="html" xml:base="https://odarasimi.github.io/pages/odarasimi/geometry/2024/05/30/Mild-thoughts-on-projective-geometry.html"><![CDATA[<p><em>“No man ever steps in the same river twice, for it’s not the same river and he’s not the same man.” - Heraclitus</em></p>
@@ -289,7 +291,7 @@ I plan to discuss more on this and the concept of projective equivalence in a fo
 
 <p><img src="/projtwod.png" alt="projectvie" width="450" height="250" /></p>
 
-<h6 id="references">References</h6>
+<h6 id="references"><em>References</em></h6>
 <ul>
   <li>
     <p>Hartley, R., &amp; Zisserman, A. (2004). <em>Multiple View Geometry in Computer Vision (2nd ed.)</em>. Cambridge: Cambridge University Press.</p>
