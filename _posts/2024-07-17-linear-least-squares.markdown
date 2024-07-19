@@ -15,9 +15,9 @@ sidebar:
 Lagrange multipliers <br>
 We have a function $a$ -> $f(x,y)$ and an equation $b$ -> $x^2 + y^2 = 1$. We want values of $x$ and $y$ that satisfies both, and that results in a subset of the $x,y$ plane that satisfies the equation. With our example, that would mean that the only $x,y$ values we want are the ones that satisfy the equation: $x^2 + y^2 = 1$.
 Not only do we want to find a, we may want to find a subset that optimises the value of $a$. We may want to find the minima of $a$, or the maxima.
-Now note that the contour lines indicates the boundaries of different values for $f(x,y)$ and $b(x,y)$, and if you wanted to change values the fastest,a straight perpendicular line between the curves does the job (obviously, since it's the gradient). Hence the gradients of $a$ and $b$ will be perpendicular at the point indicated.
+Now note that the contour lines indicates the boundaries of different values for $f(x,y)$ and $b(x,y)$, and if you wanted to change values the fastest,a straight perpendicular line between the curves does the job (obviously, since it's the gradient). Hence the gradients of $a$ and $b$ will be perpendicular at the point indicated.<br>
 
-<img src="/assets/images/contour.png" alt="contour lines" width="500" height="400" />
+<img src="/assets/images/contour.png" alt="contour lines" width="500" height="400" /><br>
 
 The gradient of $b$ will point in the direction as the gradient of $f$, and they will not necessarily be equal but proportional to each other: 
 $$\partial _{x,y} a = \lambda \partial _{x,y} b$$
@@ -61,8 +61,8 @@ Take partial derivatives of the function and set them to $0$ (to find the minimu
 => ${A}^TAx - {A}^Tb = 0$. <br>
 Hence ${A}^T (Ax - b) = 0$ => $A \cdot (Ax-b)$ = 0 <br>
 Thus $A$ is orthogonal to $Ax - b$ 
-
-<img src="/assets/images/least_sq.png" alt="least squares" width="500" height="400" />
+<br>
+<img src="/assets/images/least_sq.png" alt="least squares" width="500" height="400" /><br>
 
 If the span of A defines a plane, then it means that Ax - b is orthogonal to the plane. <br>
 $x = {({A}^TA)}^{−1}A^Tb$. (Note that $A$ has to be invertible)
