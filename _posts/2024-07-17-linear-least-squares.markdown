@@ -28,7 +28,7 @@ When we take the gradient of that lagrangian function above and set it to 0 as i
 
 ###### Linear Least Squares
 Problem: $Ax = b$ <br>
-$Ax$ is a linear combination of the vectors in $x$ that results is a vector $b$, we have the matrix, we have $b$ and we want to find $x$, but sometimes we can't get the exact solution, so we want to get very close to the correct answer i.e the most correct $x$ that $A$ transforms to $b$, but in what instances can't we get the exact solution? We cannot get the exact solution when the matrix is a subspace of the space $b$ lives in, thus the rank of $A$ is not maximal.
+$Ax$ is a linear combination of the vectors in $A$ that results in a vector $b$, we have the matrix, we have $b$ and we want to find $x$, but sometimes we can't get the exact solution, so we want to get very close to the correct answer i.e the most correct $x$ that $A$ transforms to $b$, but in what instances can't we get the exact solution? We cannot get the exact solution when the matrix is a subspace of the space $b$ lives in, thus the rank of $A$ is not maximal.
 Assuming $A$ is a $n \times p$ matrix, when $n < p$,then there are multiple solutions.
 
 We can rewrite the above problem as: $Ax-b = 0$ <br>

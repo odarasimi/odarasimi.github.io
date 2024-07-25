@@ -13,6 +13,11 @@ Some of the most engaging blog posts I've read
 
 - [Cloud Gaming: Why It Matters, What It Can’t Yet Be, and the ‘New’ Types of Games It Will Create](https://www.matthewball.vc/all/cloudmiles)
 
+- [Cameras and Lenses](https://ciechanow.ski/cameras-and-lenses/)
+
+- [Neural Networks, Manifolds, and Topology](https://colah.github.io/posts/2014-03-NN-Manifolds-Topology/)
+
+- [Postcards from Berlin](https://jackschaedler.github.io/postcards.html)
 
 
 
